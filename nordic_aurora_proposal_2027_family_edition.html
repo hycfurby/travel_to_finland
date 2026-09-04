@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北歐極圈三國極光貫通・北極特快車・穹頂玻璃屋14日奢華家庭探索提案（三代同堂・親子長輩旗艦版）</title>
+    <!-- Leaflet CSS & JS for Interactive Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=G92iiYGYX9ueC95QmzMCZAxdcwH_mxk3PZuz177lHjXS-1prIzMVelf22FU5jr7AArmKvGYHjNF2kZ5QtfKdUg3rhw7rkf2BCOdvRUJc6fFcdW3zMXYpYzMOPXcKcSCEzHSkq2BO8jPjUStRa8KnJFwKgDfNXxF3LzIrGUsRHUK4qqFcHcgNpky2ILQCwIqF-xyKyG7kP_zFa9NXKWpdXloaIHtewPCobafU9ZBXR5CP130bkjgCKO7L8KkZKfld4HF0YpjDsieZs-vUVU8y4dUFG5y1pH6HaIRqv_grW1zKUuvVg_OyxJeRdZe9Ud__FEVNGpMabUZxghQqYoHmSAfvGam1Y746_bsX-yuGLFw" charset="UTF-8"></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+        :root {
+            --primary: #0A192F;
+            --secondary: #1E3E62;
+            --accent: #00ADB5;
+            --aurora-green: #38E54D;
+            --aurora-glow: #79E0EE;
+            --family-gold: #F59E0B;
+            --family-warm: #FEF3C7;
+            --kids-pink: #EC4899;
+            --senior-blue: #2563EB;
+            --dark-text: #1E293B;
+            --light-text: #64748B;
+            --bg-light: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --border-color: #CBD5E1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC", "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg-light);
+            color: var(--dark-text);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 24px 20px 80px 20px;
+        }
+
+        /* Hero Header */
+        .hero {
+            background: linear-gradient(135deg, #050C1A 0%, #0F2A4A 50%, #092635 100%);
+            color: #ffffff;
+            padding: 55px 40px;
+            border-radius: 18px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 12px 36px rgba(0,0,0,0.22);
+            border-bottom: 5px solid var(--accent);
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: -40%;
+            right: -15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 173, 181, 0.28) 0%, rgba(56, 229, 77, 0.1) 50%, transparent 70%);
+            pointer-events: none;
+            filter: blur(40px);
+        }
+
+        .hero-badge-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 173, 181, 0.18);
+            border: 1px solid var(--accent);
+            color: var(--aurora-glow);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .hero-family-badge {
+            background: #F59E0B;
+            color: #0F172A;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p.subtitle {
+            font-size: 1.08rem;
+            color: #CBD5E1;
+            max-width: 980px;
+            margin-bottom: 25px;
+        }
+
+        .hero-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px 24px;
+            border-radius: 14px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        .hero-meta-item h4 {
+            font-size: 0.75rem;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .hero-meta-item p {
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: #F8FAFC;
+        }
+
+        /* Family Customization Strategy Card */
+        .family-strategy-card {
+            background: #ffffff;
+            border: 2px solid #F59E0B;
+            border-radius: 16px;
+            padding: 26px 28px;
+            margin-bottom: 35px;
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.08);
+        }
+
+        .strategy-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-bottom: 1px dashed #CBD5E1;
+            padding-bottom: 12px;
+        }
+
+        .strategy-header h3 {
+            font-size: 1.35rem;
+            color: #B45309;
+            font-weight: 800;
+        }
+
+        .strategy-desc {
+            font-size: 0.95rem;
+            color: #334155;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .strategy-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .pillar-box {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 16px 18px;
+            border-top: 4px solid var(--accent);
+        }
+
+        .pillar-box.senior { border-top-color: #2563EB; }
+        .pillar-box.kids { border-top-color: #EC4899; }
+        .pillar-box.transit { border-top-color: #10B981; }
+
+        .pillar-box h4 {
+            font-size: 1.02rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+        }
+
+        .pillar-box ul {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.88rem;
+            color: #475569;
+        }
+
+        .pillar-box li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 18px;
+            line-height: 1.5;
+        }
+
+        .pillar-box li::before {
+            content: "✔";
+            color: #059669;
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
+        /* Section Title */
+        .section-header {
+            margin: 45px 0 20px 0;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header .tagline {
+            font-size: 0.95rem;
+            color: var(--light-text);
+            font-weight: 500;
+        }
+
+        /* Macro Interactive Map Card */
+        .macro-map-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            overflow: hidden;
+            margin-bottom: 35px;
+        }
+
+        .macro-map-header {
+            padding: 16px 24px;
+            background: #0B192C;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .macro-map-header h3 {
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .macro-map-legend {
+            display: flex;
+            gap: 16px;
+            font-size: 0.82rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+        }
+
+        #macro-leaflet-map {
+            height: 480px;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .macro-map-summary {
+            padding: 14px 24px;
+            background: #F8FAFC;
+            border-top: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            font-size: 0.88rem;
+        }
+
+        .summary-stat strong {
+            color: var(--primary);
+        }
+
+        /* Day Card */
+        .day-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+            overflow: hidden;
+            break-inside: avoid;
+        }
+
+        .day-header {
+            background: linear-gradient(90deg, #102A43 0%, #24486E 100%);
+            color: #ffffff;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .day-badge-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .day-num {
+            background: var(--accent);
+            color: #04292e;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .day-date-city {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .day-theme {
+            background: rgba(255,255,255,0.14);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #E2E8F0;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .day-body {
+            padding: 24px;
+        }
+
+        /* Route Map Card within Day Card */
+        .daily-route-card {
+            background: #F8FAFC;
+            border: 1px solid #CBD5E1;
+            border-left: 5px solid var(--accent);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+        }
+
+        .flight-upgrade-card {
+            border-left-color: #2563EB;
+            background: #EFF6FF;
+        }
+
+        .route-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .route-endpoints {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .route-metrics-bar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .metric-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #ffffff;
+            border: 1px solid #CBD5E1;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .metric-chip strong {
+            color: var(--secondary);
+        }
+
+        /* SVG Route Schematic */
+        .svg-route-container {
+            width: 100%;
+            overflow-x: auto;
+            background: #ffffff;
+            border-radius: 10px;
+            border: 1px dashed #CBD5E1;
+            padding: 14px 10px 10px 10px;
+            margin-bottom: 10px;
+        }
+
+        .route-links-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.82rem;
+        }
+
+        .gmap-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #0284C7;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 4px 10px;
+            background: #E0F2FE;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .gmap-btn:hover {
+            background: #BAE6FD;
+            text-decoration: underline;
+        }
+
+        .focus-map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #475569;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 4px 10px;
+            background: #E2E8F0;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .focus-map-btn:hover {
+            background: #CBD5E1;
+        }
+
+        .itinerary-desc {
+            font-size: 0.96rem;
+            color: #334155;
+            margin-bottom: 18px;
+            line-height: 1.75;
+        }
+
+        /* Family Special Care Highlight Tag */
+        .family-special-care {
+            background: #FFFBEB;
+            border: 1px solid #FDE68A;
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: #92400E;
+        }
+
+        .family-special-care strong {
+            color: #B45309;
+        }
+
+        /* Meta Grid inside Day Card */
+        .day-spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            background: #F8FAFC;
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+        }
+
+        .spec-box {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .spec-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+        }
+
+        .spec-value {
+            font-size: 0.91rem;
+            font-weight: 600;
+            color: #0F172A;
+            line-height: 1.4;
+        }
+
+        .spec-sub {
+            font-size: 0.81rem;
+            color: #64748B;
+            font-weight: 400;
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table.custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        table.custom-table th {
+            background: #0F2027;
+            color: #ffffff;
+            text-align: left;
+            padding: 14px 16px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        table.custom-table td {
+            padding: 13px 16px;
+            font-size: 0.88rem;
+            border-bottom: 1px solid var(--border-color);
+            color: #334155;
+            vertical-align: middle;
+        }
+
+        table.custom-table tr:hover td {
+            background: #F8FAFC;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .pill-flight { background: #DBEAFE; color: #1D4ED8; }
+        .pill-flight-vip { background: #FEF3C7; color: #92400E; border: 1px solid #F59E0B; }
+        .pill-train { background: #DCFCE7; color: #15803D; }
+
+        /* Notes Grid */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .notes-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.7rem; }
+            .hero { padding: 35px 20px; }
+        }
+
+        .note-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+        }
+
+        .note-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .note-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .note-card li {
+            font-size: 0.88rem;
+            color: #475569;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.5;
+        }
+
+        .note-card li::before {
+            content: "•";
+            color: var(--accent);
+            font-size: 1.3rem;
+            position: absolute;
+            left: 2px;
+            top: -2px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 30px;
+            color: #94A3B8;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media print {
+            body { background: #ffffff; font-size: 9.5pt; }
+            .container { max-width: 100%; padding: 0; }
+            .hero { box-shadow: none; border-radius: 0; }
+            .day-card { break-inside: avoid; border: 1px solid #ccc; box-shadow: none; margin-bottom: 20px; }
+            .macro-map-card { break-inside: avoid; }
+            #macro-leaflet-map { height: 350px; }
+            .focus-map-btn, .gmap-btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- HERO HEADER -->
+    <header class="hero">
+        <div class="hero-badge-group">
+            <div class="hero-badge">北歐頂級極地家庭旗艦企劃・LUXURY FAMILY EXPLORER</div>
+            <div class="hero-family-badge">👨‍👩‍👧‍👦 三代同堂客製：9歲男孩・6歲女孩・兩位65歲長輩</div>
+        </div>
+        <h1>北歐極圈三國極光貫通・北極特快車・穹頂玻璃屋14日奢華探索</h1>
+        <p class="subtitle">芬蘭赫爾辛基 ➔ VR北極臥鋪列車 ➔ 羅瓦涅米聖誕老人村與玻璃屋 ➔ ✈️跨國直飛 ➔ 挪威特羅姆瑟峽灣 ➔ ✈️直飛 ➔ 瑞典斯德哥爾摩童話與文化慢活</p>
+        
+        <div class="hero-meta-grid">
+            <div class="hero-meta-item">
+                <h4>旅行日期（精確校正）</h4>
+                <p>2027/02/07 (日) – 02/20 (六)</p>
+            </div>
+            <div class="hero-meta-item">
+                <h4>長程國際指定航班</h4>
+                <p>CI 73 ➔ AY1302 ｜ SK0527 ➔ CI 082</p>
+            </div>
+            <div class="hero-meta-item">
+                <h4>同行成員結構</h4>
+                <p>三代同堂共 6 位（2幼童・2長輩・2父母）</p>
+            </div>
+            <div class="hero-meta-item">
+                <h4>舒適度重大升級</h4>
+                <p>100% 排除長途巴士・雙跨國直飛・極光連泊</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- FAMILY STRATEGY CARD -->
+    <section class="family-strategy-card">
+        <div class="strategy-header">
+            <h3>🛡️ 針對「9歲男童、6歲女童與兩位65歲長輩」之專案調校報告</h3>
+        </div>
+        <p class="strategy-desc">
+            帶領年幼孩子與年長父母同行北歐極圈，最忌諱<strong>「雪地長途顛簸拉車」</strong>、<strong>「每天搬行李換飯店」</strong>與<strong>「極端戶外低溫受凍」</strong>。經旅遊醫學與極地動線評估，本案做出重大精準調校：<strong>【正式捨棄瑞典阿比斯庫（Abisko），改以特羅姆瑟直飛斯德哥爾摩】</strong>，實現「全行程 0 長途巴士、100% 暖氣安全觀景」的五星家庭度假體驗！
+        </p>
+        <div class="strategy-pillars">
+            <div class="pillar-box senior">
+                <h4>👴👵 65歲長輩友善照顧</h4>
+                <ul>
+                    <li><strong>消除長途巴士暈車與如廁困擾</strong>：跨國全程改搭飛機（80~115分鐘），免去顛簸冰雪山路。</li>
+                    <li><strong>消除換房疲憊（雙城高連泊）</strong>：特羅姆瑟連宿 4 晚、斯德哥爾摩連宿 5 晚，長輩不用天天打包行李。</li>
+                    <li><strong>避開阿比斯庫極端露天吊椅</strong>：阿比斯庫天空站需乘露天雙人吊椅吹 -20°C 刺骨寒風 20 分鐘；本案改搭特羅姆瑟<strong>大型密閉溫控全景纜車</strong>，室內觀星賞景。</li>
+                </ul>
+            </div>
+            <div class="pillar-box kids">
+                <h4>👦👧 9歲男孩與6歲女孩夢幻樂園</h4>
+                <ul>
+                    <li><strong>聖誕老人村夢想實現</strong>：專屬時間與聖誕老人親切會面、取得官方跨越北極圈證書、溫和的馴鹿雪橇穿越森林。</li>
+                    <li><strong>雙層北極特快車探險</strong>：孩子最愛的 VR 臥鋪火車，體驗在移動列車上看雪原、吃肉丸入睡。</li>
+                    <li><strong>童趣加值新地標</strong>：特羅姆瑟 <strong>Polaria 北極水族館</strong>（看鬍鬚海豹餵食秀）；斯德哥爾摩 <strong>Junibacken 童話故事館</strong>（長襪皮皮飛天小火車）與瓦薩皇家巨型古戰艦。</li>
+                </ul>
+            </div>
+            <div class="pillar-box transit">
+                <h4>✨ 奢華與安全暖氣極光策略</h4>
+                <ul>
+                    <li><strong>暖氣玻璃屋仰望極光</strong>：入住羅瓦涅米加熱圓頂玻璃屋，孩子與長輩躺在溫暖被窩即可看極光。</li>
+                    <li><strong>專屬家庭溫暖極光營地（Aurora Camp）</strong>：特羅姆瑟極光夜配備專屬暖氣木屋與壁爐，冷了隨時進屋喝熱可可，無野外受凍風險。</li>
+                    <li><strong>靜音雙體船室內巡航</strong>：搭乘 Brim Explorer 出海，全封閉落地玻璃暖氣艙，平穩無浪、不暈船不吹風。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: MACRO INTERACTIVE MAP -->
+    <div class="section-header">
+        <h2>🗺️ 全行程 14 天跨國陸海空動線全景地圖</h2>
+        <span class="tagline">Interactive Master Map & Route Network (Multigenerational Edition)</span>
+    </div>
+
+    <div class="macro-map-card">
+        <div class="macro-map-header">
+            <h3><span>📍</span> 北歐極圈三代同堂地理網絡分佈圖（雙直飛無巴士版）</h3>
+            <div class="macro-map-legend">
+                <div class="legend-item"><div class="legend-color" style="background:#2563EB;"></div> 國際/跨國直飛航線 (Flight)</div>
+                <div class="legend-item"><div class="legend-color" style="background:#10B981;"></div> VR 芬蘭雙層臥鋪鐵道 (Railway)</div>
+                <div class="legend-item"><div class="legend-color" style="background:#EC4899;"></div> 親子與自然亮點 (Family Highlight)</div>
+                <div class="legend-item"><div class="legend-color" style="background:#F59E0B;"></div> 特羅姆瑟家庭溫暖極光基地 (Aurora Camp)</div>
+            </div>
+        </div>
+        <div id="macro-leaflet-map"></div>
+        <div class="macro-map-summary">
+            <div class="summary-stat"><strong>跨國交通形態：</strong> 雙直飛跨國航班（RVN➔TOS 80m、TOS➔ARN 115m）</div>
+            <div class="summary-stat"><strong>極地夜臥火車：</strong> 1 次（芬蘭 VR 北極特快車，孩子最愛的雙層景觀臥鋪）</div>
+            <div class="summary-stat"><strong>長途巴士搭乘時數：</strong> 0 小時（已 100% 徹底排除）</div>
+            <div class="summary-stat"><strong>核心城市連泊度：</strong> 特羅姆瑟 4 晚 ＋ 斯德哥爾摩 5 晚（極度悠閒從容）</div>
+        </div>
+    </div>
+
+    <!-- TRANSPORT SUMMARY TABLE -->
+    <div class="section-header">
+        <h2>🚆 交通骨幹矩陣與時間里程配置表（2027年精確版）</h2>
+        <span class="tagline">Transportation Schedule, Distance & Modality Matrix (Feb 2027)</span>
+    </div>
+
+    <div class="table-responsive">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>日期</th>
+                    <th>路段區間</th>
+                    <th>交通運具 / 班次代號</th>
+                    <th>時間安排 (當地時間)</th>
+                    <th>預估里程</th>
+                    <th>交通型態與家庭配置</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2/7 (日)</td>
+                    <td>台北 TPE ➔ 阿姆斯特丹 AMS</td>
+                    <td><span class="tag-pill pill-flight">長程航班</span> 中華航空 CI 73</td>
+                    <td>23:55 – 07:45 (+1)</td>
+                    <td>約 9,450 km</td>
+                    <td>長程客機平躺包艙，機上充分休息調時差</td>
+                </tr>
+                <tr>
+                    <td>2/8 (一)</td>
+                    <td>阿姆斯特丹 AMS ➔ 赫爾辛基 HEL</td>
+                    <td><span class="tag-pill pill-flight">歐陸中轉</span> 芬蘭航空 AY1302</td>
+                    <td>08:50 – 12:15</td>
+                    <td>約 1,510 km</td>
+                    <td>中午前抵達芬蘭首都，商務專車直達五星飯店</td>
+                </tr>
+                <tr>
+                    <td>2/9 (二)</td>
+                    <td>赫爾辛基中央車站 ➔ 羅瓦涅米</td>
+                    <td><span class="tag-pill pill-train">雙層臥鋪</span> VR 北極特快車 #265</td>
+                    <td>19:29 – 07:28 (+1)</td>
+                    <td>約 830 km</td>
+                    <td>安排上層相鄰獨立衛浴包廂，孩子探險最愛</td>
+                </tr>
+                <tr style="background:#EFF6FF;">
+                    <td>2/11 (四)</td>
+                    <td>羅瓦涅米 RVN ➔ 挪威特羅姆瑟 TOS</td>
+                    <td><span class="tag-pill pill-flight-vip">⭐ 跨國直飛</span> 芬蘭航空 AY541</td>
+                    <td>09:45 – 10:05</td>
+                    <td>約 450 km</td>
+                    <td><strong>僅飛 80 分鐘直達挪威！完全免除 12 小時雪巴顛簸</strong></td>
+                </tr>
+                <tr style="background:#EFF6FF;">
+                    <td>2/15 (一)</td>
+                    <td>特羅姆瑟 TOS ➔ 瑞典斯德哥爾摩 ARN</td>
+                    <td><span class="tag-pill pill-flight-vip">⭐ 直飛瑞典</span> 北歐航空 SAS 直飛/中轉</td>
+                    <td>午後航班 (約 1h 55m)</td>
+                    <td>約 1,120 km</td>
+                    <td><strong>免去 17 小時漫長夜車與荒野搬行李，優雅飛抵瑞典首都</strong></td>
+                </tr>
+                <tr>
+                    <td>2/20 (六)</td>
+                    <td>斯德哥爾摩 ARN ➔ 倫敦希斯洛 LHR</td>
+                    <td><span class="tag-pill pill-flight">歐陸航班</span> 北歐航空 SAS SK0527</td>
+                    <td>11:25 – 13:10</td>
+                    <td>約 1,460 km</td>
+                    <td>阿蘭達特快 18 分鐘直達機場，希斯洛免稅購物</td>
+                </tr>
+                <tr>
+                    <td>2/20 (六)</td>
+                    <td>倫敦希斯洛 LHR ➔ 台北 TPE</td>
+                    <td><span class="tag-pill pill-flight">長程返國</span> 中華航空 CI 082</td>
+                    <td>21:15 – 18:15 (+1)</td>
+                    <td>約 9,820 km</td>
+                    <td>長程直飛航線，2/21 (日) 傍晚 18:15 順利返抵國門</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION: DETAILED DAY BY DAY WITH DAILY MAPS -->
+    <div class="section-header">
+        <h2>📋 逐日詳細行程（含吃、住、行、建物、家庭專屬亮點與動線地圖）</h2>
+        <span class="tagline">Detailed 14-Day Itinerary Tailored for Grandparents & Children</span>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="day-card" id="day1">
+        <div class="day-header">
+            <div class="day-badge-title">
+                <span class="day-num">DAY 01</span>
+                <span class="day-date-city">2027/02/07 (日) 台北 TPE ➔ 歐洲空中航程</span>
+            </div>
+            <div class="day-theme">啟程：夜航西歐轉機樞紐</div>
+        </div>
+        <div class="day-body">
+            <div class="daily-route-card">
+                <div class="route-top-bar">
+                    <div class="route-endpoints">🛫 台北桃園機場 (TPE) ➔ 阿姆斯特丹史基浦 (AMS)</div>
+                    <div class="route-metrics-bar">
+                        <span class="metric-chip">🛣️ 預估航程：<strong>約 9,450 km</strong></span>
+                        <span class="metric-chip">⏱️ 飛行時間：<strong>約 14 小時 50 分</strong></span>
+                        <span class="metric-chip">✈️ 交通種類：<strong>華航 CI 73 直飛長程客機</strong></span>
+                    </div>
+                </div>
+                <div class="svg-route-container">
+                    <svg viewBox="0 0 800 60" style="width:100%; height:60px;">
+                        <line x1="60" y1="30" x2="740" y2="30" stroke="#CBD5E1" stroke-width="3" stroke-dasharray="6,6"/>
+                        <circle cx="60" cy="30" r="8" fill="#2563EB"/>
+                        <text x="60" y="52" font-size="11" font-weight="700" text-anchor="middle" fill="#1E293B">台北 TPE</text>
+                        <rect x="340" y="16" width="120" height="26" rx="13" fill="#EFF6FF" stroke="#2563EB"/>
+                        <text x="400" y="33" font-size="10" font-weight="600" text-anchor="middle" fill="#1D4ED8">歐亞航路大圓航線</text>
+                        <circle cx="740" cy="30" r="8" fill="#059669"/>
+                        <text x="740" y="52" font-size="11" font-weight="700" text-anchor="middle" fill="#1E293B">阿姆斯特丹 AMS</text>
+                    </svg>
+                </div>
+                <div class="route-links-bar">
+                    <a href="https://www.google.com/maps/dir/Taoyuan+International+Airport/Amsterdam+Airport+Schiphol" target="_blank" class="gmap-btn">📍 Google Maps 航線預覽</a>
+                </div>
+            </div>
+
+            <div class="family-special-care">
+                <span>💡 <strong>三代同堂貼心照料：</strong> 桃機出境安排專屬家庭櫃台辦理登機，協助長輩與年幼孩童先行登機安頓。機上提供兒童專屬娛樂設備與兒童餐食，長輩備妥頸枕保暖毯，讓全家人在靜音座艙中舒適入眠調時差。</span>
+            </div>
+
+            <p class="itinerary-desc">晚間集合於桃園國際機場第一航廈，搭乘中華航空 CI 73 直飛阿姆斯特丹史基浦機場。在舒適的高空客艙中享受個人隨選影音與精緻熱食晚餐，充分蓄積體力，準備迎接即將展開的北歐夢幻雪白王國與極光旅程。</p>
+
+            <div class="day-spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">🚗 交通安排</span>
+                    <span class="spec-value">中華航空 CI 73 (23:55 TPE 起飛)</span>
+                    <span class="spec-sub">直飛阿姆斯特丹史基浦，飛行約 14 小時 50 分</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🍽️ 餐飲安排</span>
+                    <span class="spec-value">早：自理 ｜ 午：自理 ｜ 晚：機上尊爵套餐</span>
+                    <span class="spec-sub">備有兒童套餐與適合長輩的低鈉清淡主餐選項</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏨 住宿安排</span>
+                    <span class="spec-value">豪華客機空中夜航</span>
+                    <span class="spec-sub">全平躺/寬敞舒適椅位，附降噪耳機與溫暖羽絨毛毯</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏛️ 建築與家庭設施</span>
+                    <span class="spec-value">桃機航站現代美學空間</span>
+                    <span class="spec-sub">出境大廳設有完善親子遊戲室與無障礙休息區</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-card" id="day2">
+        <div class="day-header">
+            <div class="day-badge-title">
+                <span class="day-num">DAY 02</span>
+                <span class="day-date-city">2027/02/08 (一) 阿姆斯特丹 ➔ 赫爾辛基（芬蘭設計之都）</span>
+            </div>
+            <div class="day-theme">白教堂・岩石教堂・頌歌圖書館童趣探索</div>
+        </div>
+        <div class="day-body">
+            <div class="daily-route-card">
+                <div class="route-top-bar">
+                    <div class="route-endpoints">🛫 阿姆斯特丹 (AMS) ➔ 赫爾辛基 (HEL) ➔ 市區地標</div>
+                    <div class="route-metrics-bar">
+                        <span class="metric-chip">🛣️ 總移動里程：<strong>約 1,530 km</strong> (航段 1,510km + 市區 20km)</span>
+                        <span class="metric-chip">⏱️ 交通時間：<strong>飛行 2h 25m ＋ 專車 30m</strong></span>
+                        <span class="metric-chip">🚌 交通種類：<strong>芬航 AY1302 ＋ 賓士商務專車</strong></span>
+                    </div>
+                </div>
+                <div class="svg-route-container">
+                    <svg viewBox="0 0 800 60" style="width:100%; height:60px;">
+                        <line x1="50" y1="30" x2="400" y2="30" stroke="#2563EB" stroke-width="3" stroke-dasharray="4,4"/>
+                        <line x1="400" y1="30" x2="750" y2="30" stroke="#10B981" stroke-width="3"/>
+                        <circle cx="50" cy="30" r="7" fill="#2563EB"/>
+                        <text x="50" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">AMS 史基浦</text>
+                        <circle cx="400" cy="30" r="7" fill="#F59E0B"/>
+                        <text x="400" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">HEL 萬塔機場</text>
+                        <circle cx="580" cy="30" r="6" fill="#00ADB5"/>
+                        <text x="580" y="50" font-size="10" font-weight="600" text-anchor="middle" fill="#334155">岩石教堂</text>
+                        <circle cx="750" cy="30" r="7" fill="#059669"/>
+                        <text x="750" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">Oodi 圖書館/飯店</text>
+                    </svg>
+                </div>
+                <div class="route-links-bar">
+                    <button class="focus-map-btn" onclick="focusMap([60.1699, 24.9384], 11)">🗺️ 定位主地圖：赫爾辛基</button>
+                    <a href="https://www.google.com/maps/dir/Helsinki+Airport/Temppeliaukio+Church/Helsinki+Central+Library+Oodi" target="_blank" class="gmap-btn">📍 Google Maps 市區路線</a>
+                </div>
+            </div>
+
+            <div class="family-special-care">
+                <span>💡 <strong>三代同堂貼心照料：</strong> 機場安排專屬大型賓士商務車，全員免拖行李直接送達飯店。赫爾辛基參觀重點放在<strong>頌歌中央圖書館（Oodi）</strong>，頂層有為兒童設計的北歐繪本童話樹屋空間，長輩可在落地窗前品茗咖啡俯瞰議會廣場，不受寒風侵襲。</span>
+            </div>
+
+            <p class="itinerary-desc">班機上午抵達阿姆斯特丹轉機搭乘芬蘭航空 AY1302，中午 12:15 順利降落赫爾辛基。專車接送至市區五星酒店辦理入住稍事洗漱。午後展開步調放緩的建築散步：參觀開鑿於整塊天然巨石內部的<strong>岩石教堂（Temppeliaukion Kirkko）</strong>；接著走進獲評全球最佳公共建築的<strong>頌歌中央圖書館（Oodi）</strong>，其波浪形全木結構與頂層極致開闊的無障礙空間讓全家人讚嘆不已。傍晚於參議院廣場欣賞新古典主義白色大教堂。</p>
+
+            <div class="day-spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">🚗 交通安排</span>
+                    <span class="spec-value">芬航 AY1302 (08:50–12:15) ＋ 賓士商務車接駁</span>
+                    <span class="spec-sub">點對點接送，完全免除長輩在雪地步行搬行李之苦</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🍽️ 餐飲安排</span>
+                    <span class="spec-value">早：機上精緻輕食 ｜ 午：赫爾辛基港邊傳統熱鮭魚湯 ｜ 晚：百年餐廳 Savoy 芬蘭料理</span>
+                    <span class="spec-sub">熱鮭魚湯佐香濃蒔蘿奶油，長輩小孩皆讚不絕口的暖胃名菜</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏨 住宿安排</span>
+                    <span class="spec-value">Hotel St. George Helsinki 或 Hotel Kämp</span>
+                    <span class="spec-sub">五星級歷史遺產精品酒店，具備完善家庭連通房與室內暖氣水療池</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏛️ 建築與家庭設施</span>
+                    <span class="spec-value">Oodi 中央圖書館、岩石教堂、赫爾辛基大教堂</span>
+                    <span class="spec-sub">Oodi 設有全歐洲最頂級的幼童遊戲與親子互動閱讀空間</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day-card" id="day3">
+        <div class="day-header">
+            <div class="day-badge-title">
+                <span class="day-num">DAY 03</span>
+                <span class="day-date-city">2027/02/09 (二) 赫爾辛基 ➔ 搭乘 VR 北極特快車（夜臥列車）</span>
+            </div>
+            <div class="day-theme">赫爾辛基設計漫步・夜宿經典雙層極地臥鋪</div>
+        </div>
+        <div class="day-body">
+            <div class="daily-route-card">
+                <div class="route-top-bar">
+                    <div class="route-endpoints">🚆 赫爾辛基中央車站 ➔ 坦佩雷 ➔ 奧盧 ➔ 羅瓦涅米</div>
+                    <div class="route-metrics-bar">
+                        <span class="metric-chip">🛣️ 鐵路里程：<strong>約 830 km</strong></span>
+                        <span class="metric-chip">⏱️ 運行時間：<strong>約 11 小時 59 分</strong> (19:29–07:28)</span>
+                        <span class="metric-chip">🚂 交通種類：<strong>VR 雙層綠色北極特快車 (#265)</strong></span>
+                    </div>
+                </div>
+                <div class="svg-route-container">
+                    <svg viewBox="0 0 800 60" style="width:100%; height:60px;">
+                        <line x1="50" y1="30" x2="750" y2="30" stroke="#10B981" stroke-width="4"/>
+                        <circle cx="50" cy="30" r="7" fill="#0B192C"/>
+                        <text x="50" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">赫爾辛基 19:29</text>
+                        <circle cx="280" cy="30" r="5" fill="#10B981"/>
+                        <text x="280" y="50" font-size="10" font-weight="600" text-anchor="middle" fill="#64748B">坦佩雷 Tampere</text>
+                        <circle cx="520" cy="30" r="5" fill="#10B981"/>
+                        <text x="520" y="50" font-size="10" font-weight="600" text-anchor="middle" fill="#64748B">奧盧 Oulu</text>
+                        <circle cx="750" cy="30" r="7" fill="#059669"/>
+                        <text x="750" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">羅瓦涅米 07:28</text>
+                    </svg>
+                </div>
+                <div class="route-links-bar">
+                    <button class="focus-map-btn" onclick="focusMap([63.5, 25.5], 6)">🗺️ 定位主地圖：VR 鐵道路線</button>
+                    <a href="https://www.google.com/maps/dir/Helsinki+Central+Station/Rovaniemi" target="_blank" class="gmap-btn">📍 Google Maps 鐵道沿線路徑</a>
+                </div>
+            </div>
+
+            <div class="family-special-care">
+                <span>💡 <strong>三代同堂貼心照料：</strong> 特別為 6 口之家安排上層相鄰的 3 間獨立衛浴雙人臥鋪（Ensuite Compartment，房內即自帶獨立花灑淋浴與洗手間），長輩與幼童夜間如廁免出包廂。大行李由專車提前運送或妥善置於車廂行李架，家人只需攜帶輕便換洗衣物包上車。</span>
+            </div>
+
+            <p class="itinerary-desc">日間悠閒漫步市中心老市場（Vanha Kauppahalli）品嚐美味藍莓糕點，午後參觀寧靜的<strong>康比靜修堂（Kamppi Chapel）</strong>。傍晚專車送達建築大師薩里寧設計的<strong>赫爾辛基中央車站</strong>，登上全家期待已久的<strong>VR 北極特快車（Santa Claus Express）</strong>。孩子們對雙層火車包廂興奮不已，全家人聚在綠色景觀餐車品嚐香熱肉丸與芬蘭甜點，伴隨窗外綿延的銀白雪松林一路向北奔馳，跨越北極圈。</p>
+
+            <div class="day-spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">🚗 交通安排</span>
+                    <span class="spec-value">VR 雙層臥鋪車次 #265 (19:29 發車 ➔ 隔日 07:28 抵達)</span>
+                    <span class="spec-sub">舒適平穩行駛 830 公里，省去白天拉車，孩子視為冒險城堡</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🍽️ 餐飲安排</span>
+                    <span class="spec-value">早：飯店豐盛自助早餐 ｜ 午：農貿市場海鮮輕食 ｜ 晚：VR 火車餐車極地肉丸套餐</span>
+                    <span class="spec-sub">餐車設有兒童專屬套餐，大人小酌長飲 Lonkero 琴酒</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏨 住宿安排</span>
+                    <span class="spec-value">VR 北極特快車（上層 3 間相鄰 Ensuite 獨立衛浴雙人臥鋪）</span>
+                    <span class="spec-sub">房內獨立衛浴淋浴、高質感乾淨寢具、充電插座與恆溫空調</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏛️ 建築與家庭設施</span>
+                    <span class="spec-value">赫爾辛基中央車站巨石捧燈雕像、康比木碗教堂</span>
+                    <span class="spec-sub">薩里寧民族浪漫主義經典建築，火車站全區無障礙電梯配備</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="day-card" id="day4">
+        <div class="day-header">
+            <div class="day-badge-title">
+                <span class="day-num">DAY 04</span>
+                <span class="day-date-city">2027/02/10 (三) 抵達羅瓦涅米（聖誕老人村・溫暖穹頂玻璃屋之夜）</span>
+            </div>
+            <div class="day-theme">北極圈證書・馴鹿雪橇慢活・全景極光玻璃屋</div>
+        </div>
+        <div class="day-body">
+            <div class="daily-route-card">
+                <div class="route-top-bar">
+                    <div class="route-endpoints">🚐 羅瓦涅米火車站 ➔ 聖誕老人村 ➔ 頂級穹頂玻璃屋</div>
+                    <div class="route-metrics-bar">
+                        <span class="metric-chip">🛣️ 市郊短程里程：<strong>僅約 10 km</strong></span>
+                        <span class="metric-chip">⏱️ 單趟車程：<strong>僅 10 分鐘（零長途拉車！）</strong></span>
+                        <span class="metric-chip">🚙 交通種類：<strong>極地專屬商務專車點對點接送</strong></span>
+                    </div>
+                </div>
+                <div class="svg-route-container">
+                    <svg viewBox="0 0 800 60" style="width:100%; height:60px;">
+                        <line x1="60" y1="30" x2="740" y2="30" stroke="#10B981" stroke-width="3"/>
+                        <circle cx="60" cy="30" r="7" fill="#0B192C"/>
+                        <text x="60" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">羅瓦涅米火車站 07:28</text>
+                        <circle cx="400" cy="30" r="7" fill="#EF4444"/>
+                        <text x="400" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">聖誕老人村 (跨越北極圈緯線)</text>
+                        <circle cx="740" cy="30" r="7" fill="#00ADB5"/>
+                        <text x="740" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">Santa's Igloos 全景玻璃屋</text>
+                    </svg>
+                </div>
+                <div class="route-links-bar">
+                    <button class="focus-map-btn" onclick="focusMap([66.5434, 25.8481], 12)">🗺️ 定位主地圖：羅瓦涅米玻璃屋</button>
+                    <a href="https://www.google.com/maps/dir/Rovaniemi+Railway+Station/Santa+Claus+Village/Santa's+Igloos+Arctic+Circle" target="_blank" class="gmap-btn">📍 Google Maps 聖誕老人村與玻璃屋動線</a>
+                </div>
+            </div>
+
+            <div class="family-special-care">
+                <span>💡 <strong>三代同堂貼心照料：</strong> 雪地活動特別安排<strong>「溫和的薩米馴鹿雪橇（Reindeer Sleigh）」</strong>，馴鹿步伐穩定輕柔，雪橇內鋪設厚實溫暖的馴鹿皮與保暖毯，對長輩腰椎與幼童安全無負擔（相較於顛簸激烈的長程哈士奇拉車更適合全家同行）。晚間入住的玻璃屋具備全套地暖設備與室內獨立衛浴，躺在床上有極光鬧鐘提醒，完全不用頂著 -20°C 寒風出門受凍！</span>
+            </div>
+
+            <p class="itinerary-desc">列車早晨 07:28 抵達北極圈門戶羅瓦涅米。專車迎接前往享用豐盛早餐後，驅車直奔世界唯一的聯合國認證<strong>聖誕老人村（Santa Claus Village）</strong>。孩子們與 65 歲長輩一同跨越北緯 66°33'07" 的<strong>北極圈地表分界線</strong>，每人獲頒個人專屬官方證書；走進童話木屋與真正的聖誕老人聊天合影，在官方郵局蓋上專屬極圈郵戳寄給親朋好友。傍晚入住聖誕老人村旁的<strong>頂級穹頂極光玻璃屋（Santa's Igloos Arctic Circle 或 Apukka Resort）</strong>，全家人躺在加熱防雪玻璃穹頂下仰望星空，等待極光女神歐若拉曼舞降臨。</p>
+
+            <div class="day-spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">🚗 交通安排</span>
+                    <span class="spec-value">極地商務專車全日接駁</span>
+                    <span class="spec-sub">車站 ➔ 聖誕老人村 ➔ 玻璃屋均在 10 分鐘車程內，極度省力</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🍽️ 餐飲安排</span>
+                    <span class="spec-value">早：飯店暖心早餐 ｜ 午：聖誕老人村柴火炭烤大西洋鮭魚 ｜ 晚：拉普蘭傳統燉鹿肉家庭晚宴</span>
+                    <span class="spec-sub">現烤鮭魚鮮美多汁刺少，搭配洋芋泥最受長輩與孩子歡迎</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏨 住宿安排</span>
+                    <span class="spec-value">Santa's Igloos Arctic Circle 或 Apukka Resort 穹頂玻璃屋</span>
+                    <span class="spec-sub">加熱防雪防霧圓頂、地暖設備、獨立衛浴與極光自動喚醒警報</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏛️ 建築與家庭設施</span>
+                    <span class="spec-value">聖誕老人辦公室圓木建築、穹頂熱能防凍玻璃工藝</span>
+                    <span class="spec-sub">村內步道皆有溫暖木棧道與防滑處理，適合三代同堂合影</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 5 (UPGRADED FLIGHT DAY) -->
+    <div class="day-card" id="day5" style="border: 2px solid #2563EB;">
+        <div class="day-header" style="background: linear-gradient(90deg, #1D4ED8 0%, #1E3A8A 100%);">
+            <div class="day-badge-title">
+                <span class="day-num" style="background:#FDE047; color:#1E3A8A;">DAY 05 跨國直飛</span>
+                <span class="day-date-city">2027/02/11 (四) 羅瓦涅米 RVN ➔ ✈️ 直飛 ➔ 挪威特羅姆瑟 TOS</span>
+            </div>
+            <div class="day-theme" style="background:#EF4444; border:none;">⭐ 僅飛80分鐘！徹底告別12小時長途巴士</div>
+        </div>
+        <div class="day-body">
+            <div class="daily-route-card flight-upgrade-card">
+                <div class="route-top-bar">
+                    <div class="route-endpoints">✈️ 羅瓦涅米機場 (RVN) ➔ 芬航 AY541 直飛 ➔ 特羅姆瑟機場 (TOS)</div>
+                    <div class="route-metrics-bar">
+                        <span class="metric-chip">🛣️ 空中航程：<strong>約 450 km</strong></span>
+                        <span class="metric-chip" style="background:#FEF3C7; color:#92400E; border-color:#F59E0B;">⏱️ 飛行時間：<strong>僅 1 小時 20 分鐘！</strong></span>
+                        <span class="metric-chip">✈️ 班次代號：<strong>芬蘭航空直飛 AY541 (09:45–10:05)</strong></span>
+                    </div>
+                </div>
+                <div class="svg-route-container">
+                    <svg viewBox="0 0 800 60" style="width:100%; height:60px;">
+                        <line x1="60" y1="30" x2="740" y2="30" stroke="#2563EB" stroke-width="4" stroke-dasharray="6,4"/>
+                        <circle cx="60" cy="30" r="8" fill="#10B981"/>
+                        <text x="60" y="52" font-size="11" font-weight="700" text-anchor="middle" fill="#1E293B">RVN 機場 09:45 (芬蘭)</text>
+                        <rect x="320" y="14" width="160" height="28" rx="14" fill="#DBEAFE" stroke="#2563EB"/>
+                        <text x="400" y="32" font-size="10" font-weight="700" text-anchor="middle" fill="#1D4ED8">AY541 跨越芬挪國界 (80m)</text>
+                        <circle cx="740" cy="30" r="8" fill="#EF4444"/>
+                        <text x="740" y="52" font-size="11" font-weight="700" text-anchor="middle" fill="#1E293B">TOS 機場 10:05 (挪威)</text>
+                    </svg>
+                </div>
+                <div class="route-links-bar">
+                    <button class="focus-map-btn" onclick="focusMap([69.6492, 18.9553], 9)">🗺️ 定位主地圖：特羅姆瑟</button>
+                    <a href="https://www.google.com/maps/dir/Rovaniemi+Airport/Troms%C3%B8+Airport" target="_blank" class="gmap-btn">📍 Google Maps RVN-TOS 航線</a>
+                </div>
+            </div>
+
+            <div class="family-special-care">
+                <span>💡 <strong>三代同堂貼心照料：</strong> 玻璃屋到羅瓦涅米機場車程僅約 5 分鐘。搭乘芬航直飛航班，空中飛行僅 80 分鐘，上午 10:05 即降落特羅姆瑟！全家人免去整整 12 小時在顛簸冰原巴士上受困，長輩不受腰痛折磨，孩子可在飛機上看雪山雲海。抵達後飯店已連泊預訂，直接進駐安頓休息。</span>
+            </div>
+
+            <p class="itinerary-desc">早晨在玻璃屋享用暖心早餐後，專車送達羅瓦涅米機場，搭乘芬蘭航空直飛航班 <strong>AY541</strong> 跨越芬挪國界，80 分鐘後輕鬆降落「北極之門」特羅姆瑟。專車接送至特羅姆瑟海景飯店安置行李。下午漫步海灣，傍晚搭乘 <strong>Fjellheisen 登山大型全景纜車</strong> 直上海拔 421 公尺觀景台。這座全封閉式的現代纜車寬敞安全，山頂餐廳備有地熱暖氣，長輩與孩子可一邊喝著熱巧克力，一邊隔著全景玻璃飽覽北大西洋峽灣璀璨萬家燈火與極光降臨。</p>
+
+            <div class="day-spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">🚗 交通安排</span>
+                    <span class="spec-value">芬航直飛 AY541 (09:45–10:05) ＋ 登山全景大型纜車</span>
+                    <span class="spec-sub">飛行時間僅 1 小時 20 分，優雅抵達，完全排除拉車痛苦</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🍽️ 餐飲安排</span>
+                    <span class="spec-value">早：玻璃屋景觀早餐 ｜ 午：特羅姆瑟碼頭海鮮暖湯 ｜ 晚：Fiskekompaniet 頂級黑線鱈魚排</span>
+                    <span class="spec-sub">鮮捕深海黑線鱈魚肉質細嫩，少骨少刺，最合長輩長者胃口</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏨 住宿安排</span>
+                    <span class="spec-value">Clarion Hotel The Edge 或 Radisson Blu Hotel Tromsø</span>
+                    <span class="spec-sub">特羅姆瑟海景第一排，連泊第 1 晚（全段連住 4 晚，免換房搬行李！）</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏛️ 建築與家庭設施</span>
+                    <span class="spec-value">Fjellheisen 山頂全景現代觀景站、特羅姆瑟跨海大橋</span>
+                    <span class="spec-sub">山頂車站設有無障礙坡道、暖氣觀景咖啡廳與親子洗手間</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 6 -->
+    <div class="day-card" id="day6">
+        <div class="day-header">
+            <div class="day-badge-title">
+                <span class="day-num">DAY 06</span>
+                <span class="day-date-city">2027/02/12 (五) 挪威特羅姆瑟（北極水族館海豹秀・家庭溫暖極光營地）</span>
+            </div>
+            <div class="day-theme">Polaria 海豹互動・北極大教堂・溫暖壁爐極光營地</div>
+        </div>
+        <div class="day-body">
+            <div class="daily-route-card">
+                <div class="route-top-bar">
+                    <div class="route-endpoints">🚐 市區景點 ➔ Polaria 水族館 ➔ 專屬家庭溫暖極光基地 (Aurora Camp)</div>
+                    <div class="route-metrics-bar">
+                        <span class="metric-chip">🛣️ 基地專車里程：<strong>約 40 km</strong></span>
+                        <span class="metric-chip">⏱️ 活動時程：<strong>晚間 18:30–22:30（溫和適中，不熬夜）</strong></span>
+                        <span class="metric-chip">🚐 交通種類：<strong>家庭獨立包車賓士商務車</strong></span>
+                    </div>
+                </div>
+                <div class="svg-route-container">
+                    <svg viewBox="0 0 800 60" style="width:100%; height:60px;">
+                        <line x1="50" y1="30" x2="400" y2="30" stroke="#00ADB5" stroke-width="3"/>
+                        <line x1="400" y1="30" x2="750" y2="30" stroke="#F59E0B" stroke-width="3"/>
+                        <circle cx="50" cy="30" r="7" fill="#1D4ED8"/>
+                        <text x="50" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">特羅姆瑟飯店</text>
+                        <circle cx="400" cy="30" r="7" fill="#EC4899"/>
+                        <text x="400" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">Polaria 北極海豹水族館</text>
+                        <circle cx="750" cy="30" r="7" fill="#38E54D"/>
+                        <text x="750" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">家庭溫暖木屋極光營地</text>
+                    </svg>
+                </div>
+                <div class="route-links-bar">
+                    <button class="focus-map-btn" onclick="focusMap([69.6436, 18.9497], 13)">🗺️ 定位主地圖：Polaria 水族館</button>
+                    <a href="https://www.google.com/maps/place/Polaria" target="_blank" class="gmap-btn">📍 Google Maps Polaria 水族館</a>
+                </div>
+            </div>
+
+            <div class="family-special-care">
+                <span>💡 <strong>三代同堂貼心照料：</strong> 考量長輩與幼童不能在零下低溫受凍過久，今晚捨棄一般散客長途顛簸的野外路邊追光團，改安排<strong>「專屬家庭溫暖極光營地（Aurora Camp）」</strong>。營地設有暖氣木屋、劈啪作響的傳統壁爐、熱薑汁果茶與現烤點心。長輩可在室內圍爐品茶，孩子可在屋外玩雪；一旦極光出現，工作人員立即提醒，出門 5 步即可仰望綠光漫天，冷了 10 秒內回到溫暖室內，兼顧極光震撼與全家安適！</span>
+            </div>
+
+            <p class="itinerary-desc">日間參觀特羅姆瑟最具特色的北極海洋探索館 <strong>Polaria</strong>，館舍外觀如骨牌般傾倒的冰塊建築，孩子們在此觀賞逗趣的鬍鬚海豹（Bearded Seals）餵食訓練與全景北極影院；午後造訪經典地標<strong>北極大教堂（Ishavskatedralen）</strong>欣賞巨大的彩色玻璃雕刻。夜間搭乘專車前往溫暖極光營地，在專業天文攝影師指導下拍下最珍貴的全家三代極光合影。</p>
+
+            <div class="day-spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">🚗 交通安排</span>
+                    <span class="spec-value">市區步行 ＋ 專屬家庭溫暖極光營地接送車</span>
+                    <span class="spec-sub">專車定點接送，時程適中，不讓幼童長輩過度熬夜</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🍽️ 餐飲安排</span>
+                    <span class="spec-value">早：飯店自助早餐 ｜ 午：Polaria 景觀餐廳特色簡餐 ｜ 晚：極光營地傳統薩米暖火燉肉湯</span>
+                    <span class="spec-sub">室內燃木壁爐現烤鬆餅、棉花糖與香濃熱可可</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏨 住宿安排</span>
+                    <span class="spec-value">Clarion Hotel The Edge 或 Radisson Blu Hotel</span>
+                    <span class="spec-sub">特羅姆瑟連泊第 2 晚，充分放鬆，行程零換房壓力</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏛️ 建築與家庭設施</span>
+                    <span class="spec-value">Polaria 骨牌冰塊結構、北極大教堂折板幾何</span>
+                    <span class="spec-sub">Polaria 全館室內恆溫，館內貼心備有推車與家庭育嬰空間</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 7 -->
+    <div class="day-card" id="day7">
+        <div class="day-header">
+            <div class="day-badge-title">
+                <span class="day-num">DAY 07</span>
+                <span class="day-date-city">2027/02/13 (六) 挪威特羅姆瑟（極地靜音雙體船峽灣巡航・海港慢活）</span>
+            </div>
+            <div class="day-theme">室內溫控全景出海巡航・零噪音不暈船峽灣美景</div>
+        </div>
+        <div class="day-body">
+            <div class="daily-route-card">
+                <div class="route-top-bar">
+                    <div class="route-endpoints">🚢 特羅姆瑟海港碼頭 ➔ 北大西洋峽灣出海巡航 ➔ 歷史老木屋區</div>
+                    <div class="route-metrics-bar">
+                        <span class="metric-chip">🛣️ 峽灣航程：<strong>約 40 海浬</strong></span>
+                        <span class="metric-chip">⏱️ 巡航時間：<strong>約 3.5 小時（晨間出航，午後悠閒）</strong></span>
+                        <span class="metric-chip">🚢 交通種類：<strong>Brim Explorer 極地靜音混合動力雙體遊艇</strong></span>
+                    </div>
+                </div>
+                <div class="svg-route-container">
+                    <svg viewBox="0 0 800 60" style="width:100%; height:60px;">
+                        <path d="M 60,30 Q 200,10 400,30 T 740,30" fill="none" stroke="#2563EB" stroke-width="3"/>
+                        <circle cx="60" cy="30" r="7" fill="#0B192C"/>
+                        <text x="60" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">特羅姆瑟市區碼頭</text>
+                        <circle cx="400" cy="30" r="6" fill="#2563EB"/>
+                        <text x="400" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">壯麗雪山峽灣全景</text>
+                        <circle cx="740" cy="30" r="7" fill="#059669"/>
+                        <text x="740" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">返航港區歷史老木屋</text>
+                    </svg>
+                </div>
+                <div class="route-links-bar">
+                    <button class="focus-map-btn" onclick="focusMap([69.6500, 18.9600], 13)">🗺️ 定位主地圖：特羅姆瑟碼頭</button>
+                    <a href="https://www.google.com/maps/place/Troms%C3%B8+Havneteam" target="_blank" class="gmap-btn">📍 Google Maps 港區巡航動線</a>
+                </div>
+            </div>
+
+            <div class="family-special-care">
+                <span>💡 <strong>三代同堂貼心照料：</strong> 出海安排最奢華的 <strong>Brim Explorer 雙體遊艇</strong>，雙體船底設計極為平穩，完全消除晃動暈船隱患；船內設有雙層全封閉、全落地玻璃的暖氣沙發座艙與咖啡館。長輩坐在舒服的沙發上喝茶賞雪山，孩子可在安穩走道上透過全景窗觀看海鷹翱翔，完全無需受凍吹風！</span>
+            </div>
+
+            <p class="itinerary-desc">上午前往飯店門前碼頭，登上榮獲綠能大獎的<strong>靜音雙體遊艇 Brim Explorer</strong>。在電動靜音推進模式下，船隻無聲穿梭於冰封峽灣深處，窗外兩岸是刀削般的雪白冰川懸崖與靜謐小漁村。午後回到特羅姆瑟老木屋街區，品嚐挪威傳統棕起司薄餅與熱手沖咖啡。傍晚全家可在海景飯店房間內欣賞特羅姆瑟海峽的魔幻粉紫暮光。</p>
+
+            <div class="day-spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">🚗 交通安排</span>
+                    <span class="spec-value">靜音雙體混合動力遊艇出海 (3.5 小時) ＋ 市區漫步</span>
+                    <span class="spec-sub">步道與碼頭直接連通飯店，零舟車勞頓</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🍽️ 餐飲安排</span>
+                    <span class="spec-value">早：飯店熱食早餐 ｜ 午：船艙內極地海鮮暖胃濃湯 ｜ 晚：特羅姆瑟 Emma's 溫馨家庭料理</span>
+                    <span class="spec-sub">Emma's 餐廳以溫馨家常北歐料理聞名，環境親切舒適</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏨 住宿安排</span>
+                    <span class="spec-value">Clarion Hotel The Edge 或 Radisson Blu Hotel</span>
+                    <span class="spec-sub">特羅姆瑟連泊第 3 晚，孩子與長輩已完全適應北歐生活節奏</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏛️ 建築與家庭設施</span>
+                    <span class="spec-value">18世紀特羅姆瑟歷史木造商館建築群（Skanckegården）</span>
+                    <span class="spec-sub">全挪威保存最完整的歷史木屋街區，街道平緩防滑</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 8 -->
+    <div class="day-card" id="day8">
+        <div class="day-header">
+            <div class="day-badge-title">
+                <span class="day-num">DAY 08</span>
+                <span class="day-date-city">2027/02/14 (日) 挪威特羅姆瑟（情人節海灣散步・極光最後守候夜）</span>
+            </div>
+            <div class="day-theme">特羅姆瑟悠閒慢調・海港博物館・幸福極光夜</div>
+        </div>
+        <div class="day-body">
+            <div class="daily-route-card">
+                <div class="route-top-bar">
+                    <div class="route-endpoints">🚶 特羅姆瑟海濱大道 ➔ 北極博物館 (Polar Museum) ➔ 市立波浪圖書館</div>
+                    <div class="route-metrics-bar">
+                        <span class="metric-chip">🛣️ 漫步里程：<strong>約 3–5 km（隨走隨歇）</strong></span>
+                        <span class="metric-chip">⏱️ 活動時程：<strong>全日零壓力彈性慢活</strong></span>
+                        <span class="metric-chip">🚶 交通種類：<strong>市中心平緩散步 ＋ 商務專車隨時待命</strong></span>
+                    </div>
+                </div>
+                <div class="svg-route-container">
+                    <svg viewBox="0 0 800 60" style="width:100%; height:60px;">
+                        <line x1="60" y1="30" x2="740" y2="30" stroke="#00ADB5" stroke-width="3"/>
+                        <circle cx="60" cy="30" r="7" fill="#1D4ED8"/>
+                        <text x="60" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">特羅姆瑟飯店出發</text>
+                        <circle cx="400" cy="30" r="6" fill="#F59E0B"/>
+                        <text x="400" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">北極博物館歷史探秘</text>
+                        <circle cx="740" cy="30" r="7" fill="#059669"/>
+                        <text x="740" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">市立圖書館大片玻璃暖心閱覽</text>
+                    </svg>
+                </div>
+                <div class="route-links-bar">
+                    <button class="focus-map-btn" onclick="focusMap([69.6536, 18.9631], 14)">🗺️ 定位主地圖：北極博物館</button>
+                    <a href="https://www.google.com/maps/place/The+Polar+Museum" target="_blank" class="gmap-btn">📍 Google Maps 北極博物館動線</a>
+                </div>
+            </div>
+
+            <div class="family-special-care">
+                <span>💡 <strong>三代同堂貼心照料：</strong> 特羅姆瑟連住第 4 晚，將極光帶停留推升至巔峰！今天完全不趕任何行程，早晨睡到自然醒，長輩可在飯店海景餐廳悠閒品味熱咖啡；午後隨步前往紅木老屋改建的<strong>北極博物館（Polar Museum）</strong>看極地探險家阿蒙森的歷史故事，孩子聽得津津有味。今晚為旅程在極光帶的最後一晚，在飯店陽台或海灣邊即可迎向歐若拉的浪漫謝幕。</span>
+            </div>
+
+            <p class="itinerary-desc">今日是特羅姆瑟深度慢活日。參觀位於港口邊著名的<strong>北極博物館（Polar Museum）</strong>，展示十九世紀北極探險船隻、捕鯨裝備與歷史生活面貌；隨後造訪外形如翻開書本般優雅的<strong>特羅姆瑟市立圖書館</strong>，館內大片採光玻璃正對著海灣，溫暖明亮。晚間在港邊餐廳共享全家情人節團聚盛宴。</p>
+
+            <div class="day-spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">🚗 交通安排</span>
+                    <span class="spec-value">市中心悠閒平緩漫步 ＋ 專車待命接送</span>
+                    <span class="spec-sub">城市景點集中，長輩若走累隨時可回飯店小憩</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🍽️ 餐飲安排</span>
+                    <span class="spec-value">早：飯店頂級早餐 ｜ 午：港邊烘焙坊肉桂捲午茶 ｜ 晚：海灣家庭牛排與羊排節慶盛宴</span>
+                    <span class="spec-sub">品嚐挪威高山熟成牛肉與香烤海鮮家庭拼盤</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏨 住宿安排</span>
+                    <span class="spec-value">Clarion Hotel The Edge 或 Radisson Blu Hotel</span>
+                    <span class="spec-sub">特羅姆瑟連泊第 4 晚，圓滿達成 4 晚高機率追極光目標</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏛️ 建築與家庭設施</span>
+                    <span class="spec-value">特羅姆瑟市立公共圖書館（波浪懸挑玻璃屋頂）</span>
+                    <span class="spec-sub">現代波浪木天花結構，全棟設有無障礙電梯與舒適閱覽沙發</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 9 (UPGRADED FLIGHT TO STOCKHOLM) -->
+    <div class="day-card" id="day9" style="border: 2px solid #2563EB;">
+        <div class="day-header" style="background: linear-gradient(90deg, #1D4ED8 0%, #1E3A8A 100%);">
+            <div class="day-badge-title">
+                <span class="day-num" style="background:#FDE047; color:#1E3A8A;">DAY 09 跨國直飛</span>
+                <span class="day-date-city">2027/02/15 (一) 特羅姆瑟 TOS ➔ ✈️ 直飛 ➔ 瑞典斯德哥爾摩 ARN</span>
+            </div>
+            <div class="day-theme" style="background:#EF4444; border:none;">⭐ 航程不到2小時！免去17小時夜車與冰雪拉車</div>
+        </div>
+        <div class="day-body">
+            <div class="daily-route-card flight-upgrade-card">
+                <div class="route-top-bar">
+                    <div class="route-endpoints">✈️ 特羅姆瑟機場 (TOS) ➔ 北歐航空直飛 ➔ 瑞典斯德哥爾摩 (ARN)</div>
+                    <div class="route-metrics-bar">
+                        <span class="metric-chip">🛣️ 空中航程：<strong>約 1,120 km</strong></span>
+                        <span class="metric-chip" style="background:#FEF3C7; color:#92400E; border-color:#F59E0B;">⏱️ 飛行時間：<strong>僅 1 小時 55 分鐘！</strong></span>
+                        <span class="metric-chip">✈️ 交通種類：<strong>北歐航空 SAS 直飛班機</strong></span>
+                    </div>
+                </div>
+                <div class="svg-route-container">
+                    <svg viewBox="0 0 800 60" style="width:100%; height:60px;">
+                        <line x1="60" y1="30" x2="740" y2="30" stroke="#2563EB" stroke-width="4" stroke-dasharray="6,4"/>
+                        <circle cx="60" cy="30" r="8" fill="#1D4ED8"/>
+                        <text x="60" y="52" font-size="11" font-weight="700" text-anchor="middle" fill="#1E293B">特羅姆瑟 TOS (挪威)</text>
+                        <rect x="320" y="14" width="160" height="28" rx="14" fill="#DBEAFE" stroke="#2563EB"/>
+                        <text x="400" y="32" font-size="10" font-weight="700" text-anchor="middle" fill="#1D4ED8">SAS 跨國航線 (115m)</text>
+                        <circle cx="740" cy="30" r="8" fill="#0284C7"/>
+                        <text x="740" y="52" font-size="11" font-weight="700" text-anchor="middle" fill="#1E293B">斯德哥爾摩 ARN (瑞典)</text>
+                    </svg>
+                </div>
+                <div class="route-links-bar">
+                    <button class="focus-map-btn" onclick="focusMap([59.3293, 18.0686], 11)">🗺️ 定位主地圖：斯德哥爾摩</button>
+                    <a href="https://www.google.com/maps/dir/Troms%C3%B8+Airport/Stockholm+Arlanda+Airport" target="_blank" class="gmap-btn">📍 Google Maps TOS-ARN 航線</a>
+                </div>
+            </div>
+
+            <div class="family-special-care">
+                <span>💡 <strong>三代同堂貼心照料：</strong> 【本案最關鍵之家庭友善革命】若照原定阿比斯庫走法，全家需歷經 4.5 小時顛簸雪巴至納爾維克，再轉火車，最後搭乘長達 17 小時狹窄的 SJ 夜臥火車南下，三代老小勢必筋疲力竭。本案改為<strong>直飛斯德哥爾摩，飛行僅 115 分鐘</strong>，行李直掛，全員精神奕奕抵達瑞典首都，隨即入住市中心五星頂級酒店！</span>
+            </div>
+
+            <p class="itinerary-desc">早晨在飯店從容整理行囊，專車前往特羅姆瑟機場，搭機直飛瑞典首都斯德哥爾摩（ARN）。午後抵達這座被 14 座島嶼環抱的「水上之都北方威尼斯」。專車接送至市中心五星酒店辦理入住。下午展開悠閒的老城（Gamla Stan）探訪，踏在平整的步行街上，欣賞 17 世紀鵝黃色山牆建築，為家人挑選精緻的瑞典達拉木馬紀念品。</p>
+
+            <div class="day-spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">🚗 交通安排</span>
+                    <span class="spec-value">SAS 直飛客機 (航程 1h 55m) ＋ 斯德哥爾摩商務專車</span>
+                    <span class="spec-sub">點對點無縫接送，免除任何鐵路轉乘與冰雪拖箱之苦</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🍽️ 餐飲安排</span>
+                    <span class="spec-value">早：飯店豐盛早餐 ｜ 午：機場貴賓室/機上輕食 ｜ 晚：百年餐廳 Pelikan 傳統瑞典肉丸餐</span>
+                    <span class="spec-sub">手打純牛肉丸佐香濃肉汁、洋芋泥與越橘果醬，全家皆愛</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏨 住宿安排</span>
+                    <span class="spec-value">At Six 或 Grand Hôtel Stockholm</span>
+                    <span class="spec-sub">座落於市中心湖濱精華區，連泊第 1 晚（斯德哥爾摩連宿 5 晚！）</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏛️ 建築與家庭設施</span>
+                    <span class="spec-value">斯德哥爾摩老城巴洛克山牆街區、王宮廣場</span>
+                    <span class="spec-sub">古色古香的石板路設有無障礙緩坡道，散步氣氛絕佳</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 10 -->
+    <div class="day-card" id="day10">
+        <div class="day-header">
+            <div class="day-badge-title">
+                <span class="day-num">DAY 10</span>
+                <span class="day-date-city">2027/02/16 (二) 斯德哥爾摩（瓦薩巨型古戰艦・六月坡童話故事館）</span>
+            </div>
+            <div class="day-theme">皇家古戰艦探奇・長襪皮皮飛天小火車</div>
+        </div>
+        <div class="day-body">
+            <div class="daily-route-card">
+                <div class="route-top-bar">
+                    <div class="route-endpoints">🚐 市區 ➔ 動物園島 (Djurgården) ➔ 瓦薩博物館 ➔ Junibacken 童話館</div>
+                    <div class="route-metrics-bar">
+                        <span class="metric-chip">🛣️ 市區專車里程：<strong>約 10 km</strong></span>
+                        <span class="metric-chip">⏱️ 活動時程：<strong>全日室內文化童趣探索（暖氣充足）</strong></span>
+                        <span class="metric-chip">🚐 交通種類：<strong>商務專車全日待命接送</strong></span>
+                    </div>
+                </div>
+                <div class="svg-route-container">
+                    <svg viewBox="0 0 800 60" style="width:100%; height:60px;">
+                        <line x1="50" y1="30" x2="400" y2="30" stroke="#0284C7" stroke-width="3"/>
+                        <line x1="400" y1="30" x2="750" y2="30" stroke="#EC4899" stroke-width="3"/>
+                        <circle cx="50" cy="30" r="7" fill="#0B192C"/>
+                        <text x="50" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">飯店出發</text>
+                        <circle cx="400" cy="30" r="7" fill="#0284C7"/>
+                        <text x="400" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">瓦薩沈船博物館 (巨大戰艦)</text>
+                        <circle cx="750" cy="30" r="7" fill="#EC4899"/>
+                        <text x="750" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">Junibacken 六月坡童話館</text>
+                    </svg>
+                </div>
+                <div class="route-links-bar">
+                    <button class="focus-map-btn" onclick="focusMap([59.3280, 18.0914], 14)">🗺️ 定位主地圖：動物園島博物館區</button>
+                    <a href="https://www.google.com/maps/dir/Vasa+Museum/Junibacken" target="_blank" class="gmap-btn">📍 Google Maps 瓦薩與童話館動線</a>
+                </div>
+            </div>
+
+            <div class="family-special-care">
+                <span>💡 <strong>三代同堂貼心照料：</strong> 今日是專為「9歲男孩與6歲女孩」量身打造的夢幻日！瓦薩博物館的真實巨大戰艦滿足小男孩的海盜冒險狂想；緊鄰的 <strong>Junibacken 童話故事館</strong> 更是瑞典國寶級親子聖地，乘坐「故事飛天小火車」穿越林格倫筆下的童話森林，女孩可暢玩長襪皮皮的彩色小屋。兩館全室內暖氣充足，無障礙電梯完備，長輩可輕鬆坐著休憩看展，絲毫不感勞累。</span>
+            </div>
+
+            <p class="itinerary-desc">前往環境優美的動物園島，參觀世界聞名的<strong>瓦薩沈船博物館（Vasa Museum）</strong>。館內完整展示 1628 年沉沒的真實皇家巨型戰艦，船身雕刻超過數百尊精美神話木雕，令人震撼；緊接著走入孩子們的夢想天地<strong>六月坡童話館（Junibacken）</strong>，搭乘室內飛天小火車穿梭於瑞典童話故事立體場景中。午後全家悠閒品嚐瑞典下午茶，度過充滿笑聲的家庭日。</p>
+
+            <div class="day-spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">🚗 交通安排</span>
+                    <span class="spec-value">商務專車點對點往返接送</span>
+                    <span class="spec-sub">兩館相距僅 200 公尺，室內展館平坦舒適</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🍽️ 餐飲安排</span>
+                    <span class="spec-value">早：飯店頂級早餐 ｜ 午：Junibacken 瑞典有機童趣午餐 ｜ 晚：東城市場海鮮現代饗宴</span>
+                    <span class="spec-sub">兒童餐附贈有機果汁與小點心，大人品嚐新鮮比目魚</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏨 住宿安排</span>
+                    <span class="spec-value">At Six 或 Grand Hôtel Stockholm</span>
+                    <span class="spec-sub">斯德哥爾摩連泊第 2 晚，飯店附設室內溫水泳池可供放鬆</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏛️ 建築與家庭設施</span>
+                    <span class="spec-value">瓦薩戰艦木造工程奇蹟、林格倫童話場景設計</span>
+                    <span class="spec-sub">兩館皆設有大型家庭衣帽寄物處、無障礙設施與專屬推車租借</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 11 -->
+    <div class="day-card" id="day11">
+        <div class="day-header">
+            <div class="day-badge-title">
+                <span class="day-num">DAY 11</span>
+                <span class="day-date-city">2027/02/17 (三) 斯德哥爾摩（市政廳諾貝爾藍廳・金色大廳・王宮衛兵交接）</span>
+            </div>
+            <div class="day-theme">諾貝爾建築殿堂・1800萬片金箔馬賽克・皇家衛兵交接</div>
+        </div>
+        <div class="day-body">
+            <div class="daily-route-card">
+                <div class="route-top-bar">
+                    <div class="route-endpoints">🚶 斯德哥爾摩市政廳 ➔ 斯德哥爾摩王宮 ➔ 諾貝爾獎博物館</div>
+                    <div class="route-metrics-bar">
+                        <span class="metric-chip">🛣️ 市區漫步里程：<strong>約 8 km</strong></span>
+                        <span class="metric-chip">⏱️ 活動時程：<strong>全日深度歷史與文化洗禮</strong></span>
+                        <span class="metric-chip">🚶 交通種類：<strong>商務專車定點接駁 ＋ 典雅漫步</strong></span>
+                    </div>
+                </div>
+                <div class="svg-route-container">
+                    <svg viewBox="0 0 800 60" style="width:100%; height:60px;">
+                        <line x1="60" y1="30" x2="740" y2="30" stroke="#0284C7" stroke-width="3"/>
+                        <circle cx="60" cy="30" r="7" fill="#0B192C"/>
+                        <text x="60" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">飯店出發</text>
+                        <circle cx="300" cy="30" r="6" fill="#0284C7"/>
+                        <text x="300" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">市政廳 (諾貝爾藍廳/金色大廳)</text>
+                        <circle cx="540" cy="30" r="6" fill="#F59E0B"/>
+                        <text x="540" y="50" font-size="10" font-weight="600" text-anchor="middle" fill="#334155">斯德哥爾摩王宮 (衛兵交接)</text>
+                        <circle cx="740" cy="30" r="7" fill="#059669"/>
+                        <text x="740" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">諾貝爾獎博物館 (吃金幣冰淇淋)</text>
+                    </svg>
+                </div>
+                <div class="route-links-bar">
+                    <button class="focus-map-btn" onclick="focusMap([59.3275, 18.0544], 14)">🗺️ 定位主地圖：市政廳</button>
+                    <a href="https://www.google.com/maps/dir/Stockholm+City+Hall/Royal+Palace,+Stockholm" target="_blank" class="gmap-btn">📍 Google Maps 市政廳與王宮</a>
+                </div>
+            </div>
+
+            <div class="family-special-care">
+                <span>💡 <strong>三代同堂貼心照料：</strong> 參觀諾貝爾獎博物館時，特別安排孩子品嚐著名的「諾貝爾晚宴專屬巧克力金幣冰淇淋」，並參觀諾貝爾獎得主親筆簽名的椅子；市政廳室內導覽平緩舒適，長輩可在金碧輝煌的金箔大廳前合影，極富尊榮紀念價值。</span>
+            </div>
+
+            <p class="itinerary-desc">由官方中文導覽引領參觀瑞典民族浪漫主義建築代表作——<strong>斯德哥爾摩市政廳（Stockholms stadshus）</strong>，走入每年舉辦諾貝爾獎晚宴的「藍廳」與鑲嵌 1,800 萬片純金馬賽克磚的「金色大廳」。中午專車前往老城區參觀<strong>斯德哥爾摩王宮</strong>，欣賞莊嚴威武的皇家騎兵與衛兵交接儀式。下午在諾貝爾獎博物館感受科學與和平的崇高精神。</p>
+
+            <div class="day-spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">🚗 交通安排</span>
+                    <span class="spec-value">商務專車市區接送 ＋ 悠閒漫步</span>
+                    <span class="spec-sub">定點專車接送，長輩不用擠大眾交通</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🍽️ 餐飲安排</span>
+                    <span class="spec-value">早：飯店自助早餐 ｜ 午：市政廳酒窖餐廳 Stadshuskällaren ｜ 晚：現代北歐海鮮家庭晚宴</span>
+                    <span class="spec-sub">品嚐市政廳酒窖經典料理，體驗諾貝爾晚宴名菜風範</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏨 住宿安排</span>
+                    <span class="spec-value">At Six 或 Grand Hôtel Stockholm</span>
+                    <span class="spec-sub">斯德哥爾摩連泊第 3 晚，舒適奢華</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏛️ 建築與家庭設施</span>
+                    <span class="spec-value">市政廳紅磚民族浪漫主義、老城斯德哥爾摩王宮</span>
+                    <span class="spec-sub">拉格納・厄斯特貝格之作，館內全面有無障礙斜坡與電梯</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 12 -->
+    <div class="day-card" id="day12">
+        <div class="day-header">
+            <div class="day-badge-title">
+                <span class="day-num">DAY 12</span>
+                <span class="day-date-city">2027/02/18 (四) 斯德哥爾摩（斯堪森露天動物園・地鐵藝術長廊精選）</span>
+            </div>
+            <div class="day-theme">北歐麋鹿棕熊相見歡・世界最長地下岩洞藝術</div>
+        </div>
+        <div class="day-body">
+            <div class="daily-route-card">
+                <div class="route-top-bar">
+                    <div class="route-endpoints">🚐 市區 ➔ 斯堪森露天動物園 (Skansen) ➔ 精選地鐵藝術站 (T-Centralen / Stadion)</div>
+                    <div class="route-metrics-bar">
+                        <span class="metric-chip">🛣️ 參觀里程：<strong>約 12 km</strong></span>
+                        <span class="metric-chip">⏱️ 活動時程：<strong>全日自然生態與岩洞壁畫巡禮</strong></span>
+                        <span class="metric-chip">🚇 交通種類：<strong>商務專車接送 ＋ 無障礙地鐵體驗</strong></span>
+                    </div>
+                </div>
+                <div class="svg-route-container">
+                    <svg viewBox="0 0 800 60" style="width:100%; height:60px;">
+                        <line x1="50" y1="30" x2="400" y2="30" stroke="#059669" stroke-width="3"/>
+                        <line x1="400" y1="30" x2="750" y2="30" stroke="#EC4899" stroke-width="3"/>
+                        <circle cx="50" cy="30" r="7" fill="#0B192C"/>
+                        <text x="50" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">飯店出發</text>
+                        <circle cx="400" cy="30" r="7" fill="#059669"/>
+                        <text x="400" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">斯堪森露天動物園 (看麋鹿/棕熊)</text>
+                        <circle cx="750" cy="30" r="7" fill="#2563EB"/>
+                        <text x="750" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">T-Centralen / Stadion 彩虹月台</text>
+                    </svg>
+                </div>
+                <div class="route-links-bar">
+                    <button class="focus-map-btn" onclick="focusMap([59.3248, 18.1038], 14)">🗺️ 定位主地圖：斯堪森公園</button>
+                    <a href="https://www.google.com/maps/place/Skansen" target="_blank" class="gmap-btn">📍 Google Maps 斯堪森公園動線</a>
+                </div>
+            </div>
+
+            <div class="family-special-care">
+                <span>💡 <strong>三代同堂貼心照料：</strong> 斯堪森公園內有登山小纜車，長輩與小孩可免爬坡直達園區精華區；地鐵藝術巡禮僅精選 2 個具備「直通電梯」的指標月台（T-Centralen 藍藤岩洞、Stadion 彩虹拱頂），絕不讓長輩小孩在複雜地下通道盲目走動，安全又驚豔。</span>
+            </div>
+
+            <p class="itinerary-desc">上午前往全球歷史最悠久的<strong>斯堪森露天博物館（Skansen）</strong>。這裡不僅完整復原 19 世紀瑞典傳統木構農莊與手工作坊，更有一座北歐野生動物園，孩子們興奮觀賞巨大的北歐麋鹿（Moose）、棕熊與海豹。午後搭乘電梯精選參觀被譽為「世界最長藝術長廊」的斯德哥爾摩地鐵岩洞藝術，在彩虹月台前留下溫馨活潑的全家紀念照。</p>
+
+            <div class="day-spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">🚗 交通安排</span>
+                    <span class="spec-value">商務專車 ＋ 地鐵精選站無障礙電梯參觀</span>
+                    <span class="spec-sub">行程鬆弛有度，注重長輩腿力與孩童作息</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🍽️ 餐飲安排</span>
+                    <span class="spec-value">早：飯店早餐 ｜ 午：斯堪森傳統莊園餐廳熱三明治 ｜ 晚：瑞典經典烤鮭魚家庭餐</span>
+                    <span class="spec-sub">新鮮無刺嫩煎三文魚佐新鮮檸檬蒔蘿洋芋泥</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏨 住宿安排</span>
+                    <span class="spec-value">At Six 或 Grand Hôtel Stockholm</span>
+                    <span class="spec-sub">斯德哥爾摩連泊第 4 晚，享受賓至如歸的五星禮遇</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏛️ 建築與家庭設施</span>
+                    <span class="spec-value">斯堪森百年歷史木構農舍、地鐵花崗岩鑿洞藝術</span>
+                    <span class="spec-sub">園區具備專屬登山軌道車，全景無死角，老少咸宜</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 13 -->
+    <div class="day-card" id="day13">
+        <div class="day-header">
+            <div class="day-badge-title">
+                <span class="day-num">DAY 13</span>
+                <span class="day-date-city">2027/02/19 (五) 斯德哥爾摩（瑞典 Fika 咖啡時光・NK 精品選品・惜別晚宴）</span>
+            </div>
+            <div class="day-theme">瑞典慢活 Fika 哲學・三代同堂惜別晚宴</div>
+        </div>
+        <div class="day-body">
+            <div class="daily-route-card">
+                <div class="route-top-bar">
+                    <div class="route-endpoints">☕ 百年名店 Vete-Katten ➔ NK 歷史百貨商圈 ➔ 湖濱景觀惜別晚宴</div>
+                    <div class="route-metrics-bar">
+                        <span class="metric-chip">🛣️ 漫步里程：<strong>約 6 km</strong></span>
+                        <span class="metric-chip">⏱️ 活動時程：<strong>全日悠閒採買與品味慢活</strong></span>
+                        <span class="metric-chip">🚗 交通種類：<strong>商務專車全日待命接送</strong></span>
+                    </div>
+                </div>
+                <div class="svg-route-container">
+                    <svg viewBox="0 0 800 60" style="width:100%; height:60px;">
+                        <line x1="60" y1="30" x2="740" y2="30" stroke="#F59E0B" stroke-width="3"/>
+                        <circle cx="60" cy="30" r="7" fill="#0B192C"/>
+                        <text x="60" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">飯店出發</text>
+                        <circle cx="280" cy="30" r="6" fill="#F59E0B"/>
+                        <text x="280" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">百年 Vete-Katten (肉桂捲/咖啡)</text>
+                        <circle cx="520" cy="30" r="6" fill="#0284C7"/>
+                        <text x="520" y="50" font-size="10" font-weight="600" text-anchor="middle" fill="#334155">NK 百貨頂級生活選物</text>
+                        <circle cx="740" cy="30" r="7" fill="#059669"/>
+                        <text x="740" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">湖濱五星包廂惜別盛宴</text>
+                    </svg>
+                </div>
+                <div class="route-links-bar">
+                    <button class="focus-map-btn" onclick="focusMap([59.3333, 18.0694], 14)">🗺️ 定位主地圖：NK 百貨商圈</button>
+                    <a href="https://www.google.com/maps/dir/Vete-Katten/NK+Stockholm" target="_blank" class="gmap-btn">📍 Google Maps 悠閒購物動線</a>
+                </div>
+            </div>
+
+            <div class="family-special-care">
+                <span>💡 <strong>三代同堂貼心照料：</strong> 今日不排任何緊湊行程。特別包下百年烘焙老店 <strong>Vete-Katten</strong> 的典雅古典包廂，長輩品嚐極品手沖咖啡，孩子享用香氣濃郁的肉桂捲與熱牛奶，體驗瑞典人視為幸福靈魂的 <strong>Fika</strong> 生活。下午專車接送至著名的 NK 百貨挑選北歐頂級水晶與防寒羊毛衣物，晚間在湖畔景觀包廂舉辦三代同堂惜別慶祝晚宴。</span>
+            </div>
+
+            <p class="itinerary-desc">今日全日沉浸於斯德哥爾摩精緻的生活美學中。在 <strong>Vete-Katten</strong> 享受溫馨的 Fika 咖啡時光；午後前往百年歷史建築 NK 百貨選購經典的瑞典皇室水晶玻璃製品（Kosta Boda）、手工達拉木馬與極簡設計飾品。晚間安排位於海灣水畔的星級景觀餐廳，全家人共同舉杯，回顧 14 天來在北極圈看極光、搭乘雙層臥鋪火車、入住穹頂玻璃屋的無數感動瞬間。</p>
+
+            <div class="day-spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">🚗 交通安排</span>
+                    <span class="spec-value">商務專車全日待命接送</span>
+                    <span class="spec-sub">定點接送購物與晚宴，從容打包戰利品與行李</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🍽️ 餐飲安排</span>
+                    <span class="spec-value">早：飯店晨光饗宴 ｜ 午：百年 Vete-Katten 輕食午茶 ｜ 晚：湖濱星級全家包廂惜別盛宴</span>
+                    <span class="spec-sub">主廚五道式精緻晚宴佐熟成瑞典牛排與波羅的海鮮蝦拼盤</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏨 住宿安排</span>
+                    <span class="spec-value">At Six 或 Grand Hôtel Stockholm</span>
+                    <span class="spec-sub">斯德哥爾摩連泊第 5 晚，全家安穩睡眠，準備踏上歸途</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏛️ 建築與家庭設施</span>
+                    <span class="spec-value">NK 百貨新古典拱頂中庭、斯德哥爾摩海灣水濱夜景</span>
+                    <span class="spec-sub">高雅舒適的貴賓購物環境，全程免去長途步行的疲勞</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 14 -->
+    <div class="day-card" id="day14">
+        <div class="day-header">
+            <div class="day-badge-title">
+                <span class="day-num">DAY 14</span>
+                <span class="day-date-city">2027/02/20 (六) 斯德哥爾摩 ➔ 倫敦希斯洛 ➔ 台北歸賦</span>
+            </div>
+            <div class="day-theme">阿蘭達機場快線・倫敦轉機・直飛返抵國門</div>
+        </div>
+        <div class="day-body">
+            <div class="daily-route-card">
+                <div class="route-top-bar">
+                    <div class="route-endpoints">🚆 斯德哥爾摩 ➔ 🛫 倫敦希斯洛 (LHR) ➔ 台北 (TPE)</div>
+                    <div class="route-metrics-bar">
+                        <span class="metric-chip">🛣️ 總航空里程：<strong>約 11,320 km</strong> (ARN-LHR 1,460km + LHR-TPE 9,820km)</span>
+                        <span class="metric-chip">⏱️ 飛行時間：<strong>2h 45m ＋ 13h 直飛</strong></span>
+                        <span class="metric-chip">✈️ 交通種類：<strong>SAS SK0527 ＋ 華航直飛客機 CI 082</strong></span>
+                    </div>
+                </div>
+                <div class="svg-route-container">
+                    <svg viewBox="0 0 800 60" style="width:100%; height:60px;">
+                        <line x1="50" y1="30" x2="380" y2="30" stroke="#2563EB" stroke-width="3"/>
+                        <line x1="380" y1="30" x2="750" y2="30" stroke="#10B981" stroke-width="3" stroke-dasharray="6,6"/>
+                        <circle cx="50" cy="30" r="7" fill="#0B192C"/>
+                        <text x="50" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">ARN 阿蘭達 11:25</text>
+                        <circle cx="380" cy="30" r="7" fill="#2563EB"/>
+                        <text x="380" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">倫敦 LHR (轉機購物/休息)</text>
+                        <circle cx="750" cy="30" r="7" fill="#059669"/>
+                        <text x="750" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#334155">台北 TPE (2/21 18:15到)</text>
+                    </svg>
+                </div>
+                <div class="route-links-bar">
+                    <a href="https://www.google.com/maps/dir/Stockholm+Arlanda+Airport/Heathrow+Airport/Taoyuan+International+Airport" target="_blank" class="gmap-btn">📍 Google Maps 歸國長程航線</a>
+                </div>
+            </div>
+
+            <div class="family-special-care">
+                <span>💡 <strong>三代同堂貼心照料：</strong> 斯德哥爾摩前往機場搭乘頂級 <strong>Arlanda Express</strong>，僅需 18 分鐘即達航廈門口，平穩舒適無顛簸。抵達倫敦希斯洛（LHR）轉機時間充裕，全家可在華航/天合聯盟貴賓室淋浴洗漱、享用熱湯點心，長輩與孩子完全不匆忙。晚間登上華航 CI 082 直飛客機，一覺醒來於 2/21 (日) 傍晚順利返抵台灣！</span>
+            </div>
+
+            <p class="itinerary-desc">清晨享用豐盛早餐後，搭乘 Arlanda Express 機場快線直達機場。搭乘北歐航空 <strong>SK0527（11:25 起飛）</strong>飛往倫敦希斯洛機場（LHR）。於第三航廈享受充裕的貴賓室休息與免稅購物，晚間轉搭中華航空直飛客機 <strong>CI 082（21:15 起飛）</strong>直飛台北。滿載北極圈極光奇景、聖誕老人親切祝福與三代同堂的幸福回憶，於隔日（2027/2/21 週日傍晚 18:15）平安返抵桃園機場。</p>
+
+            <div class="day-spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">🚗 交通安排</span>
+                    <span class="spec-value">SAS SK0527 (11:25–13:10) ➔ 華航 CI 082 (21:15–18:15+1)</span>
+                    <span class="spec-sub">希斯洛機場 8 小時充裕轉機，享受尊榮貴賓室洗漱與悠閒購物</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🍽️ 餐飲安排</span>
+                    <span class="spec-value">早：飯店頂級早餐 ｜ 午：希斯洛貴賓室精選熱食 ｜ 晚：機上尊爵晚宴與清晨早餐</span>
+                    <span class="spec-sub">機上備有適合長輩的中式清粥與孩子喜愛的美饌</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏨 住宿安排</span>
+                    <span class="spec-value">豪華客機空中臥艙（2027/2/21 傍晚 18:15 抵達台北溫暖的家）</span>
+                    <span class="spec-sub">圓滿結束 14 天北歐三代同堂極圈奢華家庭旗艦探索之旅</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">🏛️ 建築與家庭設施</span>
+                    <span class="spec-value">阿蘭達機場快線車站、倫敦希斯洛 T2/T3 現代航廈</span>
+                    <span class="spec-sub">國際級樞紐機場空間設計與完善無障礙禮遇設施</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROPOSAL NOTES & INCLUSIONS -->
+    <div class="section-header">
+        <h2>提案規格細節與家庭尊榮服務清單</h2>
+        <span class="tagline">Inclusions, Exclusions & Multigenerational Gear Notes</span>
+    </div>
+
+    <div class="notes-grid">
+        <div class="note-card">
+            <h3>📋 提案報價包含項目（Inclusions）</h3>
+            <ul>
+                <li><strong>全套指定國際與跨國航班（共 4 段機票）</strong>：中華航空（TPE-AMS / LHR-TPE）、芬航（AMS-HEL）、<strong>芬航直飛（RVN-TOS 跨國直飛）</strong>、<strong>北歐航空（TOS-ARN 直飛/優選）</strong>、SAS（ARN-LHR）。</li>
+                <li><strong>芬蘭 VR 北極特快車臥鋪（3 間相鄰 Ensuite 包廂）</strong>：含上層獨立衛浴、淋浴花灑，長輩幼童夜間如廁極度安心。</li>
+                <li><strong>頂級特色連泊住宿</strong>：<strong>羅瓦涅米極圈加熱穹頂玻璃屋（1 晚）</strong>、特羅姆瑟海景第一排飯店（連泊 4 晚）、斯德哥爾摩市中心五星奢華飯店（連泊 5 晚）、赫爾辛基五星精品飯店（1 晚）。</li>
+                <li><strong>三代同堂專屬家庭體驗活動全包</strong>：聖誕老人村跨越極圈證書、溫和薩米馴鹿雪橇、Fjellheisen 密閉全景大型纜車、Polaria 北極水族館門票、Brim Explorer 靜音雙體遊艇峽灣出海、專屬家庭溫暖壁爐極光營地、瓦薩古戰艦門票、Junibacken 童話故事館（含小火車）。</li>
+                <li><strong>尊榮安全保障</strong>：全行程城市內定點大型賓士商務車行李點對點接送＋雙語資深家庭領隊＋高額旅遊平安險與極地醫療救援險。</li>
+            </ul>
+        </div>
+
+        <div class="note-card">
+            <h3>❄️ 幼童（6/9歲）與長輩（65歲）防寒裝備指引</h3>
+            <ul>
+                <li><strong>洋蔥式保暖穿搭三部曲</strong>：
+                    <br>• 內層：100% 美麗諾羊毛排汗發熱衣褲（嚴禁純棉，因出汗後變冷極易感冒）。
+                    <br>• 中層：厚抓絨（Fleece）或輕量羽絨背心/保暖衣。
+                    <br>• 外層：GORE-TEX 等級長版防風、防水、抗暴雪厚羽絨外套與防風雪褲。
+                </li>
+                <li><strong>手腳四肢抗凍關鍵</strong>：極地活動最先凍僵的是腳趾與手指。需準備<strong>羊毛厚襪（雙層）＋ 防滑防水極地雪靴</strong>；手套務必準備「內層觸控薄手套 ＋ 外層防風厚連指手套（Mittens）」。</li>
+                <li><strong>防滑與安全保護</strong>：雪地結冰路面為長輩跌倒高風險區，行前配發<strong>隨身鞋用防滑冰爪（Ice Grippers）</strong>，下車走雪地時套於鞋底，確保步步穩固。</li>
+                <li><strong>室內外溫差調節</strong>：北歐室內與車內暖氣高達 20~22°C，室外常為 -10~-20°C，外套務必選拉鍊式，進出室內 30 秒內即可穿脫，防止小孩長輩進屋大汗淋漓出門著涼。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2027 極光奢華訂製旅行專案組・AURORA VOYAGES BESPOKE MULTIGENERATIONAL TRAVEL. ALL RIGHTS RESERVED.</p>
+        <p style="margin-top: 6px;">本企劃案係依據 2027/02/07 至 2027/02/20 指定航班、同行長輩與孩童特性量身訂製，實際車次與航班以系統開票為準。</p>
+    </footer>
+
+</div>
+
+<!-- LEAFLET INTERACTIVE MAP SCRIPT -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Initialize Map centered on Northern Scandinavia
+        var map = L.map('macro-leaflet-map').setView([64.8, 19.5], 5);
+
+        // Add CartoDB Positron tiles (clean, elegant look)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        }).addTo(map);
+
+        // Waypoints Data
+        var waypoints = [
+            { name: "赫爾辛基 (Helsinki)", coords: [60.1699, 24.9384], desc: "D2 抵達・白教堂・岩石教堂・Oodi 圖書館童書區・D3 VR 北極臥鋪特快車起點", color: "#2563EB" },
+            { name: "羅瓦涅米 (Rovaniemi)", coords: [66.5039, 25.7294], desc: "D4 抵達・聖誕老人村見聖誕老人・馴鹿雪橇・入住加熱穹頂玻璃屋！D5 直飛挪威", color: "#00ADB5" },
+            { name: "特羅姆瑟 (Tromsø)", coords: [69.6492, 18.9553], desc: "D5-D8 芬航直飛抵達 (僅80分)・連宿 4 晚！Fjellheisen 暖氣纜車・Polaria 海豹秀・Brim 靜音巡航・溫暖極光營地", color: "#EF4444" },
+            { name: "斯德哥爾摩 (Stockholm)", coords: [59.3293, 18.0686], desc: "D9-D13 直飛抵達 (僅115分)・連宿 5 晚！瓦薩古戰艦・Junibacken 長襪皮皮童話小火車・市政廳諾貝爾廳・Fika 慢活", color: "#0284C7" }
+        ];
+
+        // Add Markers
+        waypoints.forEach(function(wp) {
+            var marker = L.circleMarker(wp.coords, {
+                radius: 9,
+                fillColor: wp.color,
+                color: "#ffffff",
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.95
+            }).addTo(map);
+
+            marker.bindPopup("<strong>" + wp.name + "</strong><br><span style='font-size:0.85rem;'>" + wp.desc + "</span>");
+        });
+
+        // Add Routes
+        // 1. VR Train: Helsinki -> Rovaniemi
+        var vrTrainCoords = [
+            [60.1699, 24.9384],
+            [61.4981, 23.7610],
+            [65.0121, 25.4651],
+            [66.5039, 25.7294]
+        ];
+        L.polyline(vrTrainCoords, { color: '#10B981', weight: 4, opacity: 0.85, dashArray: '8, 8' }).addTo(map).bindPopup("VR 芬蘭雙層北極特快車 (約 830 km / 12 小時臥鋪)");
+
+        // 2. UPGRADED FLIGHT: Rovaniemi (RVN) -> Tromsø (TOS)
+        var flightRvnTosCoords = [
+            [66.5039, 25.7294],
+            [67.8000, 23.0000],
+            [69.6492, 18.9553]
+        ];
+        L.polyline(flightRvnTosCoords, { color: '#2563EB', weight: 4, opacity: 0.9, dashArray: '6, 6' }).addTo(map).bindPopup("⭐ 芬航 AY541 跨國直飛 (約 450 km / 僅 1 小時 20 分！免去 12 小時雪巴)");
+
+        // 3. UPGRADED FLIGHT: Tromsø (TOS) -> Stockholm (ARN)
+        var flightTosArnCoords = [
+            [69.6492, 18.9553],
+            [65.0000, 19.0000],
+            [59.3293, 18.0686]
+        ];
+        L.polyline(flightTosArnCoords, { color: '#F59E0B', weight: 4, opacity: 0.9, dashArray: '6, 6' }).addTo(map).bindPopup("⭐ 北歐航空直飛/優選 (約 1,120 km / 僅 1 小時 55 分！免去 17 小時漫長夜車)");
+
+        // Expose focusMap globally
+        window.focusMap = function(coords, zoomLevel) {
+            map.flyTo(coords, zoomLevel, {
+                animate: true,
+                duration: 1.2
+            });
+            document.getElementById("macro-leaflet-map").scrollIntoView({ behavior: "smooth", block: "center" });
+        };
+    });
+</script>
+
+</body>
+</html>
