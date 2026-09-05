@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2027 北歐極圈三國極光貫通・奢華探索 14 日 ｜ 方案 A vs 方案 B 交通與住宿比較</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=THbCPdM3dNJzfwx-_c5VG2oxgu1w0G3bibMUBKcbv9Qfvr1sfy73-Kx4aqdAuAYZxE3sjnW-05Qjh1dXj0_vqFoFULbIV4Mx3isFnHXBjBYoMZVxwC2oKtPfeXsifOGQfJ9Qy7XuR4sMmP0vpcsHBBaU3JIPmycAIxh3TKmkkBJK4t7sGRcExuJYUmNzhYKnHyrz2uI5n6iCtElnXPsbVyHCkIqN5JKdysIyf5qnTKnWzwGJoVbpgRhG3x_3LTDwVxWIAxXwgPwYH-9j8n1fj6jj5oh6BwxD1ZopkGy2cj7Jf7dvgpgI_qQS-OKBwGkfHhveSfjyZ9TevHPsE8sKsg_Jx8fLG9C19JSruvMfmWI" charset="UTF-8"></script><style>
+        :root {
+            --bg-body: #0a1128;
+            --bg-card: rgba(18, 28, 56, 0.85);
+            --bg-table-head: #111d40;
+            --border-color: #233560;
+            --text-main: #f0f4fc;
+            --text-sub: #94a3b8;
+            --text-muted: #64748b;
+            
+            --aurora-teal: #10b981;
+            --aurora-teal-glow: rgba(16, 185, 129, 0.15);
+            --aurora-cyan: #06b6d4;
+            --plan-a: #38bdf8;
+            --plan-a-soft: rgba(56, 189, 248, 0.12);
+            --plan-b: #ec4899;
+            --plan-b-soft: rgba(236, 72, 153, 0.12);
+            --amber-highlight: #fbbf24;
+            --amber-soft: rgba(251, 191, 36, 0.15);
+            
+            --font-sans: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px 80px 20px;
+            background-image: 
+                radial-gradient(circle at 15% 10%, rgba(6, 182, 212, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 85% 20%, rgba(16, 185, 129, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 50% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 18px;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(16, 185, 129, 0.15));
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            border-radius: 9999px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #5eead4;
+            margin-bottom: 16px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 30%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            color: var(--text-sub);
+            font-size: 1.05rem;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 36px;
+        }
+
+        .summary-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 24px 28px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+        }
+
+        .card-plan-a::before {
+            background: linear-gradient(90deg, #38bdf8, #0284c7);
+        }
+
+        .card-plan-b::before {
+            background: linear-gradient(90deg, #f472b6, #db2777);
+        }
+
+        .summary-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .plan-tag {
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 6px;
+            letter-spacing: 0.05em;
+        }
+
+        .tag-a {
+            background: var(--plan-a-soft);
+            color: var(--plan-a);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .tag-b {
+            background: var(--plan-b-soft);
+            color: var(--plan-b);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+        }
+
+        .summary-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .summary-list {
+            list-style: none;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .summary-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .summary-list li span.bullet {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .card-plan-b .summary-list li span.bullet {
+            color: #f472b6;
+        }
+
+        /* Table Card Container */
+        .table-container {
+            background: var(--bg-card);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        thead th {
+            background-color: var(--bg-table-head);
+            padding: 20px 22px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.02em;
+            border-bottom: 2px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        thead th.col-date {
+            width: 14%;
+        }
+
+        thead th.col-plan-a {
+            width: 31%;
+            border-top: 3px solid var(--plan-a);
+        }
+
+        thead th.col-plan-b {
+            width: 31%;
+            border-top: 3px solid var(--plan-b);
+        }
+
+        thead th.col-diff {
+            width: 24%;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid rgba(35, 53, 96, 0.7);
+            transition: background-color 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background-color: rgba(30, 47, 86, 0.5);
+        }
+
+        tbody tr.highlight-diff {
+            background-color: rgba(251, 191, 36, 0.03);
+        }
+
+        tbody tr.highlight-diff:hover {
+            background-color: rgba(251, 191, 36, 0.07);
+        }
+
+        td {
+            padding: 18px 22px;
+            vertical-align: top;
+        }
+
+        /* Date Column */
+        .day-cell {
+            white-space: nowrap;
+        }
+
+        .day-badge {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .date-text {
+            color: var(--text-sub);
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        .weekend-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: rgba(239, 68, 68, 0.15);
+            color: #fca5a5;
+            margin-left: 4px;
+        }
+
+        /* Content Rows Inside Cells */
+        .info-group {
+            margin-bottom: 8px;
+        }
+
+        .info-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .label-transport {
+            background: rgba(56, 189, 248, 0.15);
+            color: #7dd3fc;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .label-stay {
+            background: rgba(16, 185, 129, 0.15);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+        }
+
+        .info-text {
+            color: #e2e8f0;
+            line-height: 1.5;
+            font-size: 0.94rem;
+        }
+
+        .highlight-text {
+            color: #facc15;
+            font-weight: 600;
+        }
+
+        .glass-tag {
+            color: #38bdf8;
+            font-weight: 600;
+        }
+
+        /* Diff Cell */
+        .diff-text {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.55;
+        }
+
+        .diff-pill {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #fbbf24;
+            background: var(--amber-soft);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+        }
+
+        .diff-points {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .diff-item {
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .diff-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--amber-highlight);
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 900px) {
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            body {
+                padding: 20px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="badge-pill">
+            <span>✨ 2027 極地探索專屬企劃對比</span>
+        </div>
+        <h1>2027 北歐極圈三國極光貫通・奢華探索 14 日</h1>
+        <p class="subtitle">【方案 A：經典阿比斯庫探索版】 vs 【方案 B：三代同堂家庭旗艦版】每日交通與住宿全面比較</p>
+    </header>
+
+    <!-- Overview Comparison Cards -->
+    <div class="summary-grid">
+        <div class="summary-card card-plan-a">
+            <div class="summary-title">
+                <span class="plan-tag tag-a">PLAN A</span>
+                <span class="summary-name">經典阿比斯庫探索版</span>
+            </div>
+            <ul class="summary-list">
+                <li><span class="bullet">✔</span> 雙夜臥火車（芬蘭 VR 雙層衛浴臥鋪 ＋ 瑞典 SJ 國鐵極地夜車）</li>
+                <li><span class="bullet">✔</span> 奧福特峽灣鐵道穿越挪瑞國界 ＋ 阿比斯庫國家公園連住 2 晚深度追光</li>
+                <li><span class="bullet">✔</span> 適合族群：活動力充沛、熱愛北歐景觀鐵路與深入極地戶外冒險</li>
+            </ul>
+        </div>
+        <div class="summary-card card-plan-b">
+            <div class="summary-title">
+                <span class="plan-tag tag-b">PLAN B</span>
+                <span class="summary-name">三代同堂家庭旗艦版</span>
+            </div>
+            <ul class="summary-list">
+                <li><span class="bullet">✔</span> 全航線直飛跨國（芬航直飛特羅姆瑟 ＋ SAS 直飛斯德哥爾摩），零長途雪巴拉車</li>
+                <li><span class="bullet">✔</span> 高連泊低搬遷（特羅姆瑟 3 連泊、斯德哥爾摩 3~4 連泊），體力負擔最小化</li>
+                <li><span class="bullet">✔</span> 適合族群：長輩與學童同行、講究頂級舒適節奏與免收拾行李的家庭旅行</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Comparison Table -->
+    <div class="table-container">
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-date">天數與日期</th>
+                        <th class="col-plan-a">方案 A：經典阿比斯庫探索版</th>
+                        <th class="col-plan-b">方案 B：三代同堂家庭旗艦版</th>
+                        <th class="col-diff">兩版主要差異解析</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Day 1 -->
+                    <tr>
+                        <td class="day-cell">
+                            <span class="day-badge">Day 1</span><br>
+                            <span class="date-text">2027/02/07</span> <span class="weekend-tag">週日</span>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">國際長程航班（台北 ✈ 歐洲轉機點）</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">機上</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">國際長程航班（台北 ✈ 歐洲轉機點）</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">機上</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="diff-text">兩案相同，搭乘長程航班啟程飛往歐洲。</div>
+                        </td>
+                    </tr>
+
+                    <!-- Day 2 -->
+                    <tr>
+                        <td class="day-cell">
+                            <span class="day-badge">Day 2</span><br>
+                            <span class="date-text">2027/02/08</span> 週一
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">轉機 ✈ 赫爾辛基 (HEL) ➔ 市區接駁／步行</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">赫爾辛基頂級飯店</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">轉機 ✈ 赫爾辛基 (HEL) ➔ 市區接駁／步行</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">赫爾辛基頂級飯店</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="diff-text">兩案相同，抵達芬蘭首都，展開輕量市區觀光調適時差。</div>
+                        </td>
+                    </tr>
+
+                    <!-- Day 3 -->
+                    <tr>
+                        <td class="day-cell">
+                            <span class="day-badge">Day 3</span><br>
+                            <span class="date-text">2027/02/09</span> 週二
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">赫爾辛基半日遊 ➔ 傍晚搭乘 <strong>VR 北極特快車（夜臥火車）</strong></div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text"><strong class="highlight-text">VR 北極夜臥火車</strong>（雙層獨立衛浴車廂）</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">赫爾辛基半日遊 ➔ 傍晚搭乘 <strong>VR 北極特快車（夜臥火車）</strong></div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text"><strong class="highlight-text">VR 北極夜臥火車</strong>（雙層獨立衛浴車廂）</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="diff-text">兩案相同，共同保留北歐公認最舒適的 VR 雙層臥鋪火車北上極圈體驗。</div>
+                        </td>
+                    </tr>
+
+                    <!-- Day 4 -->
+                    <tr>
+                        <td class="day-cell">
+                            <span class="day-badge">Day 4</span><br>
+                            <span class="date-text">2027/02/10</span> 週三
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">抵達羅瓦涅米 ➔ 市區／聖誕老人村專屬專車接駁</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">羅瓦涅米市區／景觀木屋</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">抵達羅瓦涅米 ➔ 市區／聖誕老人村專屬專車接駁</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">羅瓦涅米市區／景觀木屋</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="diff-text">兩案相同，抵達北極圈首府，造訪聖誕老人村與跨越北緯 66°33′ 極圈線。</div>
+                        </td>
+                    </tr>
+
+                    <!-- Day 5 -->
+                    <tr>
+                        <td class="day-cell">
+                            <span class="day-badge">Day 5</span><br>
+                            <span class="date-text">2027/02/11</span> 週四
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">極地專車接駁至極光度假村</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text"><strong class="glass-tag">頂級穹頂極光玻璃屋</strong></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">極地專車接駁至極光度假村</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text"><strong class="glass-tag">頂級穹頂極光玻璃屋</strong></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="diff-text">兩案相同，享受躺在床上 360° 仰望北極極光的奢華體驗。</div>
+                        </td>
+                    </tr>
+
+                    <!-- Day 6 -->
+                    <tr>
+                        <td class="day-cell">
+                            <span class="day-badge">Day 6</span><br>
+                            <span class="date-text">2027/02/12</span> 週五
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text"><strong>芬航直飛航班 ✈ 特羅姆瑟 (TOS)</strong></div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">挪威 特羅姆瑟海景飯店</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text"><strong>芬航直飛航班 ✈ 特羅姆瑟 (TOS)</strong></div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">挪威 特羅姆瑟海景飯店</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="diff-text">兩案均完全排除 8~10 小時長途極地拉車巴士，搭乘芬航直飛跨境抵達挪威極光之都。</div>
+                        </td>
+                    </tr>
+
+                    <!-- Day 7 -->
+                    <tr>
+                        <td class="day-cell">
+                            <span class="day-badge">Day 7</span><br>
+                            <span class="date-text">2027/02/13</span> <span class="weekend-tag">週六</span>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">市區接駁／Fjellheisen 纜車／<strong>戶外峽灣極光 Chase 專車</strong></div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">特羅姆瑟（第 2 晚）</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">市區步行／Polaria 水族館／<strong>家庭暖氣極光營地專車</strong></div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">特羅姆瑟（第 2 晚）</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="diff-text">
+                                • <strong>方案 A</strong>：偏向戶外動態追光。<br>
+                                • <strong>方案 B</strong>：安排溫暖室內水族館與固定式暖氣極光營地（備有熱湯、室內洗手間，友善長幼）。
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Day 8 -->
+                    <tr class="highlight-diff">
+                        <td class="day-cell">
+                            <span class="day-badge">Day 8</span><br>
+                            <span class="date-text">2027/02/14</span> <span class="weekend-tag">週日</span>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">特羅姆瑟 ➔ 接駁專車至納爾維克 ➔ 轉乘 <strong>奧福特峽灣鐵道 (Ofoten Line)</strong> 跨國</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text"><strong class="highlight-text">瑞典 阿比斯庫 (Abisko)</strong></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">特羅姆瑟市區悠閒步調、峽灣遊船（<strong>全天免打包行李移動</strong>）</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text"><strong class="highlight-text">特羅姆瑟（第 3 晚連泊）</strong></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="diff-pill">核心分歧點：鐵道跨國 vs 城市連泊</div>
+                            <div class="diff-points">
+                                <div class="diff-item"><strong>方案 A</strong>：展開經典高山鐵道巡禮，進駐瑞典極光聖地阿比斯庫。</div>
+                                <div class="diff-item"><strong>方案 B</strong>：免收拾行李，特羅姆瑟連住第 3 晚，保留充沛家庭休憩空間。</div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Day 9 -->
+                    <tr class="highlight-diff">
+                        <td class="day-cell">
+                            <span class="day-badge">Day 9</span><br>
+                            <span class="date-text">2027/02/15</span> 週一
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">阿比斯庫國家公園活動接駁</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text"><strong class="highlight-text">阿比斯庫 (Abisko)（第 2 晚）</strong></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">特羅姆瑟機場 ✈ <strong>SAS 北歐航空直飛</strong> ✈ 斯德哥爾摩 (ARN)</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text"><strong class="highlight-text">瑞典 斯德哥爾摩星級飯店</strong></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="diff-pill">核心分歧點：深度極光 vs 飛航首都</div>
+                            <div class="diff-points">
+                                <div class="diff-item"><strong>方案 A</strong>：夜訪極光天空站 (Aurora Sky Station) 連續兩晚觀測。</div>
+                                <div class="diff-item"><strong>方案 B</strong>：直飛直達瑞典首都，免除深夜在極圈戶外受寒，提早進駐五星飯店。</div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Day 10 -->
+                    <tr class="highlight-diff">
+                        <td class="day-cell">
+                            <span class="day-badge">Day 10</span><br>
+                            <span class="date-text">2027/02/16</span> 週二
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">阿比斯庫 ➔ 傍晚登上 <strong>SJ 瑞典國鐵極地夜臥火車</strong> 南下</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text"><strong class="highlight-text">SJ 瑞典國鐵夜臥火車（車宿）</strong></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">斯德哥爾摩市區電車／步行悠遊（老城區、六月坡童話世界）</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text"><strong class="highlight-text">斯德哥爾摩（連泊第 2 晚）</strong></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="diff-pill">核心分歧點：第二趟夜車 vs 首都連泊</div>
+                            <div class="diff-points">
+                                <div class="diff-item"><strong>方案 A</strong>：體驗 17 小時經典長途雪國夜車南下。</div>
+                                <div class="diff-item"><strong>方案 B</strong>：免睡狹窄火車床鋪，全家在市區享受舒適睡眠與童話親子景點。</div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Day 11 -->
+                    <tr>
+                        <td class="day-cell">
+                            <span class="day-badge">Day 11</span><br>
+                            <span class="date-text">2027/02/17</span> 週三
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">火車上午抵達斯德哥爾摩 ➔ 市區接駁／步行</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">斯德哥爾摩飯店</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">市區交通／瓦薩沉船博物館／群島景觀渡輪</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">斯德哥爾摩（連泊第 3 晚）</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="diff-text">
+                                • <strong>方案 A</strong>：上午下火車後開始探索首都。<br>
+                                • <strong>方案 B</strong>：步調從容，已在當地連泊第 3 天，免搬行李奔波。
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Day 12 -->
+                    <tr>
+                        <td class="day-cell">
+                            <span class="day-badge">Day 12</span><br>
+                            <span class="date-text">2027/02/18</span> 週四
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">斯德哥爾摩市區步行／地鐵藍線藝術巡禮</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">斯德哥爾摩飯店</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">市區名品購物／老城區巡禮／往阿蘭達機場 (ARN)</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">斯德哥爾摩（或機場星級飯店）</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="diff-text">
+                                • <strong>方案 A</strong>：完整沉浸斯德哥爾摩市容與地鐵藝廊。<br>
+                                • <strong>方案 B</strong>：依長輩作息安排悠閒購物或提早進駐機場飯店休整。
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Day 13 -->
+                    <tr>
+                        <td class="day-cell">
+                            <span class="day-badge">Day 13</span><br>
+                            <span class="date-text">2027/02/19</span> 週五
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">前往 ARN 機場 ✈ 國際返歐長程航班</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">機上</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">前往 ARN 機場 ✈ 國際返歐長程航班</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">機上</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="diff-text">兩案均由斯德哥爾摩阿蘭達機場啟程辦理退稅返台。</div>
+                        </td>
+                    </tr>
+
+                    <!-- Day 14 -->
+                    <tr>
+                        <td class="day-cell">
+                            <span class="day-badge">Day 14</span><br>
+                            <span class="date-text">2027/02/20</span> <span class="weekend-tag">週六</span>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">歐洲轉機 ✈ 返抵台北桃園 (TPE)</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">溫暖的家</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="info-group">
+                                <span class="info-label label-transport">交通</span>
+                                <div class="info-text">歐洲轉機 ✈ 返抵台北桃園 (TPE)</div>
+                            </div>
+                            <div class="info-group">
+                                <span class="info-label label-stay">住宿</span>
+                                <div class="info-text">溫暖的家</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="diff-text">平安返抵台灣，圓滿完成 14 日北歐極圈三國極光貫通之旅。</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>2027 北歐極圈三國極光貫通・奢華探索 14 日家庭企劃提案 ｜ 內部專案評估檔</p>
+    </footer>
+</div>
+
+</body>
+</html>
