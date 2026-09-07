@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北歐極圈三國極光貫通・北極特快車・穹頂玻璃屋14日奢華家庭探索提案（三代同堂・親子長輩旗艦版）</title>
+    <!-- Leaflet CSS & JS for Interactive Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+        :root {
+            --primary: #0A192F;
+            --secondary: #1E3E62;
+            --accent: #00ADB5;
+            --aurora-green: #38E54D;
+            --aurora-glow: #79E0EE;
+            --family-gold: #F59E0B;
+            --family-warm: #FEF3C7;
+            --kids-pink: #EC4899;
+            --senior-blue: #2563EB;
+            --dark-text: #1E293B;
+            --light-text: #64748B;
+            --bg-light: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --border-color: #CBD5E1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC", "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg-light);
+            color: var(--dark-text);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 24px 20px 80px 20px;
+        }
+
+        /* Hero Header */
+        .hero {
+            background: linear-gradient(135deg, #050C1A 0%, #0F2A4A 50%, #092635 100%);
+            color: #ffffff;
+            padding: 55px 40px;
+            border-radius: 18px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 12px 36px rgba(0,0,0,0.22);
+            border-bottom: 5px solid var(--accent);
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: -40%;
+            right: -15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 173, 181, 0.28) 0%, rgba(56, 229, 77, 0.1) 50%, transparent 70%);
+            pointer-events: none;
+            filter: blur(40px);
+        }
+
+        .hero-badge-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 173, 181, 0.18);
+            border: 1px solid var(--accent);
+            color: var(--aurora-glow);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .hero-family-badge {
+            background: #F59E0B;
+            color: #0F172A;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p.subtitle {
+            font-size: 1.08rem;
+            color: #CBD5E1;
+            max-width: 980px;
+            margin-bottom: 25px;
+        }
+
+        .hero-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px 24px;
+            border-radius: 14px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        .hero-meta-item h4 {
+            font-size: 0.75rem;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .hero-meta-item p {
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: #F8FAFC;
+        }
+
+        /* Family Customization Strategy Card */
+        .family-strategy-card {
+            background: #ffffff;
+            border: 2px solid #F59E0B;
+            border-radius: 16px;
+            padding: 26px 28px;
+            margin-bottom: 35px;
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.08);
+        }
+
+        .strategy-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-bottom: 1px dashed #CBD5E1;
+            padding-bottom: 12px;
+        }
+
+        .strategy-header h3 {
+            font-size: 1.35rem;
+            color: #B45309;
+            font-weight: 800;
+        }
+
+        .strategy-desc {
+            font-size: 0.95rem;
+            color: #334155;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .strategy-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .pillar-box {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 16px 18px;
+            border-top: 4px solid var(--accent);
+        }
+
+        .pillar-box.senior { border-top-color: #2563EB; }
+        .pillar-box.kids { border-top-color: #EC4899; }
+        .pillar-box.transit { border-top-color: #10B981; }
+
+        .pillar-box h4 {
+            font-size: 1.02rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+        }
+
+        .pillar-box ul {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.88rem;
+            color: #475569;
+        }
+
+        .pillar-box li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 18px;
+            line-height: 1.5;
+        }
+
+        .pillar-box li::before {
+            content: "✔";
+            color: #059669;
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
+        /* Section Title */
+        .section-header {
+            margin: 45px 0 20px 0;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header .tagline {
+            font-size: 0.95rem;
+            color: var(--light-text);
+            font-weight: 500;
+        }
+
+        /* Macro Interactive Map Card */
+        .macro-map-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            overflow: hidden;
+            margin-bottom: 35px;
+        }
+
+        .macro-map-header {
+            padding: 16px 24px;
+            background: #0B192C;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .macro-map-header h3 {
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .macro-map-legend {
+            display: flex;
+            gap: 16px;
+            font-size: 0.82rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+        }
+
+        #macro-leaflet-map {
+            height: 480px;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .macro-map-summary {
+            padding: 14px 24px;
+            background: #F8FAFC;
+            border-top: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            font-size: 0.88rem;
+        }
+
+        .summary-stat strong {
+            color: var(--primary);
+        }
+
+        /* Day Card */
+        .day-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+            overflow: hidden;
+            break-inside: avoid;
+        }
+
+        .day-header {
+            background: linear-gradient(90deg, #102A43 0%, #24486E 100%);
+            color: #ffffff;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .day-badge-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .day-num {
+            background: var(--accent);
+            color: #04292e;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .day-date-city {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .day-theme {
+            background: rgba(255,255,255,0.14);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #E2E8F0;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .day-body {
+            padding: 24px;
+        }
+
+        /* Route Map Card within Day Card */
+        .daily-route-card {
+            background: #F8FAFC;
+            border: 1px solid #CBD5E1;
+            border-left: 5px solid var(--accent);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+        }
+
+        .flight-upgrade-card {
+            border-left-color: #2563EB;
+            background: #EFF6FF;
+        }
+
+        .route-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .route-endpoints {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .route-metrics-bar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .metric-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #ffffff;
+            border: 1px solid #CBD5E1;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .metric-chip strong {
+            color: var(--secondary);
+        }
+
+        /* SVG Route Schematic */
+        .svg-route-container {
+            width: 100%;
+            overflow-x: auto;
+            background: #ffffff;
+            border-radius: 10px;
+            border: 1px dashed #CBD5E1;
+            padding: 14px 10px 10px 10px;
+            margin-bottom: 10px;
+        }
+
+        .route-links-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.82rem;
+        }
+
+        .gmap-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #0284C7;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 4px 10px;
+            background: #E0F2FE;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .gmap-btn:hover {
+            background: #BAE6FD;
+            text-decoration: underline;
+        }
+
+        .focus-map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #475569;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 4px 10px;
+            background: #E2E8F0;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .focus-map-btn:hover {
+            background: #CBD5E1;
+        }
+
+        .itinerary-desc {
+            font-size: 0.96rem;
+            color: #334155;
+            margin-bottom: 18px;
+            line-height: 1.75;
+        }
+
+        /* Family Special Care Highlight Tag */
+        .family-special-care {
+            background: #FFFBEB;
+            border: 1px solid #FDE68A;
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: #92400E;
+        }
+
+        .family-special-care strong {
+            color: #B45309;
+        }
+
+        /* Meta Grid inside Day Card */
+        .day-spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            background: #F8FAFC;
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+        }
+
+        .spec-box {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .spec-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+        }
+
+        .spec-value {
+            font-size: 0.91rem;
+            font-weight: 600;
+            color: #0F172A;
+            line-height: 1.4;
+        }
+
+        .spec-sub {
+            font-size: 0.81rem;
+            color: #64748B;
+            font-weight: 400;
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table.custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        table.custom-table th {
+            background: #0F2027;
+            color: #ffffff;
+            text-align: left;
+            padding: 14px 16px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        table.custom-table td {
+            padding: 13px 16px;
+            font-size: 0.88rem;
+            border-bottom: 1px solid var(--border-color);
+            color: #334155;
+            vertical-align: middle;
+        }
+
+        table.custom-table tr:hover td {
+            background: #F8FAFC;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .pill-flight { background: #DBEAFE; color: #1D4ED8; }
+        .pill-flight-vip { background: #FEF3C7; color: #92400E; border: 1px solid #F59E0B; }
+        .pill-train { background: #DCFCE7; color: #15803D; }
+
+        /* Notes Grid */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .notes-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.7rem; }
+            .hero { padding: 35px 20px; }
+        }
+
+        .note-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+        }
+
+        .note-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .note-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .note-card li {
+            font-size: 0.88rem;
+            color: #475569;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.5;
+        }
+
+        .note-card li::before {
+            content: "•";
+            color: var(--accent);
+            font-size: 1.3rem;
+            position: absolute;
+            left: 2px;
+            top: -2px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 30px;
+            color: #94A3B8;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media print {
+            body { background: #ffffff; font-size: 9.5pt; }
+            .container { max-width: 100%; padding: 0; }
+            .hero { box-shadow: none; border-radius: 0; }
+            .day-card { break-inside: avoid; border: 1px solid #ccc; box-shadow: none; margin-bottom: 20px; }
+            .macro-map-card { break-inside: avoid; }
+            #macro-leaflet-map { height: 350px; }
+            .focus-map-btn, .gmap-btn { display: none; }
+        }
+    </style>
+
+<style>
+.v3-note{background:#ECFDF5;border:1px solid #A7F3D0;color:#065F46;border-radius:12px;padding:14px 18px;margin:18px 0;font-size:.92rem}
+.confirmed{background:#FEF3C7;border:2px solid #F59E0B;color:#92400E;border-radius:12px;padding:14px 18px;margin:18px 0;font-weight:700}
+.warn{background:#FFF7ED;border:1px solid #FDBA74;color:#9A3412;border-radius:12px;padding:14px 18px;margin:18px 0}
+.score-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:20px 0}
+.score{background:#fff;border:1px solid #CBD5E1;border-radius:12px;padding:16px;text-align:center}
+.score b{display:block;font-size:1.55rem;color:#0F766E;margin-bottom:4px}
+.day-card.priority{border:2px solid #F59E0B}
+.day-card.priority .day-header{background:linear-gradient(90deg,#92400E,#B45309)}
+.small{font-size:.82rem;color:#64748B}
+.route-table td:first-child{font-weight:700;white-space:nowrap}
+@media print{.confirmed,.v3-note,.warn{break-inside:avoid}}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header class="hero">
+  <div class="hero-badge-group">
+    <div class="hero-badge">AURORA VOYAGES · FAMILY LUXURY PROPOSAL · 2027 V3</div>
+    <div class="hero-family-badge">👨‍👩‍👧‍👦 三代同堂：9歲・6歲・兩位65歲長輩</div>
+  </div>
+  <h1>北歐極圈三國極光貫通・VR 北極特快車・Tromsø＋Abisko 14日家庭旗艦版</h1>
+  <p class="subtitle">Taipei → Amsterdam → Helsinki → <strong>VR 19:29 夜臥列車</strong> → Rovaniemi → Tromsø → Narvik → Abisko → Kiruna → Stockholm → London → Taipei</p>
+  <div class="hero-meta-grid">
+    <div class="hero-meta-item"><h4>旅行日期</h4><p>2027/02/07（日）– 02/20（六）</p></div>
+    <div class="hero-meta-item"><h4>已確認核心交通</h4><p>⭐ 2/9 VR 19:29 Helsinki → Rovaniemi</p></div>
+    <div class="hero-meta-item"><h4>同行成員</h4><p>共 6 位｜2 位兒童＋2 位長輩＋2 位父母</p></div>
+    <div class="hero-meta-item"><h4>本版最大調整</h4><p>保留 Tromsø＋新增 Abisko｜Stockholm 縮至 3 晚</p></div>
+  </div>
+</header>
+
+<div class="confirmed">
+  🎫 <strong>已購買 VR 車票｜2027/02/09 19:29 Helsinki Central → Rovaniemi</strong><br>
+  本版行程以這班 19:29 夜臥列車為固定骨架，不再更動。建議把 2/9 白天安排成「輕量赫爾辛基＋提早吃晚餐＋提前進站」。
+</div>
+
+<section class="family-strategy-card">
+  <div class="strategy-header"><h3>🧭 V3 重排邏輯｜為什麼這一版比原版更適合你們一家六口</h3></div>
+  <p class="strategy-desc">
+    原版的優點是舒服，但把 <strong>Stockholm 放到 5 晚</strong>，相對犧牲了極圈旅行的層次。
+    V3 不取消 Tromsø，反而加入 <strong>Abisko 2 晚</strong>，形成「芬蘭拉普蘭 → 挪威海岸極光 → 瑞典內陸荒野極光」三種完全不同的北極體驗。
+    同時把 Stockholm 壓縮到 3 晚，仍保留 Vasa＋Junibacken＋老城/Fika，對 9 歲與 6 歲孩子已足夠。
+  </p>
+  <div class="strategy-pillars">
+    <div class="pillar-box senior"><h4>👴👵 長輩</h4><ul>
+      <li>2/9 夜臥列車取代白天長途移動</li>
+      <li>Tromsø 保留 3 晚，不連續追景點</li>
+      <li>Abisko 只住 2 晚，避免拉長極地停留</li>
+      <li>Abisko → Kiruna → Stockholm 採「短火車＋短程飛機」優先，不強迫搭 17 小時夜車</li>
+    </ul></div>
+    <div class="pillar-box kids"><h4>👦👧 9歲＋6歲</h4><ul>
+      <li>Santa Claus Village＋北極圈證書</li>
+      <li>Snowman World／馴鹿／哈士奇擇一至二項</li>
+      <li>Polaria＋峽灣船，從陸地切換到海洋</li>
+      <li>Abisko 雪地探索＋極光，形成真正「荒野探險」記憶</li>
+      <li>Stockholm Vasa＋Junibacken 收尾</li>
+    </ul></div>
+    <div class="pillar-box transit"><h4>✨ 極光策略</h4><ul>
+      <li>Rovaniemi：2 晚</li>
+      <li>Tromsø：3 晚</li>
+      <li>Abisko：2 晚</li>
+      <li>不是只靠一次追光團，而是用不同天候型態增加容錯</li>
+    </ul></div>
+  </div>
+</section>
+
+<div class="section-header"><h2>🗺️ V3 全行程路線</h2><span class="tagline">Helsinki → Rovaniemi → Tromsø → Abisko → Stockholm</span></div>
+<div class="macro-map-card">
+  <div class="macro-map-header"><h3>📍 三地極光基地＋家庭交通網絡</h3>
+    <div class="macro-map-legend">
+      <div class="legend-item"><div class="legend-color" style="background:#2563EB"></div>飛機</div>
+      <div class="legend-item"><div class="legend-color" style="background:#10B981"></div>鐵路</div>
+      <div class="legend-item"><div class="legend-color" style="background:#F59E0B"></div>家庭重點</div>
+    </div>
+  </div>
+  <div id="macro-leaflet-map"></div>
+  <div class="macro-map-summary">
+    <div class="summary-stat"><strong>極光基地：</strong> Rovaniemi＋Tromsø＋Abisko</div>
+    <div class="summary-stat"><strong>VR：</strong> 2/9 19:29 已購票</div>
+    <div class="summary-stat"><strong>Abisko：</strong> 2 晚</div>
+    <div class="summary-stat"><strong>Stockholm：</strong> 3 晚</div>
+  </div>
+</div>
+
+<div class="section-header"><h2>📊 V3 住宿與節奏配置</h2><span class="tagline">把「搬行李」換成「深度體驗」</span></div>
+<div class="table-responsive">
+<table class="custom-table">
+<thead><tr><th>日期</th><th>地點</th><th>住宿</th><th>定位</th><th>家庭節奏</th></tr></thead>
+<tbody>
+<tr><td>2/7</td><td>飛機</td><td>機上</td><td>長程夜航</td><td>睡眠優先</td></tr>
+<tr><td>2/8</td><td>Helsinki</td><td>市中心飯店</td><td>城市暖身</td><td>半日＋早睡</td></tr>
+<tr><td>2/9</td><td>Helsinki → VR</td><td>VR 夜臥</td><td>家庭旅行亮點 ★★★★★</td><td>19:29 出發</td></tr>
+<tr><td>2/10–2/11</td><td>Rovaniemi</td><td>玻璃屋／Lapland 飯店</td><td>聖誕老人＋雪地活動</td><td>2 晚</td></tr>
+<tr><td>2/12–2/14</td><td>Tromsø</td><td>市中心海景飯店</td><td>峽灣＋極光</td><td>3 晚</td></tr>
+<tr><td>2/15–2/16</td><td>Abisko</td><td>Abisko Turiststation／山區 Lodge</td><td>荒野極光</td><td>2 晚</td></tr>
+<tr><td>2/17–2/19</td><td>Stockholm</td><td>市中心飯店</td><td>Vasa＋Junibacken＋老城</td><td>3 晚</td></tr>
+<tr><td>2/20</td><td>Stockholm → London → Taipei</td><td>機上</td><td>返程</td><td>不再安排景點</td></tr>
+</tbody></table>
+</div>
+
+<div class="section-header"><h2>📋 逐日詳細行程</h2><span class="tagline">Family Luxury Explorer · 14 Days</span></div>
+
+<!-- Day 1 -->
+<div class="day-card" id="day1"><div class="day-header"><div class="day-badge-title"><span class="day-num">DAY 01</span><span class="day-date-city">2027/02/07（日）台北 → 阿姆斯特丹</span></div><div class="day-theme">啟程・夜航</div></div><div class="day-body">
+<div class="daily-route-card"><div class="route-top-bar"><div class="route-endpoints">🛫 TPE → AMS</div><div class="route-metrics-bar"><span class="metric-chip">✈️ CI 73</span><span class="metric-chip">⏱️ 依已購票航班</span></div></div></div>
+<p class="itinerary-desc">晚間從桃園出發。今天不安排其他活動，把體力留給接下來的北極圈行程。</p>
+<div class="day-spec-grid"><div class="spec-box"><span class="spec-label">🚗 交通</span><span class="spec-value">CI 73 長程航班</span></div><div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">機上餐</span></div><div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">機上</span></div><div class="spec-box"><span class="spec-label">👨‍👩‍👧‍👦 家庭策略</span><span class="spec-value">睡眠優先</span></div></div>
+</div></div>
+
+<!-- Day 2 -->
+<div class="day-card" id="day2"><div class="day-header"><div class="day-badge-title"><span class="day-num">DAY 02</span><span class="day-date-city">2027/02/08（一）阿姆斯特丹 → Helsinki</span></div><div class="day-theme">北歐設計暖身</div></div><div class="day-body">
+<div class="daily-route-card"><div class="route-top-bar"><div class="route-endpoints">🛫 AMS → HEL</div><div class="route-metrics-bar"><span class="metric-chip">✈️ AY1302（依原行程）</span></div></div></div>
+<p class="itinerary-desc">中午抵達 Helsinki。下午只排岩石教堂、Oodi 或市中心短散步三選二，晚上提早休息。這一天的真正目的，是讓孩子和長輩適應北歐寒冷與時差。</p>
+<div class="day-spec-grid"><div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">Helsinki 市中心五星飯店</span></div><div class="spec-box"><span class="spec-label">🍽️ 晚餐</span><span class="spec-value">芬蘭熱食／鮭魚湯</span></div><div class="spec-box"><span class="spec-label">👴👵 長輩</span><span class="spec-value">下午 16:00 後可自由回飯店</span></div><div class="spec-box"><span class="spec-label">🎒 行李</span><span class="spec-value">不搬飯店</span></div></div>
+</div></div>
+
+<!-- Day 3 -->
+<div class="day-card priority" id="day3"><div class="day-header"><div class="day-badge-title"><span class="day-num">DAY 03</span><span class="day-date-city">2027/02/09（二）Helsinki → VR Rovaniemi</span></div><div class="day-theme">⭐ 已購票・19:29 北極特快車</div></div><div class="day-body">
+<div class="daily-route-card"><div class="route-top-bar"><div class="route-endpoints">🚆 Helsinki Central → Rovaniemi</div><div class="route-metrics-bar"><span class="metric-chip">🎫 <strong>已購票</strong></span><span class="metric-chip">🕢 <strong>19:29 出發</strong></span><span class="metric-chip">🌅 約翌晨抵達</span></div></div>
+<div class="svg-route-container"><svg viewBox="0 0 800 60" style="width:100%;height:60px"><line x1="60" y1="30" x2="740" y2="30" stroke="#10B981" stroke-width="4"/><circle cx="60" cy="30" r="8" fill="#F59E0B"/><text x="60" y="52" font-size="11" font-weight="700" text-anchor="middle">Helsinki 19:29</text><circle cx="740" cy="30" r="8" fill="#059669"/><text x="740" y="52" font-size="11" font-weight="700" text-anchor="middle">Rovaniemi 翌晨</text></svg></div></div>
+<div class="family-special-care"><span>💡 <strong>本趟固定核心：</strong> 19:29 是已購車次，本版完全以此為準。建議 17:00 前吃完主餐、18:00 左右到中央車站、預留找月台與整理行李時間。</span></div>
+<p class="itinerary-desc">上午睡到自然醒；下午安排老市場／中央圖書館 Oodi 等輕量活動。傍晚提早晚餐後前往 Helsinki Central，登上已購買的 VR 夜臥列車。對兩個孩子而言，這一晚本身就是旅程中的大型體驗。</p>
+<div class="day-spec-grid"><div class="spec-box"><span class="spec-label">🚆 交通</span><span class="spec-value">VR 夜臥列車 19:29</span><span class="spec-sub">車次以已購票資訊為準</span></div><div class="spec-box"><span class="spec-label">🍽️ 晚餐</span><span class="spec-value">建議上車前吃完</span></div><div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">VR 臥鋪包廂</span></div><div class="spec-box"><span class="spec-label">👦👧 孩子亮點</span><span class="spec-value">「睡在火車上」</span></div></div>
+</div></div>
+
+<!-- Day 4 -->
+<div class="day-card" id="day4"><div class="day-header"><div class="day-badge-title"><span class="day-num">DAY 04</span><span class="day-date-city">2027/02/10（三）Rovaniemi</span></div><div class="day-theme">北極圈・Santa Claus Village</div></div><div class="day-body">
+<div class="daily-route-card"><div class="route-top-bar"><div class="route-endpoints">🚆 Rovaniemi Station → Santa Claus Village → Glass Igloo</div><div class="route-metrics-bar"><span class="metric-chip">🎅 北極圈</span><span class="metric-chip">🏠 玻璃屋</span></div></div></div>
+<p class="itinerary-desc">清晨抵達後先早餐與休息，再前往 Santa Claus Village。安排聖誕老人會面、北極圈證書、郵局寄明信片。下午不要塞太滿，傍晚入住穹頂玻璃屋，將第一個極光夜留給全家。</p>
+<div class="day-spec-grid"><div class="spec-box"><span class="spec-label">🎅 重點</span><span class="spec-value">Santa Claus Village</span></div><div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">玻璃屋 1 晚</span></div><div class="spec-box"><span class="spec-label">🌌 極光</span><span class="spec-value">房內觀測＋視天候安排外出</span></div><div class="spec-box"><span class="spec-label">👴👵</span><span class="spec-value">下午保留休息時段</span></div></div>
+</div></div>
+
+<!-- Day 5 -->
+<div class="day-card" id="day5"><div class="day-header"><div class="day-badge-title"><span class="day-num">DAY 05</span><span class="day-date-city">2027/02/11（四）Rovaniemi</span></div><div class="day-theme">親子雪地主場</div></div><div class="day-body">
+<div class="daily-route-card"><div class="route-top-bar"><div class="route-endpoints">❄️ Snowman World／馴鹿／哈士奇（三選二）</div><div class="route-metrics-bar"><span class="metric-chip">👦👧 親子日</span><span class="metric-chip">🧤 戶外 2–4 小時</span></div></div></div>
+<p class="itinerary-desc">今天不再追景點數量。建議以 Snowman World＋馴鹿或哈士奇為主；若孩子體力好再加短雪鞋體驗。下午回飯店休息，讓全家保持體力迎接 Tromsø。</p>
+<div class="day-spec-grid"><div class="spec-box"><span class="spec-label">❄️ 活動</span><span class="spec-value">Snowman World＋馴鹿／哈士奇</span></div><div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">Rovaniemi／Lapland 飯店</span></div><div class="spec-box"><span class="spec-label">🍽️</span><span class="spec-value">拉普蘭料理</span></div><div class="spec-box"><span class="spec-label">🌌</span><span class="spec-value">第二極光機會</span></div></div>
+</div></div>
+
+<!-- Day 6 -->
+<div class="day-card" id="day6"><div class="day-header"><div class="day-badge-title"><span class="day-num">DAY 06</span><span class="day-date-city">2027/02/12（五）Rovaniemi → Tromsø</span></div><div class="day-theme">跨國移動・挪威北極之門</div></div><div class="day-body">
+<div class="warn"><strong>航班註記：</strong>原版本的 RVN→TOS 直飛班次屬規劃骨架；2027 冬季正式班表、是否直飛及時間須以航空公司正式開票結果確認。若無合適直飛，優先採「飛機轉機」而非 10–12 小時長途巴士。</div>
+<div class="daily-route-card"><div class="route-top-bar"><div class="route-endpoints">✈️ RVN → TOS</div><div class="route-metrics-bar"><span class="metric-chip">⭐ 優先直飛</span><span class="metric-chip">🧳 行李直掛優先</span></div></div></div>
+<p class="itinerary-desc">上午從 Rovaniemi 前往機場。抵達 Tromsø 後入住市中心，下午只做海港散步與晚餐。若天候良好，晚上可安排第一次 Tromsø 極光。</p>
+<div class="day-spec-grid"><div class="spec-box"><span class="spec-label">✈️ 交通</span><span class="spec-value">RVN → TOS（待 2027 班表確認）</span></div><div class="spec-box"><span class="spec-label">🏨</span><span class="spec-value">Clarion The Edge／Radisson Blu 類型市中心飯店</span></div><div class="spec-box"><span class="spec-label">🌌</span><span class="spec-value">抵達夜即具備追光機會</span></div><div class="spec-box"><span class="spec-label">🧘</span><span class="spec-value">下午刻意留白</span></div></div>
+</div></div>
+
+<!-- Day 7 -->
+<div class="day-card" id="day7"><div class="day-header"><div class="day-badge-title"><span class="day-num">DAY 07</span><span class="day-date-city">2027/02/13（六）Tromsø</span></div><div class="day-theme">Polaria＋北極大教堂＋極光</div></div><div class="day-body">
+<div class="daily-route-card"><div class="route-top-bar"><div class="route-endpoints">🏨 → Polaria → Arctic Cathedral → Aurora</div><div class="route-metrics-bar"><span class="metric-chip">👦👧 室內親子</span><span class="metric-chip">🌌 極光第 1 夜</span></div></div></div>
+<p class="itinerary-desc">上午 Polaria，讓孩子先建立「北極海洋」概念；下午北極大教堂與港區。晚上安排一次家庭友善的極光團，重點是短車程、可進室內取暖，而不是追求跑最遠。</p>
+<div class="day-spec-grid"><div class="spec-box"><span class="spec-label">🐋</span><span class="spec-value">Polaria</span></div><div class="spec-box"><span class="spec-label">⛪</span><span class="spec-value">Arctic Cathedral</span></div><div class="spec-box"><span class="spec-label">🌌</span><span class="spec-value">家庭極光團</span></div><div class="spec-box"><span class="spec-label">🏨</span><span class="spec-value">Tromsø 連住第 2 晚</span></div></div>
+</div></div>
+
+<!-- Day 8 -->
+<div class="day-card" id="day8"><div class="day-header"><div class="day-badge-title"><span class="day-num">DAY 08</span><span class="day-date-city">2027/02/14（日）Tromsø</span></div><div class="day-theme">峽灣巡航・情人節家庭日</div></div><div class="day-body">
+<div class="daily-route-card"><div class="route-top-bar"><div class="route-endpoints">🚢 Tromsø Harbour → Fjord Cruise</div><div class="route-metrics-bar"><span class="metric-chip">🌊 峽灣</span><span class="metric-chip">🏨 午後休息</span></div></div></div>
+<p class="itinerary-desc">上午搭乘舒適的峽灣巡航，選擇有室內暖艙的船型。下午回飯店休息，晚上視雲量決定是否第二次追光。這天刻意不安排大量市區步行。</p>
+<div class="day-spec-grid"><div class="spec-box"><span class="spec-label">🚢</span><span class="spec-value">Fjord Cruise</span></div><div class="spec-box"><span class="spec-label">☕</span><span class="spec-value">下午自由休息</span></div><div class="spec-box"><span class="spec-label">🌌</span><span class="spec-value">Tromsø 第 2 極光夜</span></div><div class="spec-box"><span class="spec-label">🏨</span><span class="spec-value">Tromsø 連住第 3 晚</span></div></div>
+</div></div>
+
+<!-- Day 9 -->
+<div class="day-card" id="day9"><div class="day-header"><div class="day-badge-title"><span class="day-num">DAY 09</span><span class="day-date-city">2027/02/15（一）Tromsø → Narvik → Abisko</span></div><div class="day-theme">北極峽灣 → 瑞典荒野</div></div><div class="day-body">
+<div class="daily-route-card"><div class="route-top-bar"><div class="route-endpoints">🚌 Tromsø → Narvik → 🚆 Abisko</div><div class="route-metrics-bar"><span class="metric-chip">🚌 約 4h 至 Narvik</span><span class="metric-chip">🚆 再接瑞典鐵路</span></div></div></div>
+<p class="itinerary-desc">今天是全程少數較長的移動日，但它換來 Abisko 的完全不同體驗。冬季 Arctic Route 在 Tromsø–Narvik 間提供旅客導向的巴士服務，再銜接 Narvik–瑞典鐵路。抵達 Abisko 後不排任何景點，晚餐後直接入住。</p>
+<div class="family-special-care"><span>💡 <strong>家庭關鍵：</strong> 大件行李盡量採少量隨身＋輕便行李配置；今天不安排雪地活動。若 2027 班表銜接不理想，備案為 Tromsø → Kiruna 飛行／接駁，而不是硬趕火車。</span></div>
+<div class="day-spec-grid"><div class="spec-box"><span class="spec-label">🚌</span><span class="spec-value">Tromsø → Narvik</span></div><div class="spec-box"><span class="spec-label">🚆</span><span class="spec-value">Narvik → Abisko</span></div><div class="spec-box"><span class="spec-label">🏨</span><span class="spec-value">Abisko 連住第 1 晚</span></div><div class="spec-box"><span class="spec-label">🧘</span><span class="spec-value">抵達後完全休息</span></div></div>
+</div></div>
+
+<!-- Day 10 -->
+<div class="day-card priority" id="day10"><div class="day-header"><div class="day-badge-title"><span class="day-num">DAY 10</span><span class="day-date-city">2027/02/16（二）Abisko</span></div><div class="day-theme">⭐ 荒野極光主場</div></div><div class="day-body">
+<div class="daily-route-card"><div class="route-top-bar"><div class="route-endpoints">🏔️ Abisko National Park → Aurora Sky Station</div><div class="route-metrics-bar"><span class="metric-chip">🌌 極光第 3 基地</span><span class="metric-chip">🥾 輕量雪地探索</span></div></div></div>
+<p class="itinerary-desc">白天安排 2–4 km 的家庭版雪地探索，依孩子與長輩體力調整。傍晚回住宿休息，晚上才是主角：可安排 Aurora Sky Station／專業極光活動。Abisko 的價值不是豪華城市，而是黑暗、荒野與清澈天空。</p>
+<div class="family-special-care"><span>💡 <strong>重要：</strong> Aurora Sky Station 位於山坡高處，官方活動包含露天座椅纜車與戶外觀景；如果當晚風勢或長輩怕冷，改成地面極光團／暖屋方案，不必為了「上山」硬撐。</span></div>
+<div class="day-spec-grid"><div class="spec-box"><span class="spec-label">🏔️</span><span class="spec-value">Abisko National Park</span></div><div class="spec-box"><span class="spec-label">🌌</span><span class="spec-value">Aurora Sky Station／替代暖屋追光</span></div><div class="spec-box"><span class="spec-label">🏨</span><span class="spec-value">Abisko 連住第 2 晚</span></div><div class="spec-box"><span class="spec-label">👴👵</span><span class="spec-value">雪地活動可只走短線</span></div></div>
+</div></div>
+
+<!-- Day 11 -->
+<div class="day-card" id="day11"><div class="day-header"><div class="day-badge-title"><span class="day-num">DAY 11</span><span class="day-date-city">2027/02/17（三）Abisko → Kiruna → Stockholm</span></div><div class="day-theme">荒野 → 瑞典首都</div></div><div class="day-body">
+<div class="daily-route-card"><div class="route-top-bar"><div class="route-endpoints">🚆 Abisko → Kiruna → ✈️ Stockholm</div><div class="route-metrics-bar"><span class="metric-chip">🚆 約 1 小時級</span><span class="metric-chip">✈️ KRN → ARN 約 1h35m</span></div></div></div>
+<p class="itinerary-desc">上午悠閒早餐後搭火車前往 Kiruna，再搭直飛 Stockholm 的航班。這是 V3 刻意採用的「短火車＋短飛機」方案，避免讓一家六口再坐 17 小時夜臥列車。</p>
+<div class="warn"><strong>航班註記：</strong>目前 Kiruna–Stockholm 有 SAS／Norwegian 直飛航線；2027/2/17 的實際班次需以正式班表確認。</div>
+<div class="day-spec-grid"><div class="spec-box"><span class="spec-label">🚆</span><span class="spec-value">Abisko → Kiruna</span></div><div class="spec-box"><span class="spec-label">✈️</span><span class="spec-value">KRN → ARN 直飛</span></div><div class="spec-box"><span class="spec-label">🏨</span><span class="spec-value">Stockholm 連住第 1 晚</span></div><div class="spec-box"><span class="spec-label">🌙</span><span class="spec-value">抵達後只吃飯休息</span></div></div>
+</div></div>
+
+<!-- Day 12 -->
+<div class="day-card" id="day12"><div class="day-header"><div class="day-badge-title"><span class="day-num">DAY 12</span><span class="day-date-city">2027/02/18（四）Stockholm</span></div><div class="day-theme">Vasa＋Junibacken 親子雙主場</div></div><div class="day-body">
+<div class="daily-route-card"><div class="route-top-bar"><div class="route-endpoints">🏛️ Vasa Museum → 📚 Junibacken</div><div class="route-metrics-bar"><span class="metric-chip">👦👧 親子 ★★★★★</span><span class="metric-chip">🏠 室內為主</span></div></div></div>
+<p class="itinerary-desc">今天把 Stockholm 最適合孩子的兩個景點集中完成：真實的 17 世紀戰艦 Vasa，以及林格倫童話世界 Junibacken。兩館都適合冬季家庭旅行，長輩也有充足座位休息。</p>
+<div class="day-spec-grid"><div class="spec-box"><span class="spec-label">🚢</span><span class="spec-value">Vasa Museum</span></div><div class="spec-box"><span class="spec-label">📚</span><span class="spec-value">Junibacken</span></div><div class="spec-box"><span class="spec-label">🍰</span><span class="spec-value">瑞典 Fika</span></div><div class="spec-box"><span class="spec-label">🏨</span><span class="spec-value">Stockholm 連住第 2 晚</span></div></div>
+</div></div>
+
+<!-- Day 13 -->
+<div class="day-card" id="day13"><div class="day-header"><div class="day-badge-title"><span class="day-num">DAY 13</span><span class="day-date-city">2027/02/19（五）Stockholm</span></div><div class="day-theme">Gamla Stan・王宮・Fika・收尾</div></div><div class="day-body">
+<div class="daily-route-card"><div class="route-top-bar"><div class="route-endpoints">🏰 Gamla Stan → 王宮 → ☕ Fika → NK</div><div class="route-metrics-bar"><span class="metric-chip">🚶 約 4–6 km</span><span class="metric-chip">🛍️ 最後採買</span></div></div></div>
+<p class="itinerary-desc">最後完整一天不再安排密集博物館。上午老城與王宮，下午 Fika、伴手禮與 NK。晚上早點回飯店整理行李，為隔天返程保留體力。</p>
+<div class="day-spec-grid"><div class="spec-box"><span class="spec-label">🏰</span><span class="spec-value">Gamla Stan＋王宮</span></div><div class="spec-box"><span class="spec-label">☕</span><span class="spec-value">Fika</span></div><div class="spec-box"><span class="spec-label">🛍️</span><span class="spec-value">NK 最後採買</span></div><div class="spec-box"><span class="spec-label">🏨</span><span class="spec-value">Stockholm 連住第 3 晚</span></div></div>
+</div></div>
+
+<!-- Day 14 -->
+<div class="day-card" id="day14"><div class="day-header"><div class="day-badge-title"><span class="day-num">DAY 14</span><span class="day-date-city">2027/02/20（六）Stockholm → London → Taipei</span></div><div class="day-theme">返程</div></div><div class="day-body">
+<div class="daily-route-card"><div class="route-top-bar"><div class="route-endpoints">✈️ ARN → LHR → TPE</div><div class="route-metrics-bar"><span class="metric-chip">✈️ SK0527＋CI082（依原行程）</span></div></div></div>
+<p class="itinerary-desc">早餐後前往 Arlanda。今天不排任何景點。抵達倫敦後保留充裕轉機時間，再搭乘華航返台，2/21 抵達台北。</p>
+<div class="day-spec-grid"><div class="spec-box"><span class="spec-label">✈️</span><span class="spec-value">ARN → LHR → TPE</span></div><div class="spec-box"><span class="spec-label">🧳</span><span class="spec-value">行李與轉機優先</span></div><div class="spec-box"><span class="spec-label">🍽️</span><span class="spec-value">機場／機上餐</span></div><div class="spec-box"><span class="spec-label">🏁</span><span class="spec-value">2/21 返回台灣</span></div></div>
+</div></div>
+
+<div class="section-header"><h2>⭐ V3 最終建議</h2><span class="tagline">這一版是我更推薦給你們一家六口的配置</span></div>
+<div class="score-grid">
+  <div class="score"><b>★★★★★</b>極光策略<br><span class="small">三基地、不同氣候型態</span></div>
+  <div class="score"><b>★★★★★</b>孩子體驗<br><span class="small">Santa＋雪地＋峽灣＋荒野＋童話</span></div>
+  <div class="score"><b>★★★★☆</b>長輩舒適<br><span class="small">唯一較辛苦是 2/15 Tromsø→Abisko</span></div>
+  <div class="score"><b>★★★★★</b>行程層次<br><span class="small">三種北極完全不同風景</span></div>
+</div>
+<div class="v3-note"><strong>我的結論：</strong> 不建議用 Inari 取代這一版。Rovaniemi 已經提供芬蘭 Lapland 核心體驗；若再塞 Inari，會增加轉場而沒有像 Abisko 那麼大的「地貌與旅行感」差異。<strong>保留 Tromsø，再加入 Abisko 2 晚</strong>，是目前這份 14 日行程最值得的升級。</div>
+<div class="warn"><strong>2027 時刻表提醒：</strong> 本 HTML 已把「已購買的 2/9 19:29 VR 車次」視為固定條件；其他 2027 冬季航班與跨境接駁仍應以正式班表／開票結果確認。尤其 RVN→TOS、Tromsø→Narvik→Abisko 的銜接，以及 2/17 KRN→ARN 班次，應在可以訂票後鎖定。</div>
+
+<div class="section-header"><h2>🔗 參考與預訂入口</h2><span class="tagline">規劃用外部資訊</span></div>
+<div class="card" style="background:#fff;border:1px solid #CBD5E1;border-radius:12px;padding:20px">
+<ul style="padding-left:22px;line-height:2">
+<li><a href="https://www.visitrovaniemi.fi/attraction/snowman-world/" target="_blank">Visit Rovaniemi｜Snowman World</a></li>
+<li><a href="https://www.visittromso.no/northern-lights/when-and-where" target="_blank">Visit Tromsø｜Northern Lights</a></li>
+<li><a href="https://visitabisko.com/activities/aurora-sky-station/" target="_blank">Visit Abisko｜Aurora Sky Station</a></li>
+<li><a href="https://visitabisko.com/faq/" target="_blank">Visit Abisko｜Aurora FAQ</a></li>
+<li><a href="https://www.visitstockholm.com/o/the-vasa-museum/" target="_blank">Visit Stockholm｜Vasa Museum</a></li>
+<li><a href="https://www.visitstockholm.com/o/junibacken/" target="_blank">Visit Stockholm｜Junibacken</a></li>
+</ul>
+</div>
+
+<footer class="footer">
+2027 北歐極圈三國極光・三代同堂家庭 V3｜Helsinki＋Rovaniemi＋Tromsø＋Abisko＋Stockholm<br>
+本 HTML 為旅行規劃提案。已購 VR 2/9 19:29 為本版固定條件；其他航班、火車、活動與住宿以 2027 正式班表及供應商公告為準。
+</footer>
+</div>
+
+<script>
+const places=[
+ {name:"Helsinki",lat:60.1699,lon:24.9384},
+ {name:"Rovaniemi",lat:66.5039,lon:25.7294},
+ {name:"Tromsø",lat:69.6492,lon:18.9553},
+ {name:"Narvik",lat:68.4385,lon:17.4272},
+ {name:"Abisko",lat:68.3558,lon:18.8309},
+ {name:"Kiruna",lat:67.8558,lon:20.2253},
+ {name:"Stockholm",lat:59.3293,lon:18.0686}
+];
+const map=L.map('macro-leaflet-map').setView([65.8,22.0],5);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap contributors'}).addTo(map);
+const pts=places.map(p=>[p.lat,p.lon]);
+L.polyline(pts,{color:'#2563EB',weight:4,dashArray:'8 7'}).addTo(map);
+places.forEach((p,i)=>{
+ const color=(p.name==="Rovaniemi"||p.name==="Tromsø"||p.name==="Abisko")?'#F59E0B':'#10B981';
+ L.circleMarker([p.lat,p.lon],{radius:8,fillColor:color,color:'#fff',weight:2,fillOpacity:1}).addTo(map).bindPopup('<strong>'+p.name+'</strong><br>V3 itinerary stop');
+});
+</script>
+</body>
+</html>
