@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北歐極圈三國極光貫通・北角極地郵輪・帝王蟹冰釣・北極特快車 15 日自主探索提案</title>
+    <!-- Leaflet CSS & JS for Interactive Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=NzdPtbw5rOauhMqlS0WwDmv83VIhgIUAs_r5su3oIWckm3XFkSAjvCL_fRk2zRQAzDSWpnxAWDoH72CrgKJ04Gbf9LZ-M0LAbd8531P6OyqsvKNEaZ6HndtUrSgbf0okPYNe4JXcK9e2GJ90uuJ-h_cPG6PUt_TI4_DUVsN4HJ58PTSzqEpWRUIykwRa6BOnIz56GvIjc9heDmPb9zWTicuXnYacnROgi_gbkiSe6_ISeOUxMQDHPgVU7MH5_k2BdLLNTyZT5JrY4rX_nSCnKliApfhO2seO2owLcSJRZjdL2zpPR0Rh2aWiEazNMFvdWhoVtCydbHdhyBxHVxed-VlV6zlp4-VZJGsyugRkt8s" charset="UTF-8"></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+        :root {
+            --primary: #0A192F;
+            --secondary: #1E3E62;
+            --accent: #00ADB5;
+            --aurora-green: #38E54D;
+            --aurora-glow: #79E0EE;
+            --family-gold: #F59E0B;
+            --family-warm: #FEF3C7;
+            --kids-pink: #EC4899;
+            --senior-blue: #2563EB;
+            --cruise-teal: #0891B2;
+            --dark-text: #1E293B;
+            --light-text: #64748B;
+            --bg-light: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --border-color: #CBD5E1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC", "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg-light);
+            color: var(--dark-text);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 24px 20px 80px 20px;
+        }
+
+        /* Hero Header */
+        .hero {
+            background: linear-gradient(135deg, #050C1A 0%, #0F2A4A 50%, #092635 100%);
+            color: #ffffff;
+            padding: 55px 40px;
+            border-radius: 18px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 12px 36px rgba(0,0,0,0.22);
+            border-bottom: 5px solid var(--accent);
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: -40%;
+            right: -15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 173, 181, 0.28) 0%, rgba(56, 229, 77, 0.1) 50%, transparent 70%);
+            pointer-events: none;
+            filter: blur(40px);
+        }
+
+        .hero-badge-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 173, 181, 0.18);
+            border: 1px solid var(--accent);
+            color: var(--aurora-glow);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .hero-family-badge {
+            background: #F59E0B;
+            color: #0F172A;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-cruise-badge {
+            background: #0891B2;
+            color: #FFFFFF;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p.subtitle {
+            font-size: 1.06rem;
+            color: #CBD5E1;
+            max-width: 1000px;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .hero-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px 24px;
+            border-radius: 14px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        .hero-meta-item h4 {
+            font-size: 0.75rem;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .hero-meta-item p {
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: #F8FAFC;
+        }
+
+        /* Flight Summary Card */
+        .flight-overview-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        }
+
+        .flight-overview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .flight-overview-header h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .flight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .flight-item {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-left: 4px solid var(--senior-blue);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+
+        .flight-item.train-highlight {
+            border-left-color: #10B981;
+            background: #F0FDF4;
+        }
+
+        .flight-item.cruise-highlight {
+            border-left-color: var(--cruise-teal);
+            background: #ECFEFF;
+        }
+
+        .flight-item.return-highlight {
+            border-left-color: #F59E0B;
+            background: #FFFBEB;
+        }
+
+        .flight-tag-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .flight-tag-line span.type {
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .flight-item.train-highlight .type { background: #DCFCE7; color: #15803D; }
+        .flight-item.cruise-highlight .type { background: #CFFAFE; color: #0E7490; }
+        .flight-item.return-highlight .type { background: #FEF3C7; color: #B45309; }
+        .flight-item:not(.train-highlight):not(.cruise-highlight):not(.return-highlight) .type { background: #DBEAFE; color: #1D4ED8; }
+
+        .flight-details {
+            font-size: 0.92rem;
+            color: var(--dark-text);
+            line-height: 1.5;
+            font-weight: 600;
+        }
+
+        .flight-sub {
+            font-size: 0.82rem;
+            color: var(--light-text);
+            margin-top: 4px;
+        }
+
+        /* Confirmed Notice */
+        .confirmed {
+            background: #FEF3C7;
+            border: 2px solid #F59E0B;
+            color: #92400E;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        /* Strategy Card */
+        .family-strategy-card {
+            background: #ffffff;
+            border: 2px solid #00ADB5;
+            border-radius: 16px;
+            padding: 26px 28px;
+            margin-bottom: 35px;
+            box-shadow: 0 6px 20px rgba(0, 173, 181, 0.08);
+        }
+
+        .strategy-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-bottom: 1px dashed #CBD5E1;
+            padding-bottom: 12px;
+        }
+
+        .strategy-header h3 {
+            font-size: 1.35rem;
+            color: var(--secondary);
+            font-weight: 800;
+        }
+
+        .strategy-desc {
+            font-size: 0.95rem;
+            color: #334155;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .strategy-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .pillar-box {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 16px 18px;
+            border-top: 4px solid var(--accent);
+        }
+
+        .pillar-box.overland { border-top-color: #F59E0B; }
+        .pillar-box.cruise { border-top-color: #0891B2; }
+        .pillar-box.aurora { border-top-color: #38E54D; }
+
+        .pillar-box h4 {
+            font-size: 1.02rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+        }
+
+        .pillar-box ul {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.88rem;
+            color: #475569;
+        }
+
+        .pillar-box li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 18px;
+            line-height: 1.5;
+        }
+
+        .pillar-box li::before {
+            content: "✔";
+            color: #059669;
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
+        /* Section Title */
+        .section-header {
+            margin: 45px 0 20px 0;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header .tagline {
+            font-size: 0.95rem;
+            color: var(--light-text);
+            font-weight: 500;
+        }
+
+        /* Macro Interactive Map Card */
+        .macro-map-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            overflow: hidden;
+            margin-bottom: 35px;
+        }
+
+        .macro-map-header {
+            padding: 16px 24px;
+            background: #0B192C;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .macro-map-header h3 {
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .macro-map-legend {
+            display: flex;
+            gap: 16px;
+            font-size: 0.82rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+        }
+
+        #macro-leaflet-map {
+            height: 500px;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .macro-map-summary {
+            padding: 16px 24px;
+            background: #F8FAFC;
+            border-top: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            font-size: 0.88rem;
+        }
+
+        .summary-stat strong {
+            color: var(--primary);
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table.custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        table.custom-table th {
+            background: #0F2027;
+            color: #ffffff;
+            text-align: left;
+            padding: 14px 16px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        table.custom-table td {
+            padding: 13px 16px;
+            font-size: 0.88rem;
+            border-bottom: 1px solid var(--border-color);
+            color: #334155;
+            vertical-align: middle;
+        }
+
+        table.custom-table tr:hover td {
+            background: #F8FAFC;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .pill-flight { background: #DBEAFE; color: #1D4ED8; }
+        .pill-train { background: #DCFCE7; color: #15803D; }
+        .pill-cruise { background: #CFFAFE; color: #0E7490; }
+        .pill-bus { background: #FEF3C7; color: #92400E; }
+        .pill-stay { background: #F1F5F9; color: #475569; }
+
+        /* Day Card */
+        .day-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+            overflow: hidden;
+            break-inside: avoid;
+        }
+
+        .day-card.priority {
+            border: 2px solid #F59E0B;
+        }
+
+        .day-card.priority .day-header {
+            background: linear-gradient(90deg, #92400E 0%, #B45309 100%);
+        }
+
+        .day-card.cruise-card {
+            border: 2px solid #0891B2;
+        }
+
+        .day-card.cruise-card .day-header {
+            background: linear-gradient(90deg, #0E7490 0%, #155E75 100%);
+        }
+
+        .day-header {
+            background: linear-gradient(90deg, #102A43 0%, #24486E 100%);
+            color: #ffffff;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .day-badge-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .day-num {
+            background: var(--accent);
+            color: #04292e;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .day-date-city {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .day-theme {
+            background: rgba(255,255,255,0.14);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #E2E8F0;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .day-body {
+            padding: 24px;
+        }
+
+        /* Route Map Card within Day Card */
+        .daily-route-card {
+            background: #F8FAFC;
+            border: 1px solid #CBD5E1;
+            border-left: 5px solid var(--accent);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+        }
+
+        .route-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .route-endpoints {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .route-metrics-bar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .metric-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #ffffff;
+            border: 1px solid #CBD5E1;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .metric-chip strong {
+            color: var(--secondary);
+        }
+
+        /* SVG Route Schematic */
+        .svg-route-container {
+            width: 100%;
+            overflow-x: auto;
+            background: #ffffff;
+            border-radius: 10px;
+            border: 1px dashed #CBD5E1;
+            padding: 14px 10px 10px 10px;
+            margin-bottom: 10px;
+        }
+
+        .itinerary-desc {
+            font-size: 0.96rem;
+            color: #334155;
+            margin-bottom: 18px;
+            line-height: 1.75;
+        }
+
+        .family-special-care {
+            background: #FFFBEB;
+            border: 1px solid #FDE68A;
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: #92400E;
+        }
+
+        .family-special-care strong {
+            color: #B45309;
+        }
+
+        .warn {
+            background: #FFF7ED;
+            border: 1px solid #FDBA74;
+            color: #9A3412;
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .v3-note {
+            background: #ECFDF5;
+            border: 1px solid #A7F3D0;
+            color: #065F46;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        /* Meta Grid inside Day Card */
+        .day-spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            background: #F8FAFC;
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+        }
+
+        .spec-box {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .spec-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+        }
+
+        .spec-value {
+            font-size: 0.91rem;
+            font-weight: 600;
+            color: #0F172A;
+            line-height: 1.4;
+        }
+
+        .spec-sub {
+            font-size: 0.81rem;
+            color: #64748B;
+            font-weight: 400;
+        }
+
+        /* Score & Evaluation Grid */
+        .score-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .score {
+            background: #fff;
+            border: 1px solid #CBD5E1;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .score b {
+            display: block;
+            font-size: 1.55rem;
+            color: #0F766E;
+            margin-bottom: 4px;
+        }
+
+        .small {
+            font-size: 0.82rem;
+            color: #64748B;
+        }
+
+        /* Notes Grid */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .notes-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.7rem; }
+            .hero { padding: 35px 20px; }
+        }
+
+        .note-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+        }
+
+        .note-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .note-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .note-card li {
+            font-size: 0.88rem;
+            color: #475569;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.5;
+        }
+
+        .note-card li::before {
+            content: "•";
+            color: var(--accent);
+            font-size: 1.3rem;
+            position: absolute;
+            left: 2px;
+            top: -2px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 30px;
+            color: #94A3B8;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media print {
+            body { background: #ffffff; font-size: 9.5pt; }
+            .container { max-width: 100%; padding: 0; }
+            .hero { box-shadow: none; border-radius: 0; }
+            .day-card { break-inside: avoid; border: 1px solid #ccc; box-shadow: none; margin-bottom: 20px; }
+            .macro-map-card { break-inside: avoid; }
+            #macro-leaflet-map { height: 350px; }
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+<!-- Hero Header -->
+<header class="hero">
+  <div class="hero-badge-group">
+    <div class="hero-badge">AURORA VOYAGES · NORTH CAPE & FJORD EXPEDITION · 2027 V5</div>
+    <div class="hero-family-badge">⭐ 芬蘭極光列車・巴倫支海帝王蟹・北角郵輪 15 日尊享</div>
+    <div class="hero-cruise-badge">🚢 Honningsvåg ➔ Tromsø 海洋極光航段</div>
+  </div>
+  <h1>北歐極圈三國極光貫通・北角極地郵輪・帝王蟹冰釣・北極特快車 15 日自主探索提案</h1>
+  <p class="subtitle">
+    台北 (TPE) → 阿姆斯特丹 (AMS) → 赫爾辛基 (HEL) → <strong>VR 19:29 北極特快車</strong> → 羅瓦涅米 (RVN) → 薩里色爾卡 (極光玻璃屋) → 希爾克內斯 (帝王蟹捕撈) → 北角/霍寧斯沃格 (歐陸最北端) → <strong>Hurtigruten/Havila 沿海郵輪</strong> → 特羅姆瑟 (北極之門) → 斯德哥爾摩 (ARN) → 倫敦 (LHR) → 台北 (TPE)
+  </p>
+  <div class="hero-meta-grid">
+    <div class="hero-meta-item"><h4>旅行日期</h4><p>2027/02/07（日）– 02/21（日）共 15 日</p></div>
+    <div class="hero-meta-item"><h4>已確認核心火車</h4><p>⭐ 2/9 VR 265 19:29 HEL → RVN (4 間臥鋪包廂)</p></div>
+    <div class="hero-meta-item"><h4>核心動線原則</h4><p>嚴格「不走回頭路」：陸路貫通 ➔ 海洋郵輪 ➔ 首都飛航</p></div>
+    <div class="hero-meta-item"><h4>極地終極體驗</h4><p>聖誕老人村＋極光玻璃屋＋帝王蟹冰釣＋北角＋極光郵輪</p></div>
+  </div>
+</header>
+
+<!-- Confirmed VR Night Train Notice -->
+<div class="confirmed">
+  🎫 <strong>已確認購買核心票券｜2027/02/09 19:29 Helsinki Central → 02/10 07:20 Rovaniemi（VR Night Train 265）</strong><br>
+  已成功預訂共 <strong>4 間臥鋪雙人包廂</strong>！本份 15 日行程以此班次為固定時間基石，2/9 白天輕鬆悠遊赫爾辛基，傍晚提早享用晚餐後直通中央車站登車，翌日清晨於北極圈邊境甦醒！
+</div>
+
+<!-- Flight & Core Transits Summary Card -->
+<section class="flight-overview-card">
+  <div class="flight-overview-header">
+    <h3>✈️ 航班與核心跨國交通紀錄 (Flight & Key Transit Details)</h3>
+    <span class="tag-pill pill-flight">CI / AY / VR / 郵輪 / SAS 多元整合</span>
+  </div>
+  <div class="flight-grid">
+    <div class="flight-item">
+      <div class="flight-tag-line"><span class="type">去程長程國際段</span><span class="small">華航 CI 73</span></div>
+      <div class="flight-details">2027/02/07 23:05 台北桃園 (TPE T1)<br>➔ 02/08 07:50 阿姆斯特丹 (AMS)</div>
+      <div class="flight-sub">直飛歐洲長程夜航，飛機上充分休息</div>
+    </div>
+    <div class="flight-item">
+      <div class="flight-tag-line"><span class="type">去程歐陸轉機段</span><span class="small">芬蘭航空 AY 1302</span></div>
+      <div class="flight-details">2027/02/08 11:20 阿姆斯特丹 (AMS)<br>➔ 02/08 14:45 赫爾辛基 (HEL)</div>
+      <div class="flight-sub">申根轉機時間 3 小時 30 分，銜接順暢充裕</div>
+    </div>
+    <div class="flight-item train-highlight">
+      <div class="flight-tag-line"><span class="type">芬蘭極地夜臥火車</span><span class="small">VR 265 (已確認)</span></div>
+      <div class="flight-details">2027/02/09 19:29 赫爾辛基 (Helsinki)<br>➔ 02/10 07:20 羅瓦涅米 (Rovaniemi)</div>
+      <div class="flight-sub">共 4 間臥鋪雙人包廂，極光特快列車之旅</div>
+    </div>
+    <div class="flight-item cruise-highlight">
+      <div class="flight-tag-line"><span class="type">挪威沿海極光郵輪</span><span class="small">Hurtigruten / Havila</span></div>
+      <div class="flight-details">2027/02/14 05:45/11:45 霍寧斯沃格 (Honningsvåg)<br>➔ 02/14 23:45 特羅姆瑟 (Tromsø)</div>
+      <div class="flight-sub">沿挪威北冰洋峽灣海路南下，甲板無光害追光</div>
+    </div>
+    <div class="flight-item">
+      <div class="flight-tag-line"><span class="type">跨國飛越極圈段</span><span class="small">Wizz Air / SAS 區域班機</span></div>
+      <div class="flight-details">2027/02/17 特羅姆瑟 (TOS)<br>➔ 斯德哥爾摩 (ARN)</div>
+      <div class="flight-sub">極速橫跨挪威峽灣至瑞典首都，節省長途陸轉</div>
+    </div>
+    <div class="flight-item return-highlight">
+      <div class="flight-tag-line"><span class="type">返程歐陸轉機段</span><span class="small">SAS SK 527</span></div>
+      <div class="flight-details">2027/02/20 14:40 斯德哥爾摩 (ARN T5)<br>➔ 02/20 16:25 倫敦希斯洛 (LHR T2)</div>
+      <div class="flight-sub">直飛英國倫敦，保留 4 小時 50 分轉機銜接</div>
+    </div>
+    <div class="flight-item return-highlight">
+      <div class="flight-tag-line"><span class="type">返程長程國際段</span><span class="small">華航 CI 82</span></div>
+      <div class="flight-details">2027/02/20 21:15 倫敦希斯洛 (LHR T3)<br>➔ 02/21 18:35 台北桃園 (TPE T1)</div>
+      <div class="flight-sub">夜飛跨日返抵國門，完成 15 天北歐壯遊</div>
+    </div>
+  </div>
+</section>
+
+<!-- Strategy Card -->
+<section class="family-strategy-card">
+  <div class="strategy-header"><h3>🧭 五大核心階段與「不走回頭路」極地順暢動線邏輯</h3></div>
+  <p class="strategy-desc">
+    本方案嚴格捨棄往返折返的低效走法，由赫爾辛基鐵路北上穿過北極圈線，陸路一路向北橫跨芬挪邊界挺進巴倫支海與歐洲最北端（北角），再登上海洋郵輪縱貫挪威大峽灣南下特羅姆瑟，最後飛抵瑞典斯德哥爾摩。五大階段環環相扣，兼顧深度探險與極致舒適。
+  </p>
+  <div class="strategy-pillars">
+    <div class="pillar-box overland">
+      <h4>❄️ 第一～二階段：拉普蘭深處與帝王蟹</h4>
+      <ul>
+        <li><strong>鐵路進圈：</strong>搭乘已購票 VR 夜臥直抵聖誕老人故鄉羅瓦涅米。</li>
+        <li><strong>極地公路：</strong>專車北上薩里色爾卡，入住 360° 穹頂極光玻璃屋。</li>
+        <li><strong>巴倫支海越境：</strong>前往挪威希爾克內斯，體驗雪地摩托車帝王蟹現撈冰釣。</li>
+      </ul>
+    </div>
+    <div class="pillar-box cruise">
+      <h4>🚢 第三階段：歐陸最北角與海洋郵輪</h4>
+      <ul>
+        <li><strong>北角管制車隊：</strong>冬季專屬鏟雪車前導（Convoy Driving）登上北角地標球體。</li>
+        <li><strong>沿海極光郵輪：</strong>霍寧斯沃格登船，航行於北冰洋與挪威峽海之間。</li>
+        <li><strong>海路避光追光：</strong>遠離陸地城鎮光害，在郵輪全景甲板與暖艙飽覽海上極光。</li>
+      </ul>
+    </div>
+    <div class="pillar-box aurora">
+      <h4>✨ 第四～五階段：北極之都與斯堪地名城</h4>
+      <ul>
+        <li><strong>極地之門特羅姆瑟：</strong>極地纜車俯瞰全城、北極大教堂、薩米文化與峽灣。</li>
+        <li><strong>直飛瑞典首都：</strong>跳過 18 小時陸路疲憊，輕鬆飛抵「北方威尼斯」斯德哥爾摩。</li>
+        <li><strong>人文歷史沉澱：</strong>瓦薩沉船、諾貝爾晚宴市政廳、老城 Fika，完美收尾。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Interactive Map Card -->
+<div class="section-header">
+  <h2>🗺️ 15 日跨國動線互動地圖</h2>
+  <span class="tagline">Helsinki → Rovaniemi → Saariselkä → Kirkenes → Honningsvåg (Nordkapp) → Tromsø → Stockholm</span>
+</div>
+<div class="macro-map-card">
+  <div class="macro-map-header">
+    <h3>📍 極地縱貫路線網絡（點擊站點可查看詳情）</h3>
+    <div class="macro-map-legend">
+      <div class="legend-item"><div class="legend-color" style="background:#10B981"></div>VR 夜臥鐵路</div>
+      <div class="legend-item"><div class="legend-color" style="background:#F59E0B"></div>極地陸路/包車</div>
+      <div class="legend-item"><div class="legend-color" style="background:#0891B2"></div>挪威沿海郵輪</div>
+      <div class="legend-item"><div class="legend-color" style="background:#2563EB"></div>跨國飛航</div>
+    </div>
+  </div>
+  <div id="macro-leaflet-map"></div>
+  <div class="macro-map-summary">
+    <div class="summary-stat"><strong>鐵路里程：</strong> 赫爾辛基 ➔ 羅瓦涅米（約 850 公里）</div>
+    <div class="summary-stat"><strong>極地陸路：</strong> 羅瓦涅米 ➔ 薩里色爾卡 ➔ 希爾克內斯 ➔ 北角</div>
+    <div class="summary-stat"><strong>海路航程：</strong> 霍寧斯沃格 ➔ 特羅姆瑟（沿海郵輪航段）</div>
+    <div class="summary-stat"><strong>極光覆蓋基地：</strong> 羅瓦涅米、玻璃屋、希爾克內斯、郵輪、特羅姆瑟共 8 晚</div>
+  </div>
+</div>
+
+<!-- Accommodation & Rhythm Overview Table -->
+<div class="section-header">
+  <h2>📊 15 日行程節奏與住宿總覽</h2>
+  <span class="tagline">嚴格不走回頭路・景觀與體驗全面升級</span>
+</div>
+<div class="table-responsive">
+<table class="custom-table">
+<thead>
+  <tr>
+    <th>天數 / 日期</th>
+    <th>地區 / 移動動線</th>
+    <th>建議住宿 / 房型</th>
+    <th>當日主題定位</th>
+    <th>核心交通模式</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><strong>D01</strong> 02/07 (日)</td>
+    <td>台北 ✈ 阿姆斯特丹</td>
+    <td>機上豪華客艙</td>
+    <td>啟程出發・夜航長征</td>
+    <td><span class="tag-pill pill-flight">CI73 華航夜航直飛</span></td>
+  </tr>
+  <tr>
+    <td><strong>D02</strong> 02/08 (一)</td>
+    <td>阿姆斯特丹 ✈ 赫爾辛基</td>
+    <td>Hotel F6 / Glo Hotel Art</td>
+    <td>芬蘭首都初訪・設計街區與大教堂</td>
+    <td><span class="tag-pill pill-flight">AY1302 歐陸轉機</span></td>
+  </tr>
+  <tr>
+    <td><strong>D03</strong> 02/09 (二)</td>
+    <td>赫爾辛基 🚂 羅瓦涅米</td>
+    <td><strong>VR 265 北極特快車（4間雙人臥鋪）</strong></td>
+    <td>⭐ 經典夜臥列車・極光軌道之旅</td>
+    <td><span class="tag-pill pill-train">VR 19:29 夜臥 (已購)</span></td>
+  </tr>
+  <tr>
+    <td><strong>D04</strong> 02/10 (三)</td>
+    <td>羅瓦涅米</td>
+    <td>Arctic TreeHouse Hotel / 市區精品</td>
+    <td>聖誕老人村・跨越北極圈線・哈士奇</td>
+    <td><span class="tag-pill pill-bus">當地專車接駁</span></td>
+  </tr>
+  <tr>
+    <td><strong>D05</strong> 02/11 (四)</td>
+    <td>羅瓦涅米 ➔ 薩里色爾卡</td>
+    <td><strong>Kakslauttanen / Northern Lights 玻璃屋</strong></td>
+    <td>全景極光玻璃屋・馴鹿雪橇・拉普蘭深處</td>
+    <td><span class="tag-pill pill-bus">極地巴士/專車 (約 3.5h)</span></td>
+  </tr>
+  <tr>
+    <td><strong>D06</strong> 02/12 (五)</td>
+    <td>伊納里 ➔ 希爾克內斯</td>
+    <td>Kirkenes Snowhotel / 市區景觀飯店</td>
+    <td>巴倫支海門戶・雪地摩托車帝王蟹冰釣</td>
+    <td><span class="tag-pill pill-bus">芬挪跨境專車 (約 4h)</span></td>
+  </tr>
+  <tr>
+    <td><strong>D07</strong> 02/13 (六)</td>
+    <td>希爾克內斯 ➔ 北角/霍寧斯沃格</td>
+    <td>Scandic Honningsvåg / 港景飯店</td>
+    <td>歐洲大陸最北端・冬季管制車隊登北角球體</td>
+    <td><span class="tag-pill pill-bus">陸路接駁/車隊管制專車</span></td>
+  </tr>
+  <tr>
+    <td><strong>D08</strong> 02/14 (日)</td>
+    <td>北角登船 🚢 特羅姆瑟</td>
+    <td>Clarion Hotel The Edge / 港景飯店</td>
+    <td>挪威沿海極光郵輪・情人節峽海巡航</td>
+    <td><span class="tag-pill pill-cruise">Hurtigruten/Havila 郵輪</span></td>
+  </tr>
+  <tr>
+    <td><strong>D09</strong> 02/15 (一)</td>
+    <td>特羅姆瑟</td>
+    <td>Clarion Hotel The Edge 連住</td>
+    <td>Fjellheisen 登山纜車・北極大教堂・追光</td>
+    <td><span class="tag-pill pill-bus">市區公共交通/極光專車</span></td>
+  </tr>
+  <tr>
+    <td><strong>D10</strong> 02/16 (二)</td>
+    <td>特羅姆瑟</td>
+    <td>Clarion Hotel The Edge 連住</td>
+    <td>峽灣生態野生動物船・薩米文化・乾鱈魚料理</td>
+    <td><span class="tag-pill pill-cruise">峽灣遊船 / 文化專車</span></td>
+  </tr>
+  <tr>
+    <td><strong>D11</strong> 02/17 (三)</td>
+    <td>特羅姆瑟 ✈ 斯德哥爾摩</td>
+    <td>At Six / Hotel C Stockholm</td>
+    <td>飛越極圈・老城區漫步・瑞典 Fika 文化</td>
+    <td><span class="tag-pill pill-flight">TOS ✈ ARN 區域班機</span></td>
+  </tr>
+  <tr>
+    <td><strong>D12</strong> 02/18 (四)</td>
+    <td>斯德哥爾摩</td>
+    <td>At Six / Hotel C Stockholm 連住</td>
+    <td>瓦薩號沉船博物館・市政廳諾貝爾廳・地鐵藝術</td>
+    <td><span class="tag-pill pill-bus">市區路面電車 / 藝術地鐵</span></td>
+  </tr>
+  <tr>
+    <td><strong>D13</strong> 02/19 (五)</td>
+    <td>斯德哥爾摩</td>
+    <td>At Six / Hotel C Stockholm 連住</td>
+    <td>皇后大街精品購物・水上巴士巡航群島風光</td>
+    <td><span class="tag-pill pill-cruise">水上巴士 / 徒步探訪</span></td>
+  </tr>
+  <tr>
+    <td><strong>D14</strong> 02/20 (六)</td>
+    <td>斯德哥爾摩 ➔ 倫敦 ➔ 台灣</td>
+    <td>機上客艙</td>
+    <td>滿載回憶返程・希斯洛轉機</td>
+    <td><span class="tag-pill pill-flight">SK527 ✈ CI82 返台夜航</span></td>
+  </tr>
+  <tr>
+    <td><strong>D15</strong> 02/21 (日)</td>
+    <td>抵達台北桃園</td>
+    <td>溫暖的家</td>
+    <td>18:35 順利返抵台灣・圓滿完成北歐壯遊</td>
+    <td><span class="tag-pill pill-stay">順利抵達台北 (TPE)</span></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<!-- Day-by-Day Section -->
+<div class="section-header">
+  <h2>📋 15 日逐日詳細探索行程</h2>
+  <span class="tagline">經典北歐極光 15 日自主自由行行程規劃</span>
+</div>
+
+<!-- Day 1 -->
+<div class="day-card" id="day1">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 01</span>
+      <span class="day-date-city">2027/02/07（週日）｜台北桃園 ✈ 阿姆斯特丹</span>
+    </div>
+    <div class="day-theme">【第一階段】啟程出發・夜航長征</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🛫 台北桃園 (TPE T1) ➔ 阿姆斯特丹 (AMS)</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">✈️ 中華航空 CI 73</span>
+          <span class="metric-chip">⏱️ 23:05 出發 (20:30 辦理登機)</span>
+          <span class="metric-chip">🌙 機上睡眠優先</span>
+        </div>
+      </div>
+      <div class="svg-route-container">
+        <svg viewBox="0 0 800 50" style="width:100%;height:50px">
+          <line x1="60" y1="25" x2="740" y2="25" stroke="#2563EB" stroke-width="3" stroke-dasharray="6 6"/>
+          <circle cx="60" cy="25" r="7" fill="#2563EB"/>
+          <text x="60" y="44" font-size="11" font-weight="700" text-anchor="middle">台北 TPE 23:05</text>
+          <circle cx="740" cy="25" r="7" fill="#059669"/>
+          <text x="740" y="44" font-size="11" font-weight="700" text-anchor="middle">阿姆斯特丹 AMS 07:50+1</text>
+        </svg>
+      </div>
+    </div>
+    <p class="itinerary-desc">
+      今日傍晚 20:30 前於桃園國際機場第一航廈完成報到與行李托運手續，搭乘中華航空 CI73 豪華客機直飛阿姆斯特丹史基浦機場。這趟旅程將橫跨歐陸，帶領大家走進芬蘭拉普蘭雪原、征服巴倫支海現撈帝王蟹、登上歐洲大陸最北端北角，並搭乘沿海極光郵輪南下。夜航期間請放鬆心情、充分休息蓄積體力。
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚗 交通</span><span class="spec-value">中華航空 CI73 (23:05 TPE ✈ 07:50 AMS)</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">機上精緻晚餐與早餐服務</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">長程豪華客機機上</span></div>
+      <div class="spec-box"><span class="spec-label">💡 登機叮嚀</span><span class="spec-value">隨身攜帶保濕乳液、保暖披肩、充氣頸枕與耳塞</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 2 -->
+<div class="day-card" id="day2">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 02</span>
+      <span class="day-date-city">2027/02/08（週一）｜阿姆斯特丹 ➔ 赫爾辛基</span>
+    </div>
+    <div class="day-theme">【第一階段】抵達芬蘭首都・北歐設計暖身</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🛫 AMS ✈ HEL ➔ 赫爾辛基市區</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">✈️ AY1302 (11:20 ➔ 14:45)</span>
+          <span class="metric-chip">🚆 HSL 機場火車 (約 30 分)</span>
+        </div>
+      </div>
+    </div>
+    <p class="itinerary-desc">
+      清晨 07:50 班機順利降落阿姆斯特丹，悠閒通過申根入境檢查後，轉搭芬蘭航空 AY1302 飛往千湖之國首都赫爾辛基。14:45 抵達萬塔機場（HEL）後，搭乘便捷的機場快鐵（HSL Train）直達市中心。辦理飯店入住稍作梳洗，漫步前往開鑿於巨石之中的岩石教堂（Temppeliaukio）、純白宏偉的赫爾辛基大教堂與集市廣場，感受北歐冬季的寧靜設計美學。
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚗 交通</span><span class="spec-value">AY1302 (11:20 AMS ✈ 14:45 HEL) + HSL 機場快鐵</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">赫爾辛基暖心芬蘭傳統鮮魚湯、黑麥麵包</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">Hotel F6 或 Glo Hotel Art（市中心設計精品飯店）</span></div>
+      <div class="spec-box"><span class="spec-label">🌟 重點行程</span><span class="spec-value">岩石教堂、赫爾辛基白教堂、集市廣場海港散步</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 3 -->
+<div class="day-card priority" id="day3">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 03</span>
+      <span class="day-date-city">2027/02/09（週二）｜赫爾辛基漫遊 ➔ 搭乘 VR 北極特快車</span>
+    </div>
+    <div class="day-theme">⭐ 已確認購買・19:29 VR 北極夜臥列車</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🚆 Helsinki Central (19:29) ➔ Rovaniemi (07:20+1)</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">🎫 <strong>已確認購買</strong></span>
+          <span class="metric-chip">🚂 VR 265 號次</span>
+          <span class="metric-chip">🛏️ <strong>4 間雙人臥鋪包廂</strong></span>
+        </div>
+      </div>
+      <div class="svg-route-container">
+        <svg viewBox="0 0 800 60" style="width:100%;height:60px">
+          <line x1="60" y1="30" x2="740" y2="30" stroke="#10B981" stroke-width="4"/>
+          <circle cx="60" cy="30" r="8" fill="#F59E0B"/>
+          <text x="60" y="52" font-size="11" font-weight="700" text-anchor="middle">赫爾辛基中央車站 19:29 發車</text>
+          <circle cx="740" cy="30" r="8" fill="#059669"/>
+          <text x="740" y="52" font-size="11" font-weight="700" text-anchor="middle">羅瓦涅米翌晨 07:20 抵達</text>
+        </svg>
+      </div>
+    </div>
+    <div class="family-special-care">
+      <span>💡 <strong>夜臥登車攻略：</strong> 本班車次已確認為 19:29 發車，建議安排於 17:00 前完成晚餐，18:00 前往中央車站大廳確認月台。大件行李可置於包廂底層或車廂行李架，隨身攜帶過夜洗漱小包與手機充電器。</span>
+    </div>
+    <p class="itinerary-desc">
+      白天享受輕鬆愜意的赫爾辛基城市漫遊。造訪外型如巨型木質飛碟的靜謐教堂（Kamppi Chapel），隨後漫步至被評為世界最美圖書館之一的頌歌中央圖書館（Oodi），在採光天井下悠閒喝杯咖啡。傍晚回飯店提取行李，前往赫爾辛基中央車站。登上綠白相間的芬蘭雙層 VR 北極特快車（Night Train 265），入住已預約確認的 4 間雙人臥鋪車廂，伴隨列車輕微晃動沉入夢鄉，列車正全速奔馳穿越極圈線！
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚆 核心交通</span><span class="spec-value">VR 265 北極特快車 (19:29 HEL 🚂 07:20 RVN)</span><span class="spec-sub">已預訂 4 間臥鋪包廂</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲推薦</span><span class="spec-value">市區特色肉丸熱食，餐後可至餐車品嚐芬蘭肉桂捲</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿安排</span><span class="spec-value">VR 北極特快車雙人臥鋪車廂（包廂內獨立溫控）</span></div>
+      <div class="spec-box"><span class="spec-label">🏛️ 市區巡禮</span><span class="spec-value">頌歌圖書館 (Oodi)、靜謐教堂、中央車站歷史大廳</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 4 -->
+<div class="day-card" id="day4">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 04</span>
+      <span class="day-date-city">2027/02/10（週三）｜羅瓦涅米（聖誕老人村與北極圈線）</span>
+    </div>
+    <div class="day-theme">【第一階段】進入北極圈・聖誕老人故鄉</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🚆 羅瓦涅米車站 (07:20) ➔ 聖誕老人村 ➔ 精品飯店</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">🎅 北極圈線 66°33′N</span>
+          <span class="metric-chip">🐕 哈士奇雪橇</span>
+          <span class="metric-chip">📜 領取跨極圈證書</span>
+        </div>
+      </div>
+    </div>
+    <p class="itinerary-desc">
+      清晨 07:20 列車緩緩駛入拉普蘭首府羅瓦涅米。專車接送至飯店寄放行李並享用豐盛早餐，隨後前往聞名世界的聖誕老人村（Santa Claus Village）。親自雙腳跨越地上清晰標註的北極圈界線（緯度 66°33′N），與官方認證的聖誕老人一對一合照、至北極圈專屬郵局蓋上獨特郵戳寄出給未來的明信片。午後體驗由熱情雪橇犬領軍的哈士奇雪橇衝刺，穿梭於銀白針葉林海中！傍晚入住特色極地旅宿，今晚開始進入極光好發區域。
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚗 交通</span><span class="spec-value">火車站專車接送 + 當地包車/租車短途串聯</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">聖誕老人村特色鮭魚排、暖心野莓熱飲</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">Arctic TreeHouse Hotel（樹屋精品）或市區高品質飯店</span></div>
+      <div class="spec-box"><span class="spec-label">🌟 亮點體驗</span><span class="spec-value">聖誕老人會面、北極圈證書、哈士奇雪橇狂飆</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 5 -->
+<div class="day-card priority" id="day5">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 05</span>
+      <span class="day-date-city">2027/02/11（週四）｜羅瓦涅米 ➔ 薩里色爾卡（極光玻璃屋）</span>
+    </div>
+    <div class="day-theme">【第二階段】拉普蘭深處・穹頂極光玻璃屋</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🚌 羅瓦涅米 (RVN) ➔ 薩里色爾卡 (Saariselkä)</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">🛣️ 極地公路約 3.5 小時</span>
+          <span class="metric-chip">🛏️ 全景穹頂極光玻璃屋</span>
+          <span class="metric-chip">🦌 馴鹿雪橇體驗</span>
+        </div>
+      </div>
+    </div>
+    <p class="itinerary-desc">
+      上午搭乘極地長途巴士（Matkahuolto）或專屬包車一路向北深入拉普蘭心臟地帶——薩里色爾卡。沿途兩側是綿延不絕的雪白森林與結冰湖泊。下午抵達後入住夢幻的全景極光玻璃屋（Kakslauttanen Arctic Resort 或 Northern Lights Village）。下午體驗慢節奏的拉普蘭傳統馴鹿雪橇，聆聽原住民牧鹿的古老歷史。入夜後，躲在配備特製電熱除雪玻璃的溫暖房間內，抬頭仰望無垠星空，靜候歐若拉綠色光幕輕舞降臨！
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚗 交通</span><span class="spec-value">極地長途巴士 (Matkahuolto) 或專屬包車 (車程約 3.5 小時)</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">玻璃屋度假村主廚三道式極光晚宴、煙燻鮭魚</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">Kakslauttanen Arctic Resort 或 Northern Lights Village（極光玻璃屋）</span></div>
+      <div class="spec-box"><span class="spec-label">🌌 極光策略</span><span class="spec-value">房間即是觀測站！設置極光警報，躺在床上靜待極光</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 6 -->
+<div class="day-card priority" id="day6">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 06</span>
+      <span class="day-date-city">2027/02/12（週五）｜伊納里 ➔ 希爾克內斯（挪威帝王蟹捕撈體驗）</span>
+    </div>
+    <div class="day-theme">【第二階段】跨越芬挪邊境・巴倫支海現撈帝王蟹</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🚐 薩里色爾卡/伊納里 ➔ 挪威希爾克內斯 (Kirkenes)</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">🛂 芬蘭 ➔ 挪威跨境 (時區減 1 小時)</span>
+          <span class="metric-chip">🦀 King Crab Safari</span>
+          <span class="metric-chip">❄️ 雪地摩托車冰釣</span>
+        </div>
+      </div>
+      <div class="svg-route-container">
+        <svg viewBox="0 0 800 50" style="width:100%;height:50px">
+          <line x1="60" y1="25" x2="740" y2="25" stroke="#F59E0B" stroke-width="4"/>
+          <circle cx="60" cy="25" r="7" fill="#F59E0B"/>
+          <text x="60" y="44" font-size="11" font-weight="700" text-anchor="middle">芬蘭薩里色爾卡/伊納里</text>
+          <circle cx="400" cy="25" r="5" fill="#10B981"/>
+          <text x="400" y="16" font-size="10" font-weight="600" text-anchor="middle">芬挪邊界 Neiden</text>
+          <circle cx="740" cy="25" r="7" fill="#0891B2"/>
+          <text x="740" y="44" font-size="11" font-weight="700" text-anchor="middle">挪威希爾克內斯 (Kirkenes)</text>
+        </svg>
+      </div>
+    </div>
+    <p class="itinerary-desc">
+      今日展開激動人心的跨國極地遠征！上午專車出發，行經薩米文化重鎮伊納里湖畔，隨後穿過芬挪邊境抵達巴倫支海重要門戶——挪威希爾克內斯（Kirkenes）。抵達後立即換上極地重裝防寒連身衣，乘坐雪地摩托車拖曳的雪橇穿越結冰峽灣，參與世界聞名的「帝王蟹冰釣之旅（King Crab Safari）」。觀賞嚮導從冰洞中拉起巨大的野生巴倫支海帝王蟹，隨後在傳統木屋中品嚐無限量現蒸新鮮帝王蟹腿，肉質飽滿彈牙清甜，令人永生難忘！
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚗 交通</span><span class="spec-value">跨國極地包車 / 跨境專車（約 3.5–4 小時，路況依冰雪調配）</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">現撈巴倫支海野生帝王蟹吃到飽大餐（極地鮮甜極品）</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">Kirkenes Snowhotel（雪地木屋）或 Scandic Kirkenes</span></div>
+      <div class="spec-box"><span class="spec-label">❄️ 極地裝備</span><span class="spec-value">活動方提供專業極地防寒套裝、頭套、保暖靴與手套</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 7 -->
+<div class="day-card priority" id="day7">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 07</span>
+      <span class="day-date-city">2027/02/13（週六）｜希爾克內斯 ➔ 北角/霍寧斯沃格</span>
+    </div>
+    <div class="day-theme">【第三階段】征服歐洲大陸最北端・北角車隊管制探索</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🚐 希爾克內斯 ➔ 霍寧斯沃格 ➔ 北角大廳 (Nordkapp)</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">🌍 歐洲之巔 71°10′21″N</span>
+          <span class="metric-chip">🚜 Convoy Driving 車隊管制</span>
+          <span class="metric-chip">🌊 面對北冰洋峭壁</span>
+        </div>
+      </div>
+    </div>
+    <div class="warn">
+      <strong>⚠️ 北角冬季交通特別管制 (Convoy Driving)：</strong><br>
+      冬季前往北角高原的最後一段公路嚴格受挪威公共道路管理局管制，所有車輛必須在 Kåfjord / Skarsvåg 集合，依規定時段緊隨大型前導鏟雪車成群隊前進。請務必穿著防風防水頂級防寒外衣。
+    </div>
+    <p class="itinerary-desc">
+      晨光中啟程向西挺進挪威最北端的馬格爾島（Magerøya）核心城鎮霍寧斯沃格（Honningsvåg）。在特定管制時間點參加極具儀式感的「冬季管制車隊（Convoy Driving）」，在重型鏟雪車的開路與引導下，穿過呼嘯風雪登上標高 307 公尺的北角高原懸崖。站在著名的北角地標鏤空地球儀前，眼前即是直通北極點的浩瀚北冰洋！造訪北角大廳（Nordkapp Hallen），參觀全景電影、地下極地展覽館並蓋上專屬認證郵戳。
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚗 交通</span><span class="spec-value">極地接駁專車 + 北角冬季車隊管制接送專車</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">北角大廳熱熱濃湯點心、霍寧斯沃格海港鮮魚料理</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">Scandic Honningsvåg 或 Scandic Bryggen（港口旁極佳位置）</span></div>
+      <div class="spec-box"><span class="spec-label">🏆 人生成就</span><span class="spec-value">踏上歐洲大陸最北端 71°10′21″N，領取北角專屬紀念證書</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 8 -->
+<div class="day-card cruise-card" id="day8">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 08</span>
+      <span class="day-date-city">2027/02/14（週日）｜北角登船 ➔ 沿海郵輪南下 ➔ 特羅姆瑟</span>
+    </div>
+    <div class="day-theme">🚢【第三階段】挪威沿海極光郵輪・情人節峽海巡航</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🚢 霍寧斯沃格碼頭 (05:45/11:45) ➔ 特羅姆瑟 (23:45)</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">🚢 Hurtigruten / Havila 郵輪</span>
+          <span class="metric-chip">🌊 挪威大峽灣巡航</span>
+          <span class="metric-chip">🌌 海上無光害追光</span>
+        </div>
+      </div>
+      <div class="svg-route-container">
+        <svg viewBox="0 0 800 60" style="width:100%;height:60px">
+          <line x1="60" y1="30" x2="740" y2="30" stroke="#0891B2" stroke-width="4"/>
+          <circle cx="60" cy="30" r="8" fill="#0891B2"/>
+          <text x="60" y="52" font-size="11" font-weight="700" text-anchor="middle">北角/霍寧斯沃格登船</text>
+          <circle cx="400" cy="30" r="5" fill="#38E54D"/>
+          <text x="400" y="16" font-size="10" font-weight="600" text-anchor="middle">航行挪威峽灣・海上無光害追極光</text>
+          <circle cx="740" cy="30" r="8" fill="#102A43"/>
+          <text x="740" y="52" font-size="11" font-weight="700" text-anchor="middle">深夜 23:45 抵達特羅姆瑟</text>
+        </svg>
+      </div>
+    </div>
+    <div class="v3-note">
+      <strong>🚢 郵輪預訂重要須知：</strong><br>
+      本段航程屬於挪威著名的沿海航線（Hurtigruten 或 Havila Kystruten），請提前於官方網站選購「Port-to-port」（點對點短途船票）並預訂日間休息船艙或甲板觀景座。在情人節這天徜徉於北冰洋峽灣，浪漫指數滿分！
+    </div>
+    <p class="itinerary-desc">
+      清晨或午前前往霍寧斯沃格客運碼頭，登上名揚國際的挪威沿海郵輪（Hurtigruten 海達路德 或 Havila 郵輪）。整整一天的航程，郵輪平穩破浪航行於險峻峽灣與白雪覆蓋的群島之間。大家可在全景景觀暖艙沙發上品味北歐熱茶，透過落地大窗凝望冰海奇景；傍晚入夜後，郵輪遠離了陸地所有城鎮光害，在漆黑浩瀚的海面上，整艘船成為最完美的極光觀測平台！深夜 23:45 抵達「北極之都」特羅姆瑟，專車接送至市中心飯店入住。
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚢 航運交通</span><span class="spec-value">Hurtigruten / Havila 沿海極光郵輪（Honningsvåg ➔ Tromsø）</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">郵輪全景餐廳挪威在地當季佳餚、情人節極光特餐</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">Clarion Hotel The Edge 或 Radisson Blu Hotel Tromsø</span></div>
+      <div class="spec-box"><span class="spec-label">🌌 海上亮點</span><span class="spec-value">挪威峽灣絕景、甲板無光害極光追蹤、極致舒適巡航</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 9 -->
+<div class="day-card" id="day9">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 09</span>
+      <span class="day-date-city">2027/02/15（週一）｜特羅姆瑟（極地纜車與北極大教堂）</span>
+    </div>
+    <div class="day-theme">【第四階段】北極圈首府・全景俯瞰與夜間追光</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🚡 Fjellheisen 纜車 ➔ ⛪ 北極大教堂 ➔ 🌌 極光追蹤</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">🚡 標高 421m 觀景台</span>
+          <span class="metric-chip">⛪ 經典三角冰山教堂</span>
+          <span class="metric-chip">🚐 小團追光專車</span>
+        </div>
+      </div>
+    </div>
+    <p class="itinerary-desc">
+      早晨睡到自然醒補足精神。午後搭乘 Fjellheisen 全景登山纜車，僅需 4 分鐘即可登上標高 421 公尺的 Storsteinen 山頂，360 度鳥瞰特羅姆瑟城市島嶼、壯闊海峽與橫跨海灣的跨海大橋全貌。隨後參觀具有標誌性三角形前衛冰山造型的北極大教堂（Arctic Cathedral），欣賞歐洲最大的彩繪玻璃窗。入夜後，報名參加專業小團極光追蹤專車（Aurora Chase），由經驗豐富的極光獵人導遊帶領，根據衛星雲圖機動駛入氣候最適宜的微氣候山谷，捕捉壯麗極光爆發！
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚗 交通</span><span class="spec-value">市區巴士 + Fjellheisen 登山纜車 + 夜間極光追蹤專車</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">山頂全景咖啡館、市區 Emma Drømmekjøkken 經典挪威菜</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">Clarion Hotel The Edge（連住第 2 晚，免搬行李）</span></div>
+      <div class="spec-box"><span class="spec-label">🌌 極光活動</span><span class="spec-value">小巴極光攝影獵遊，配備熱飲與極地保暖衣物</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 10 -->
+<div class="day-card" id="day10">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 10</span>
+      <span class="day-date-city">2027/02/16（週二）｜特羅姆瑟（峽灣野生動物巡航與薩米文化）</span>
+    </div>
+    <div class="day-theme">【第四階段】極地海洋生態・薩米民謠與傳統美饌</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🚢 峽灣生態觀光船 ➔ 🦌 薩米文化營地 ➔ 港區漫遊</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">🦅 白尾海鵰觀測</span>
+          <span class="metric-chip">🎶 薩米傳統民謠 Joik</span>
+          <span class="metric-chip">🍲 傳統燉鹿肉熱湯</span>
+        </div>
+      </div>
+    </div>
+    <p class="itinerary-desc">
+      今日深入探訪北極圈的自然與人文精髓。上午可搭乘安靜的電動雙體觀光船探訪特羅姆瑟周圍峽灣，尋找白尾海鵰、海豹甚至座頭鯨等極地野生動物蹤跡；或前往薩米文化體驗營，在傳統帳篷（Lavvu）內圍繞溫暖營火，餵食親人的馴鹿群，聆聽長老吟唱宛若天籟的傳統民謠 Joik。晚上在市區港灣享用特羅姆瑟著名的傳統乾鱈魚（Boknafisk）與頂級鹿肉料理，度過溫馨美好的極地之夜。
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚗 交通</span><span class="spec-value">徒步漫遊海港街區 / 導覽專屬接駁巴士</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">薩米原住民 Bidos 燉鹿肉湯、特羅姆瑟乾鱈魚與大西洋海鮮</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">Clarion Hotel The Edge（連住第 3 晚，節奏悠閒）</span></div>
+      <div class="spec-box"><span class="spec-label">🏛️ 推薦景點</span><span class="spec-value">極地博物館 (Polar Museum)、Polaria 極地水族體驗館</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 11 -->
+<div class="day-card" id="day11">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 11</span>
+      <span class="day-date-city">2027/02/17（週三）｜特羅姆瑟 ✈ 斯德哥爾摩（瑞典）</span>
+    </div>
+    <div class="day-theme">【第四階段】飛越極圈・瑞典首都老城與 Fika 時光</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🛫 特羅姆瑟 (TOS) ✈ 斯德哥爾摩 (ARN) ➔ 老城區</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">✈️ 跨國航班 (Wizz Air / SAS)</span>
+          <span class="metric-chip">🚌 Flygbussarna 機場快捷</span>
+          <span class="metric-chip">☕ 瑞典 Fika 文化</span>
+        </div>
+      </div>
+    </div>
+    <p class="itinerary-desc">
+      上午悠閒享用早餐，告別挪威北極之門特羅姆瑟，前往朗內斯機場（TOS）搭乘直飛或經奧斯陸轉機之區域航班，輕鬆飛越極圈直達瑞典首都斯德哥爾摩阿蘭達機場（ARN）。搭乘機場快捷進市區並入住市中心飯店。下午漫步前往斯德哥爾摩老城區（Gamla Stan），穿梭在 13 世紀保留至今的鵝卵石曲折小巷中，欣賞鮮豔明亮的中世紀山形屋建築、參觀宏偉的斯德哥爾摩王宮外觀，並找間典雅咖啡館享受純正瑞典下午茶「Fika」，品嚐剛出爐的熱肉桂捲與咖啡。
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚗 交通</span><span class="spec-value">跨國航班 (TOS ✈ ARN) + Flygbussarna 機場彩虹巴士/快捷</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">老城區肉桂捲與烘焙咖啡、瑞典傳統牛肉丸 (Köttbullar)</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">At Six 或 Hotel C Stockholm（中央車站旁極致便捷）</span></div>
+      <div class="spec-box"><span class="spec-label">🏰 老城探秘</span><span class="spec-value">老城大廣場 (Stortorget)、斯德哥爾摩王宮、最窄街巷</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 12 -->
+<div class="day-card" id="day12">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 012</span>
+      <span class="day-date-city">2027/02/18（週四）｜斯德哥爾摩（瓦薩沉船博物館與市政廳）</span>
+    </div>
+    <div class="day-theme">【第五階段】北方威尼斯・諾貝爾歷史殿堂與地鐵藝術</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🏛️ 瓦薩沉船博物館 ➔ 🏛️ 斯德哥爾摩市政廳 ➔ 🚇 地鐵藝術巡禮</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">⛵ 17 世紀戰艦原貌</span>
+          <span class="metric-chip">🏆 諾貝爾晚宴藍廳</span>
+          <span class="metric-chip">🎨 世界最長地下藝廊</span>
+        </div>
+      </div>
+    </div>
+    <p class="itinerary-desc">
+      今日開啟深度的文化與歷史饗宴。上午造訪全球獨一無二的瓦薩沉船博物館（Vasa Museum），近距離瞻仰沉睡海底 333 年後重見天日、保存完好高達 98% 的 17 世紀巨大皇家戰艦與繁複木雕工藝。午後前往斯德哥爾摩市政廳（Stadshuset），參觀每年舉辦諾貝爾和平獎晚宴的藍廳與滿布金箔壁畫的金色大廳。傍晚展開精彩的「斯德哥爾摩地下鐵藝術巡禮」，走訪 T-Centralen（藍白藤蔓洞穴）、Stadion（巨大彩虹壁畫）與 Solna Centrum（血紅森林洞穴），感受被譽為世界最長藝術長廊的震撼地下美學。
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚗 交通</span><span class="spec-value">市區路面電車 7 號線 + 斯德哥爾摩地鐵 SL 24 小時乘車卡</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">市場名店 Östermalms Saluhall 新鮮海鮮濃湯與醃鯡魚拼盤</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">At Six 或 Hotel C Stockholm（連住第 2 晚）</span></div>
+      <div class="spec-box"><span class="spec-label">🎨 藝術亮點</span><span class="spec-value">瓦薩沉船、市政廳諾貝爾廳、T-Centralen / Stadion 地鐵站</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 13 -->
+<div class="day-card" id="day13">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 13</span>
+      <span class="day-date-city">2027/02/19（週五）｜斯德哥爾摩（群島水上巴士巡航與購物）</span>
+    </div>
+    <div class="day-theme">【第五階段】水上之都巡禮・皇后大街購物與最後採買</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🚢 水上巴士群島遊 ➔ 🛍️ 皇后大街 (Drottninggatan) ➔ NK 百貨</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">🌊 水上巴士 SL Ferry</span>
+          <span class="metric-chip">🛍️ 北歐精品採買</span>
+          <span class="metric-chip">🧳 整理行李蓄力返程</span>
+        </div>
+      </div>
+    </div>
+    <p class="itinerary-desc">
+      上午搭乘斯德哥爾摩公共水上巴士（SL Commuter Ferry），從水面視角飽覽座落於 14 座島嶼之間的「北方威尼斯」壯麗天際線與皇家運河。午後前往著名的行人徒步購物大道——皇后大街（Drottninggatan）及歷史悠久的 NK 頂級百貨公司（Nordiska Kompaniet），輕鬆選購瑞典特色伴手禮：極具代表性的達拉木馬（Dala Horse）、天然羊毛製品、頂級北歐有機保養品與芬蘭姆明紀念品。傍晚在市中心享用精緻的告別北歐豐盛晚宴，回飯店從容整理行李。
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚗 交通</span><span class="spec-value">公共水上渡輪 + 市區地鐵 + 徒步漫遊</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">典雅餐酒館主廚精選料理、道地麋鹿肉排或烤海鱸魚</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">At Six 或 Hotel C Stockholm（連住第 3 晚）</span></div>
+      <div class="spec-box"><span class="spec-label">🛍️ 購物推薦</span><span class="spec-value">達拉木馬、Acne Studios、Fjällräven、NK 百貨退稅購物</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 14 -->
+<div class="day-card" id="day14">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 14</span>
+      <span class="day-date-city">2027/02/20（週六）｜斯德哥爾摩 ➔ 倫敦轉機 ➔ 啟程返台</span>
+    </div>
+    <div class="day-theme">【第五階段】圓滿收官・英倫轉機跨日夜航</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🛫 ARN (14:40) ✈ LHR (16:25) ➔ ✈ TPE (21:15)</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">✈️ SK 527 (ARN T5 ➔ LHR T2)</span>
+          <span class="metric-chip">⏱️ 希斯洛轉機 4h 50m</span>
+          <span class="metric-chip">✈️ CI 82 (LHR T3 ➔ TPE)</span>
+        </div>
+      </div>
+      <div class="svg-route-container">
+        <svg viewBox="0 0 800 50" style="width:100%;height:50px">
+          <line x1="60" y1="25" x2="380" y2="25" stroke="#2563EB" stroke-width="3"/>
+          <line x1="420" y1="25" x2="740" y2="25" stroke="#2563EB" stroke-width="3" stroke-dasharray="6 6"/>
+          <circle cx="60" cy="25" r="7" fill="#2563EB"/>
+          <text x="60" y="44" font-size="11" font-weight="700" text-anchor="middle">斯德哥爾摩 ARN 14:40</text>
+          <circle cx="400" cy="25" r="7" fill="#F59E0B"/>
+          <text x="400" y="44" font-size="11" font-weight="700" text-anchor="middle">倫敦希斯洛 LHR 16:25</text>
+          <circle cx="740" cy="25" r="7" fill="#059669"/>
+          <text x="740" y="44" font-size="11" font-weight="700" text-anchor="middle">台北桃園 TPE 18:35+1</text>
+        </svg>
+      </div>
+    </div>
+    <p class="itinerary-desc">
+      上午在飯店享用最後一頓豐富的北歐式自助早餐後，辦理退房手續。前往阿蘭達國際機場（ARN）第五航廈辦理登機手續，搭乘斯堪地那維亞航空 SK527 班機於 14:40 起飛，16:25 抵達英國倫敦希斯洛機場第二航廈（LHR T2）。由 T2 轉往 T3 航廈，擁有充裕的 4 小時 50 分鐘轉機時間，可在希斯洛免稅店輕鬆補齊英式茶葉、餅乾伴手禮或於貴賓室休憩。隨後搭乘 21:15 起飛的中華航空 CI82 返台班機，踏上溫暖的歸途。
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚗 交通</span><span class="spec-value">SK527 (14:40 ARN ✈ 16:25 LHR) + CI82 (21:15 LHR ✈)</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">飯店豐盛早餐、倫敦希斯洛機場英式餐飲、機上熱食</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">華航客機長程機上客艙</span></div>
+      <div class="spec-box"><span class="spec-label">🛃 轉機攻略</span><span class="spec-value">LHR T2 經由地下連通道或航廈接駁車前往 T3，時間充裕無虞</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 15 -->
+<div class="day-card" id="day15">
+  <div class="day-header">
+    <div class="day-badge-title">
+      <span class="day-num">DAY 15</span>
+      <span class="day-date-city">2027/02/21（週日）｜抵達台灣（桃園國際機場）</span>
+    </div>
+    <div class="day-theme">平安返抵國門・旅程圓滿落幕</div>
+  </div>
+  <div class="day-body">
+    <div class="daily-route-card">
+      <div class="route-top-bar">
+        <div class="route-endpoints">🛬 倫敦希斯洛 (LHR) ➔ 台北桃園國際機場 (TPE T1)</div>
+        <div class="route-metrics-bar">
+          <span class="metric-chip">✈️ CI 82 準時抵達</span>
+          <span class="metric-chip">⏰ 18:35 落地</span>
+          <span class="metric-chip">🏠 溫暖的家</span>
+        </div>
+      </div>
+    </div>
+    <p class="itinerary-desc">
+      班機於今日傍晚 18:35 順利降落台北桃園國際機場第一航廈。提領行李、通過海關，回到溫暖熟悉的家。回顧過去 15 天：從赫爾辛基登上北極特快車、在聖誕老人村跨越極圈、於薩里色爾卡仰望玻璃屋星空極光、在巴倫支海現捕現嚐碩大帝王蟹、傲立於歐洲大陸最北端的北角懸崖、搭乘郵輪徜徉於挪威冰海峽灣、再到北方威尼斯斯德哥爾摩的典雅巡禮——這趟北歐三國極光貫通壯遊，將化為全家人心中一生珍藏的壯麗記憶！
+    </p>
+    <div class="day-spec-grid">
+      <div class="spec-box"><span class="spec-label">🚗 交通</span><span class="spec-value">中華航空 CI82 順利抵達台北 (TPE T1)</span></div>
+      <div class="spec-box"><span class="spec-label">🍽️ 餐飲</span><span class="spec-value">機上精緻美饌、抵達後家鄉美味溫暖晚餐</span></div>
+      <div class="spec-box"><span class="spec-label">🏨 住宿</span><span class="spec-value">溫暖的家</span></div>
+      <div class="spec-box"><span class="spec-label">🌟 總結回顧</span><span class="spec-value">成功征服北極圈鐵路、極光玻璃屋、帝王蟹冰釣、北角與峽海郵輪</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Strategy Evaluation & Score -->
+<div class="section-header">
+  <h2>⭐ 行程綜合亮點評估</h2>
+  <span class="tagline">完全依據已訂航班與 VR 車次量身打造</span>
+</div>
+<div class="score-grid">
+  <div class="score"><b>★★★★★</b>極光多重保障<br><span class="small">覆蓋玻璃屋、帝王蟹、北角、郵輪、特羅姆瑟</span></div>
+  <div class="score"><b>★★★★★</b>不走回頭路<br><span class="small">鐵路北上 ➔ 陸路貫穿 ➔ 海洋郵輪 ➔ 首都飛航</span></div>
+  <div class="score"><b>★★★★★</b>極地極限成就<br><span class="small">歐洲最北端北角球體＋巴倫支海現撈帝王蟹</span></div>
+  <div class="score"><b>★★★★★</b>舒適度與多樣性<br><span class="small">VR 臥鋪、玻璃屋、星級飯店、峽海郵輪多維體驗</span></div>
+</div>
+
+<!-- Trip Notes & Advisory Section -->
+<div class="section-header">
+  <h2>💡 極地自由行關鍵實用叮嚀 (Important Travel Tips)</h2>
+  <span class="tagline">極地交通、郵輪預訂與冬季裝備全指南</span>
+</div>
+
+<div class="notes-grid">
+  <div class="note-card">
+    <div class="strategy-header"><h3>🚌 跨國極地包車與冬季交通接駁</h3></div>
+    <ul>
+      <li><strong>班次季節性：</strong>拉普蘭地區（Inari ➔ Kirkenes ➔ Honningsvåg）冬季公共巴士班次較少（如 Eskelisen Lapin Linjat），建議自由行團體提早預約確認跨國定期巴士或安排極地接駁包車。</li>
+      <li><strong>暴風雪彈性時間：</strong>極地路段時有暴雪，行車時間請預留彈性，包車司機具備豐富雪地長途駕駛與安裝雪鏈經驗。</li>
+      <li><strong>時差提醒：</strong>芬蘭比挪威快 1 小時（芬蘭 UTC+2，挪威 UTC+1），跨境當日手錶與行程表請注意自動調整。</li>
+    </ul>
+  </div>
+
+  <div class="note-card">
+    <div class="strategy-header"><h3>🚢 挪威沿海郵輪（Hurtigruten/Havila）預訂指南</h3></div>
+    <ul>
+      <li><strong>Port-to-port 短程票：</strong>霍寧斯沃格（Honningsvåg）至特羅姆瑟（Tromsø）航段屬於定期沿海客貨輪航線，需於官網選擇「Port-to-port」航程訂購。</li>
+      <li><strong>船艙與設施：</strong>日間航段可預訂含窗客艙供隨時洗漱與小憩，船上提供全景觀景廳、暖氣沙發區、餐廳與免費 Wi-Fi。</li>
+      <li><strong>海上極光通知：</strong>郵輪客艙皆配有「極光廣播警報開關」，開啟後夜間一旦有極光船長便會廣播通知，不必整晚在寒風中站崗。</li>
+    </ul>
+  </div>
+
+  <div class="note-card">
+    <div class="strategy-header"><h3>🚜 北角冬季車隊跟隨管制 (Convoy Driving)</h3></div>
+    <ul>
+      <li><strong>前導鏟雪車同行：</strong>冬季通往北角高原最後 13 公里封閉道路，所有車輛必須強制編隊在重型鏟雪車後方前行（Convoy Driving），嚴禁私自單獨脫隊行駛。</li>
+      <li><strong>極限風雪防禦：</strong>北角高原風勢極為強烈，體感溫度常低於 -20°C 至 -30°C，下車參觀地球儀拍照時務必配戴全防風防雪手套與防風面罩。</li>
+      <li><strong>備案思維：</strong>若偶遇百年一遇的強烈暴風雪導致全天封路，車隊將順延或於霍寧斯沃格安排港灣安全活動。</li>
+    </ul>
+  </div>
+
+  <div class="note-card">
+    <div class="strategy-header"><h3>🦀 帝王蟹冰釣防寒與裝備指南</h3></div>
+    <ul>
+      <li><strong>專業重裝提供：</strong>參加希爾克內斯帝王蟹冰釣之旅（King Crab Safari），店家均會免費提供特級加厚防寒保暖連身服、極地雪靴、頭套與重裝手套。</li>
+      <li><strong>內層洋蔥式穿法：</strong>建議內層穿著吸濕排汗羊毛排汗衣（Merino Wool），中層刷毛或羽絨背心，最外層套入防寒服，避免出汗反潮著涼。</li>
+      <li><strong>電子設備保溫：</strong>低溫下手機與相機電池耗電極快，請隨身備妥暖暖包緊貼手機背部，並多備 2–3 顆相機備用電池置於內層口袋。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Reference Links -->
+<div class="section-header">
+  <h2>🔗 官方參考與預訂入口 (Reference Portals)</h2>
+  <span class="tagline">官方預訂與即時氣象資訊</span>
+</div>
+<div style="background:#fff;border:1px solid #CBD5E1;border-radius:12px;padding:22px;margin-bottom:30px">
+  <ul style="padding-left:24px;line-height:2.2;font-size:0.92rem">
+    <li><a href="https://www.vr.fi/en" target="_blank" style="color:#00ADB5;text-decoration:none;font-weight:600">VR 芬蘭國家鐵路官網 (VR Night Train 已購車次與資訊查詢)</a></li>
+    <li><a href="https://www.hurtigruten.com/en" target="_blank" style="color:#00ADB5;text-decoration:none;font-weight:600">Hurtigruten 海達路德挪威沿海郵輪官方訂票 (Port-to-Port)</a></li>
+    <li><a href="https://www.havilavoyages.com/en" target="_blank" style="color:#00ADB5;text-decoration:none;font-weight:600">Havila Voyages 哈維拉極光郵輪官方預訂平台</a></li>
+    <li><a href="https://www.visitrovaniemi.fi/" target="_blank" style="color:#00ADB5;text-decoration:none;font-weight:600">Visit Rovaniemi 羅瓦涅米聖誕老人村官方觀光局</a></li>
+    <li><a href="https://www.snowhotelkirkenes.com/" target="_blank" style="color:#00ADB5;text-decoration:none;font-weight:600">Snowhotel Kirkenes 挪威希爾克內斯帝王蟹冰釣官方預訂</a></li>
+    <li><a href="https://www.nordkapp.no/en/" target="_blank" style="color:#00ADB5;text-decoration:none;font-weight:600">Visit Nordkapp 北角大廳與冬季車隊管制最新公告</a></li>
+    <li><a href="https://www.fjellheisen.no/en/" target="_blank" style="color:#00ADB5;text-decoration:none;font-weight:600">Fjellheisen Tromsø 特羅姆瑟全景極地纜車票務官網</a></li>
+    <li><a href="https://www.vasamuseet.se/en" target="_blank" style="color:#00ADB5;text-decoration:none;font-weight:600">Vasa Museum 斯德哥爾摩瓦薩沉船博物館官方導覽資訊</a></li>
+  </ul>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  2027 北歐極圈三國極光貫通・北角極地郵輪・帝王蟹冰釣・北極特快車 15 日自主探索提案<br>
+  本網頁完全依據華航 CI、芬航 AY、SAS 及已預訂之 VR 2/9 19:29（4間臥鋪包廂）精心規劃，採嚴格「不走回頭路」流暢動線。<br>
+  極地跨國巴士、挪威沿海郵輪短途段及當地活動建議提前完成預約；各段交通時間以 2027 官方最新時刻表為準。
+</footer>
+
+</div>
+
+<!-- Leaflet Interactive Map Script -->
+<script>
+const stops = [
+  { name: "Helsinki (赫爾辛基)", lat: 60.1699, lon: 24.9384, desc: "2/8 抵達芬蘭首都，2/9 19:29 搭乘 VR 夜臥列車出發" },
+  { name: "Rovaniemi (羅瓦涅米)", lat: 66.5039, lon: 25.7294, desc: "2/10 07:20 抵達聖誕老人村，跨越北極圈 66°33′N" },
+  { name: "Saariselkä (薩里色爾卡)", lat: 68.4231, lon: 27.4278, desc: "2/11 入住 360° 穹頂極光玻璃屋，馴鹿雪橇" },
+  { name: "Kirkenes (希爾克內斯)", lat: 69.7271, lon: 30.0450, desc: "2/12 跨入挪威巴倫支海門戶，雪地摩托車帝王蟹現撈冰釣" },
+  { name: "Honningsvåg & Nordkapp (北角)", lat: 70.9821, lon: 25.9704, desc: "2/13 登上歐洲大陸最北端 71°10′21″N，2/14 登上海洋郵輪" },
+  { name: "Tromsø (特羅姆瑟)", lat: 69.6492, lon: 18.9553, desc: "2/14 深夜郵輪抵達，極地之門全景纜車、北極大教堂、追光" },
+  { name: "Stockholm (斯德哥爾摩)", lat: 59.3293, lon: 18.0686, desc: "2/17 飛抵瑞典首都，瓦薩號沉船、市政廳諾貝爾廳、老城 Fika" }
+];
+
+const map = L.map('macro-leaflet-map').setView([66.5, 23.5], 5);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+// Segments with representative colors
+// 1. Train: Helsinki -> Rovaniemi
+const trainPts = [[60.1699, 24.9384], [66.5039, 25.7294]];
+L.polyline(trainPts, { color: '#10B981', weight: 4, dashArray: '6 6' }).addTo(map)
+  .bindPopup("<b>VR 北極特快車段</b><br>Helsinki ➔ Rovaniemi (已確認購票 19:29 發車)");
+
+// 2. Overland/Bus: Rovaniemi -> Saariselkä -> Kirkenes -> Honningsvåg
+const overlandPts = [
+  [66.5039, 25.7294],
+  [68.4231, 27.4278],
+  [69.7271, 30.0450],
+  [70.9821, 25.9704]
+];
+L.polyline(overlandPts, { color: '#F59E0B', weight: 4 }).addTo(map)
+  .bindPopup("<b>極地陸路貫通段</b><br>聖誕老人村 ➔ 薩里色爾卡玻璃屋 ➔ 希爾克內斯帝王蟹 ➔ 歐洲最北角");
+
+// 3. Cruise: Honningsvåg -> Tromsø
+const cruisePts = [
+  [70.9821, 25.9704],
+  [70.5, 23.5],
+  [70.2, 21.0],
+  [69.6492, 18.9553]
+];
+L.polyline(cruisePts, { color: '#0891B2', weight: 4, dashArray: '4 4' }).addTo(map)
+  .bindPopup("<b>挪威沿海極光郵輪段</b><br>Honningsvåg ➔ Tromsø (Hurtigruten/Havila 海洋追光)");
+
+// 4. Flight: Tromsø -> Stockholm
+const flightPts = [[69.6492, 18.9553], [59.3293, 18.0686]];
+L.polyline(flightPts, { color: '#2563EB', weight: 3, dashArray: '8 8' }).addTo(map)
+  .bindPopup("<b>跨國飛航段</b><br>Tromsø ➔ Stockholm (Wizz Air / SAS 區域航班)");
+
+// Add markers
+stops.forEach((s) => {
+  let color = '#2563EB';
+  if (s.name.includes("Helsinki") || s.name.includes("Rovaniemi")) color = '#10B981';
+  else if (s.name.includes("Saariselkä") || s.name.includes("Kirkenes")) color = '#F59E0B';
+  else if (s.name.includes("Nordkapp")) color = '#92400E';
+  else if (s.name.includes("Tromsø")) color = '#0891B2';
+
+  L.circleMarker([s.lat, s.lon], {
+    radius: 8,
+    fillColor: color,
+    color: '#ffffff',
+    weight: 2,
+    fillOpacity: 1
+  }).addTo(map).bindPopup(`<strong>${s.name}</strong><br>${s.desc}`);
+});
+</script>
+</body>
+</html>
