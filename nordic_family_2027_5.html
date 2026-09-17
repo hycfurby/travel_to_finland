@@ -1,0 +1,673 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="2027 北歐三代家庭旅行：赫爾辛基、羅瓦涅米、特羅姆瑟、斯德哥爾摩，15 天互動行程、地圖與美食。"><title>北方的冬日來信｜2027 Nordic Family Journal</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f1f4f3;color:#203537;font:16px/1.75 system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif}header{background:radial-gradient(ellipse at 85% 10%,#398780 0,transparent 48%),linear-gradient(125deg,#102c3c,#183e4a);color:white;padding:70px max(6vw,24px) 56px}header .eyebrow{letter-spacing:4px;color:#a6dac8;font-size:13px}h1{font-size:clamp(34px,5vw,60px);line-height:1.25;margin:20px 0}h2{font-size:27px;line-height:1.35}h3{margin:0 0 10px}p{margin:10px 0}main{max-width:1180px;margin:auto;padding:28px 24px 65px}.intro{font-size:19px;max-width:780px;color:#e0eeeb}.pills{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 0}.pills span,.badge{padding:5px 12px;border-radius:30px;background:#ffffff18;font-size:14px}.route{margin:25px 0 0;color:#c9e5da;font-size:18px}nav{position:sticky;top:0;z-index:3;display:flex;gap:22px;padding:14px 24px;background:#fffef6f5;overflow:auto;border-bottom:1px solid #d8e1dd}nav a{white-space:nowrap;color:#235c5c;text-decoration:none;font-weight:700}section{margin:0 0 30px;scroll-margin-top:75px}.panel,.day{background:white;border:1px solid #dde6e1;border-radius:18px;padding:28px;margin:24px 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.tile{background:#eaf3ee;padding:22px;border-radius:14px}.tile b{display:block;font-size:20px;color:#286056}.note{padding:16px 20px;border-left:4px solid #b99755;background:#fbf5e8;border-radius:0 10px 10px 0;margin:18px 0}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;font-size:14px}th{background:#e6eeea;color:#315653;text-align:left;padding:13px 12px}td{padding:13px 12px;border-bottom:1px solid #e2e8e5;vertical-align:top}td:first-child{white-space:nowrap;font-weight:650}a{color:#18716e}button{border:0;background:#245d58;color:white;padding:10px 18px;border-radius:8px;cursor:pointer;font:inherit}.day-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:20px}.daynum{background:#173f48;color:#fff;min-width:67px;text-align:center;border-radius:12px;padding:10px;line-height:1.3;font-size:24px}.daynum small{font-size:11px;display:block;letter-spacing:2px}.day h2{margin:0 0 6px;font-size:24px}.meta{font-size:14px;color:#658078}.day td:first-child{width:155px}.day td:nth-child(2){width:31%}.foot{font-size:14px;color:#5f7270}.index{display:flex;gap:8px;flex-wrap:wrap}.index a{padding:5px 11px;background:#e5eee9;border-radius:7px;text-decoration:none}ul,ol{padding-left:24px}li{margin:7px 0}@media(max-width:700px){main{padding:15px 12px}.panel,.day{padding:19px 15px}.grid{grid-template-columns:1fr}.day-head{gap:10px}.day table{min-width:560px}table{min-width:760px}header{padding:42px 24px}.day h2{font-size:21px}nav{gap:16px}}@media print{body{background:white;font-size:11px}header{padding:28px;color:#183f48;background:#e6eeea}header .eyebrow,.intro,.route{color:#183f48}h1{font-size:34px}nav,button,.index{display:none}main{padding:0;max-width:none}.panel,.day{border-radius:0;padding:15px;margin:14px 0}.day{break-before:page}.scroll{overflow:visible}table{min-width:0!important;font-size:10px}th,td{padding:8px}.day td:first-child{width:105px}a{color:inherit;text-decoration:none}.note{padding:10px}tr,.tile{break-inside:avoid}.grid{grid-template-columns:repeat(3,1fr)}h2{font-size:21px}@page{size:A4;margin:14mm}}
+/* required styles */
+
+.leaflet-pane,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-tile-container,
+.leaflet-pane > svg,
+.leaflet-pane > canvas,
+.leaflet-zoom-box,
+.leaflet-image-layer,
+.leaflet-layer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	}
+.leaflet-container {
+	overflow: hidden;
+	}
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	        user-select: none;
+	  -webkit-user-drag: none;
+	}
+/* Prevents IE11 from highlighting tiles in blue */
+.leaflet-tile::selection {
+	background: transparent;
+}
+/* Safari renders non-retina tile on retina better with this, but Chrome is worse */
+.leaflet-safari .leaflet-tile {
+	image-rendering: -webkit-optimize-contrast;
+	}
+/* hack that prevents hw layers "stretching" when loading new tiles */
+.leaflet-safari .leaflet-tile-container {
+	width: 1600px;
+	height: 1600px;
+	-webkit-transform-origin: 0 0;
+	}
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	display: block;
+	}
+/* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x */
+/* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles */
+.leaflet-container .leaflet-overlay-pane svg {
+	max-width: none !important;
+	max-height: none !important;
+	}
+.leaflet-container .leaflet-marker-pane img,
+.leaflet-container .leaflet-shadow-pane img,
+.leaflet-container .leaflet-tile-pane img,
+.leaflet-container img.leaflet-image-layer,
+.leaflet-container .leaflet-tile {
+	max-width: none !important;
+	max-height: none !important;
+	width: auto;
+	padding: 0;
+	}
+
+.leaflet-container img.leaflet-tile {
+	/* See: https://bugs.chromium.org/p/chromium/issues/detail?id=600120 */
+	mix-blend-mode: plus-lighter;
+}
+
+.leaflet-container.leaflet-touch-zoom {
+	-ms-touch-action: pan-x pan-y;
+	touch-action: pan-x pan-y;
+	}
+.leaflet-container.leaflet-touch-drag {
+	-ms-touch-action: pinch-zoom;
+	/* Fallback for FF which doesn't support pinch-zoom */
+	touch-action: none;
+	touch-action: pinch-zoom;
+}
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.leaflet-container {
+	-webkit-tap-highlight-color: transparent;
+}
+.leaflet-container a {
+	-webkit-tap-highlight-color: rgba(51, 181, 229, 0.4);
+}
+.leaflet-tile {
+	filter: inherit;
+	visibility: hidden;
+	}
+.leaflet-tile-loaded {
+	visibility: inherit;
+	}
+.leaflet-zoom-box {
+	width: 0;
+	height: 0;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+	z-index: 800;
+	}
+/* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */
+.leaflet-overlay-pane svg {
+	-moz-user-select: none;
+	}
+
+.leaflet-pane         { z-index: 400; }
+
+.leaflet-tile-pane    { z-index: 200; }
+.leaflet-overlay-pane { z-index: 400; }
+.leaflet-shadow-pane  { z-index: 500; }
+.leaflet-marker-pane  { z-index: 600; }
+.leaflet-tooltip-pane   { z-index: 650; }
+.leaflet-popup-pane   { z-index: 700; }
+
+.leaflet-map-pane canvas { z-index: 100; }
+.leaflet-map-pane svg    { z-index: 200; }
+
+.leaflet-vml-shape {
+	width: 1px;
+	height: 1px;
+	}
+.lvml {
+	behavior: url(#default#VML);
+	display: inline-block;
+	position: absolute;
+	}
+
+
+/* control positioning */
+
+.leaflet-control {
+	position: relative;
+	z-index: 800;
+	pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
+	pointer-events: auto;
+	}
+.leaflet-top,
+.leaflet-bottom {
+	position: absolute;
+	z-index: 1000;
+	pointer-events: none;
+	}
+.leaflet-top {
+	top: 0;
+	}
+.leaflet-right {
+	right: 0;
+	}
+.leaflet-bottom {
+	bottom: 0;
+	}
+.leaflet-left {
+	left: 0;
+	}
+.leaflet-control {
+	float: left;
+	clear: both;
+	}
+.leaflet-right .leaflet-control {
+	float: right;
+	}
+.leaflet-top .leaflet-control {
+	margin-top: 10px;
+	}
+.leaflet-bottom .leaflet-control {
+	margin-bottom: 10px;
+	}
+.leaflet-left .leaflet-control {
+	margin-left: 10px;
+	}
+.leaflet-right .leaflet-control {
+	margin-right: 10px;
+	}
+
+
+/* zoom and fade animations */
+
+.leaflet-fade-anim .leaflet-popup {
+	opacity: 0;
+	-webkit-transition: opacity 0.2s linear;
+	   -moz-transition: opacity 0.2s linear;
+	        transition: opacity 0.2s linear;
+	}
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
+	opacity: 1;
+	}
+.leaflet-zoom-animated {
+	-webkit-transform-origin: 0 0;
+	    -ms-transform-origin: 0 0;
+	        transform-origin: 0 0;
+	}
+svg.leaflet-zoom-animated {
+	will-change: transform;
+}
+
+.leaflet-zoom-anim .leaflet-zoom-animated {
+	-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);
+	   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);
+	        transition:         transform 0.25s cubic-bezier(0,0,0.25,1);
+	}
+.leaflet-zoom-anim .leaflet-tile,
+.leaflet-pan-anim .leaflet-tile {
+	-webkit-transition: none;
+	   -moz-transition: none;
+	        transition: none;
+	}
+
+.leaflet-zoom-anim .leaflet-zoom-hide {
+	visibility: hidden;
+	}
+
+
+/* cursors */
+
+.leaflet-interactive {
+	cursor: pointer;
+	}
+.leaflet-grab {
+	cursor: -webkit-grab;
+	cursor:    -moz-grab;
+	cursor:         grab;
+	}
+.leaflet-crosshair,
+.leaflet-crosshair .leaflet-interactive {
+	cursor: crosshair;
+	}
+.leaflet-popup-pane,
+.leaflet-control {
+	cursor: auto;
+	}
+.leaflet-dragging .leaflet-grab,
+.leaflet-dragging .leaflet-grab .leaflet-interactive,
+.leaflet-dragging .leaflet-marker-draggable {
+	cursor: move;
+	cursor: -webkit-grabbing;
+	cursor:    -moz-grabbing;
+	cursor:         grabbing;
+	}
+
+/* marker & overlays interactivity */
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-image-layer,
+.leaflet-pane > svg path,
+.leaflet-tile-container {
+	pointer-events: none;
+	}
+
+.leaflet-marker-icon.leaflet-interactive,
+.leaflet-image-layer.leaflet-interactive,
+.leaflet-pane > svg path.leaflet-interactive,
+svg.leaflet-image-layer.leaflet-interactive path {
+	pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
+	pointer-events: auto;
+	}
+
+/* visual tweaks */
+
+.leaflet-container {
+	background: #ddd;
+	outline-offset: 1px;
+	}
+.leaflet-container a {
+	color: #0078A8;
+	}
+.leaflet-zoom-box {
+	border: 2px dotted #38f;
+	background: rgba(255,255,255,0.5);
+	}
+
+
+/* general typography */
+.leaflet-container {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1.5;
+	}
+
+
+/* general toolbar styles */
+
+.leaflet-bar {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	border-radius: 4px;
+	}
+.leaflet-bar a {
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	}
+.leaflet-bar a,
+.leaflet-control-layers-toggle {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	display: block;
+	}
+.leaflet-bar a:hover,
+.leaflet-bar a:focus {
+	background-color: #f4f4f4;
+	}
+.leaflet-bar a:first-child {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	}
+.leaflet-bar a:last-child {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom: none;
+	}
+.leaflet-bar a.leaflet-disabled {
+	cursor: default;
+	background-color: #f4f4f4;
+	color: #bbb;
+	}
+
+.leaflet-touch .leaflet-bar a {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	}
+.leaflet-touch .leaflet-bar a:first-child {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	}
+.leaflet-touch .leaflet-bar a:last-child {
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	}
+
+/* zoom control */
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+	font: bold 18px 'Lucida Console', Monaco, monospace;
+	text-indent: 1px;
+	}
+
+.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out  {
+	font-size: 22px;
+	}
+
+
+/* layers control */
+
+.leaflet-control-layers {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+	background: #fff;
+	border-radius: 5px;
+	}
+.leaflet-control-layers-toggle {
+	background-image: url(images/layers.png);
+	width: 36px;
+	height: 36px;
+	}
+.leaflet-retina .leaflet-control-layers-toggle {
+	background-image: url(images/layers-2x.png);
+	background-size: 26px 26px;
+	}
+.leaflet-touch .leaflet-control-layers-toggle {
+	width: 44px;
+	height: 44px;
+	}
+.leaflet-control-layers .leaflet-control-layers-list,
+.leaflet-control-layers-expanded .leaflet-control-layers-toggle {
+	display: none;
+	}
+.leaflet-control-layers-expanded .leaflet-control-layers-list {
+	display: block;
+	position: relative;
+	}
+.leaflet-control-layers-expanded {
+	padding: 6px 10px 6px 6px;
+	color: #333;
+	background: #fff;
+	}
+.leaflet-control-layers-scrollbar {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding-right: 5px;
+	}
+.leaflet-control-layers-selector {
+	margin-top: 2px;
+	position: relative;
+	top: 1px;
+	}
+.leaflet-control-layers label {
+	display: block;
+	font-size: 13px;
+	font-size: 1.08333em;
+	}
+.leaflet-control-layers-separator {
+	height: 0;
+	border-top: 1px solid #ddd;
+	margin: 5px -10px 5px -6px;
+	}
+
+/* Default icon URLs */
+.leaflet-default-icon-path { /* used only in path-guessing heuristic, see L.Icon.Default */
+	background-image: url(images/marker-icon.png);
+	}
+
+
+/* attribution and scale controls */
+
+.leaflet-container .leaflet-control-attribution {
+	background: #fff;
+	background: rgba(255, 255, 255, 0.8);
+	margin: 0;
+	}
+.leaflet-control-attribution,
+.leaflet-control-scale-line {
+	padding: 0 5px;
+	color: #333;
+	line-height: 1.4;
+	}
+.leaflet-control-attribution a {
+	text-decoration: none;
+	}
+.leaflet-control-attribution a:hover,
+.leaflet-control-attribution a:focus {
+	text-decoration: underline;
+	}
+.leaflet-attribution-flag {
+	display: inline !important;
+	vertical-align: baseline !important;
+	width: 1em;
+	height: 0.6669em;
+	}
+.leaflet-left .leaflet-control-scale {
+	margin-left: 5px;
+	}
+.leaflet-bottom .leaflet-control-scale {
+	margin-bottom: 5px;
+	}
+.leaflet-control-scale-line {
+	border: 2px solid #777;
+	border-top: none;
+	line-height: 1.1;
+	padding: 2px 5px 1px;
+	white-space: nowrap;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+	background: rgba(255, 255, 255, 0.8);
+	text-shadow: 1px 1px #fff;
+	}
+.leaflet-control-scale-line:not(:first-child) {
+	border-top: 2px solid #777;
+	border-bottom: none;
+	margin-top: -2px;
+	}
+.leaflet-control-scale-line:not(:first-child):not(:last-child) {
+	border-bottom: 2px solid #777;
+	}
+
+.leaflet-touch .leaflet-control-attribution,
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	box-shadow: none;
+	}
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	border: 2px solid rgba(0,0,0,0.2);
+	background-clip: padding-box;
+	}
+
+
+/* popup */
+
+.leaflet-popup {
+	position: absolute;
+	text-align: center;
+	margin-bottom: 20px;
+	}
+.leaflet-popup-content-wrapper {
+	padding: 1px;
+	text-align: left;
+	border-radius: 12px;
+	}
+.leaflet-popup-content {
+	margin: 13px 24px 13px 20px;
+	line-height: 1.3;
+	font-size: 13px;
+	font-size: 1.08333em;
+	min-height: 1px;
+	}
+.leaflet-popup-content p {
+	margin: 17px 0;
+	margin: 1.3em 0;
+	}
+.leaflet-popup-tip-container {
+	width: 40px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	margin-top: -1px;
+	margin-left: -20px;
+	overflow: hidden;
+	pointer-events: none;
+	}
+.leaflet-popup-tip {
+	width: 17px;
+	height: 17px;
+	padding: 1px;
+
+	margin: -10px auto 0;
+	pointer-events: auto;
+
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	        transform: rotate(45deg);
+	}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+	background: white;
+	color: #333;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+	}
+.leaflet-container a.leaflet-popup-close-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: none;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	font: 16px/24px Tahoma, Verdana, sans-serif;
+	color: #757575;
+	text-decoration: none;
+	background: transparent;
+	}
+.leaflet-container a.leaflet-popup-close-button:hover,
+.leaflet-container a.leaflet-popup-close-button:focus {
+	color: #585858;
+	}
+.leaflet-popup-scrolled {
+	overflow: auto;
+	}
+
+.leaflet-oldie .leaflet-popup-content-wrapper {
+	-ms-zoom: 1;
+	}
+.leaflet-oldie .leaflet-popup-tip {
+	width: 24px;
+	margin: 0 auto;
+
+	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
+	filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
+	}
+
+.leaflet-oldie .leaflet-control-zoom,
+.leaflet-oldie .leaflet-control-layers,
+.leaflet-oldie .leaflet-popup-content-wrapper,
+.leaflet-oldie .leaflet-popup-tip {
+	border: 1px solid #999;
+	}
+
+
+/* div icon */
+
+.leaflet-div-icon {
+	background: #fff;
+	border: 1px solid #666;
+	}
+
+
+/* Tooltip */
+/* Base styles for the element that has a tooltip */
+.leaflet-tooltip {
+	position: absolute;
+	padding: 6px;
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	color: #222;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	}
+.leaflet-tooltip.leaflet-interactive {
+	cursor: pointer;
+	pointer-events: auto;
+	}
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+	position: absolute;
+	pointer-events: none;
+	border: 6px solid transparent;
+	background: transparent;
+	content: "";
+	}
+
+/* Directions */
+
+.leaflet-tooltip-bottom {
+	margin-top: 6px;
+}
+.leaflet-tooltip-top {
+	margin-top: -6px;
+}
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-top:before {
+	left: 50%;
+	margin-left: -6px;
+	}
+.leaflet-tooltip-top:before {
+	bottom: 0;
+	margin-bottom: -12px;
+	border-top-color: #fff;
+	}
+.leaflet-tooltip-bottom:before {
+	top: 0;
+	margin-top: -12px;
+	margin-left: -6px;
+	border-bottom-color: #fff;
+	}
+.leaflet-tooltip-left {
+	margin-left: -6px;
+}
+.leaflet-tooltip-right {
+	margin-left: 6px;
+}
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+	top: 50%;
+	margin-top: -6px;
+	}
+.leaflet-tooltip-left:before {
+	right: 0;
+	margin-right: -12px;
+	border-left-color: #fff;
+	}
+.leaflet-tooltip-right:before {
+	left: 0;
+	margin-left: -12px;
+	border-right-color: #fff;
+	}
+
+/* Printing */
+
+@media print {
+	/* Prevent printers from removing background-images of controls. */
+	.leaflet-control {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+		}
+	}
+
+.daily-visuals{margin:20px 0 26px}.theme-photo{margin:0 0 22px;border-radius:14px;overflow:hidden;background:#e9f0ec}.theme-photo img{display:block;width:100%;height:340px;object-fit:cover}.theme-photo figcaption{padding:15px 18px}.theme-photo strong{display:block;font-size:20px;color:#244d48}.theme-photo figcaption span{display:block;font-size:12px;color:#596f6a;margin-top:5px}.map-section{border:1px solid #d8e4dc;padding:20px;border-radius:14px;margin:0;background:#fafcf9}.map-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.map-heading h3{margin:0}.map-heading small{font-size:12px;color:#80998e;margin-left:10px}.map-help,.map-note,.map-status{font-size:12px;color:#60756b}.map-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(230px,1fr);gap:18px}.leaflet-map{height:340px;width:100%;border-radius:10px;background:#edf2ef;display:none;z-index:0}.map-fallback svg{display:block;width:100%;height:auto;border-radius:10px}.map-places{padding:0;margin:0;list-style:none;max-height:380px;overflow:auto}.map-places li{display:flex;gap:10px;padding:9px 0;margin:0;border-bottom:1px solid #e1e9e2;font-size:13px;line-height:1.55}.point-number{flex:0 0 26px;width:26px;height:26px;border-radius:50%;text-align:center;line-height:26px;color:#fff;background:#245d58;font-weight:700}.point-actions{display:flex;gap:12px;align-items:center;margin-top:4px}.map-focus{padding:3px 9px;font-size:12px;background:#e0eee6;color:#245d58}.map-reset{padding:6px 10px;font-size:12px;display:none}.map-note{background:#edf3e9;border-radius:7px;padding:10px 12px;margin-bottom:0}.number-pin{background:transparent;border:0}.number-pin span{display:block;width:30px;height:30px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#245d58;border:2px solid #fff;box-shadow:0 2px 6px #0004}.number-pin b{display:block;transform:rotate(45deg);text-align:center;line-height:26px;color:white;font-size:13px}.leaflet-popup-content{font-family:system-ui,"Microsoft JhengHei",sans-serif;line-height:1.7}.leaflet-popup-content a{display:inline-block;margin-top:7px}.map-status{min-height:18px;margin-bottom:0}.photo-error{display:block;padding:30px;text-align:center;background:#e9f0ec}
+@media(max-width:760px){.map-layout{grid-template-columns:1fr}.theme-photo img{height:240px}.theme-photo strong{font-size:18px}.map-section{padding:13px}.leaflet-map{height:300px}.map-places{max-height:none}.map-heading h3{font-size:18px}.map-heading small{display:none}.map-help{font-size:12px}}
+@media print{.theme-photo img{height:190px;object-fit:cover}.theme-photo strong{font-size:15px}.theme-photo figcaption{padding:8px}.theme-photo figcaption span{font-size:9px}.map-section{padding:10px}.map-layout{grid-template-columns:1.3fr 1fr;gap:10px}.map-places{max-height:none;overflow:visible}.map-places li{font-size:9px;padding:4px 0}.map-help,.map-note,.map-status{font-size:9px}.point-number{width:20px;height:20px;line-height:20px;flex-basis:20px}.point-actions{margin-top:0}.leaflet-map{display:none!important}.map-fallback{display:block!important}.map-focus,.map-reset{display:none!important}.daily-visuals{margin:12px 0}.map-heading h3{font-size:15px}.theme-photo,.map-section{break-inside:avoid}.day{break-inside:auto}.map-status{display:none}}
+
+.offline-map-wrap{position:relative;overflow:hidden;border-radius:10px;border:1px solid #cdded7;background:#f1f2e8}.travel-map{display:block;width:100%;height:350px;touch-action:none;cursor:grab}.travel-map.is-dragging{cursor:grabbing}.map-pin{cursor:pointer}.map-pin.selected circle{fill:#bc7535;stroke:#fff6cf;stroke-width:4}.north-label{position:absolute;right:10px;top:9px;background:#ffffffdb;border-radius:4px;padding:2px 6px;font-size:12px;pointer-events:none}.map-controls{display:flex;gap:5px;align-items:center}.map-controls button{padding:6px 9px;font-size:12px}.map-controls .map-reset{display:inline-block}.map-help{font-size:12px}.map-places li.active{background:#f7eddf}.map-status{font-size:12px;line-height:1.65}.travel-map:focus{outline:2px solid #3e8b7d}.point-actions button:focus-visible{outline:2px solid #245d58}@media(max-width:760px){.travel-map{height:300px}.map-heading{flex-wrap:wrap}.map-controls{margin-left:auto}}@media print{.travel-map{height:210px;touch-action:auto}.map-controls{display:none}.map-status{display:block}.offline-map-wrap{break-inside:avoid}}
+@supports(content-visibility:auto){.day{content-visibility:auto;contain-intrinsic-size:auto 1700px}}@media print{.day{content-visibility:visible;contain-intrinsic-size:none}}.travel-map image{pointer-events:none}
+.live-map-host{height:380px;position:relative;background:#e9f0ec;border-radius:10px;overflow:hidden;contain:layout paint}.map-placeholder{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;color:#526f63;padding:24px}.map-placeholder strong{font-size:20px}.map-placeholder span{font-size:13px}.map-placeholder[hidden]{display:none}#shared-live-map{height:100%;width:100%;position:absolute;inset:0}.map-controls{display:flex;gap:6px;flex-wrap:wrap}.map-controls .map-reset{display:inline-block}.map-controls button{padding:7px 10px;font-size:12px}.map-places{max-height:420px}.pin-button{width:30px;height:30px;border:2px solid white;border-radius:50%;padding:0;background:#245d58;color:white;box-shadow:0 2px 7px #0005;font-weight:700;font-size:14px;cursor:pointer}.maplibregl-popup{z-index:5}.maplibregl-popup-content{font-family:system-ui,"Microsoft JhengHei",sans-serif;max-width:240px;line-height:1.65}.maplibregl-popup-content a{display:inline-block;margin-top:8px}.maplibregl-popup-close-button{color:#333;background:transparent;font-size:20px;padding:0 4px}.maplibregl-ctrl button{background-color:#fff;color:#333;padding:0}.map-status{min-height:40px}.map-places li.active{background:#f4ecdc}.map-error{color:#94512a}.map-layout{grid-template-columns:minmax(0,1.6fr) minmax(230px,1fr)}@media(max-width:760px){.map-layout{grid-template-columns:1fr}.live-map-host{height:330px}.map-places{max-height:none}.map-heading{flex-wrap:wrap;gap:10px}}@media print{.live-map-host,.map-controls,.map-focus,.map-help,.map-status{display:none!important}.map-layout{display:block}.map-places{max-height:none}.map-section{break-inside:avoid}.map-places li{padding:4px}.day{content-visibility:visible!important}}
+
+:root{--ink:#122d34;--accent:#147965;--line:#dce4e3;--muted:#627579;--paper:#fff;--lime:#d9ed98}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:#f7f9f8;color:var(--ink);font-family:Arial,"Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:16px;line-height:1.8}a{color:inherit}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #db8d2d;outline-offset:4px}[hidden]{display:none!important}.topbar{position:sticky;top:0;z-index:50;background:#fffffff2;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:17px 5vw}.brand{text-decoration:none;font:600 23px Georgia,serif;letter-spacing:2px}.topbar nav{position:static;background:none;box-shadow:none;padding:0;display:flex;gap:23px;overflow:auto}.topbar nav a{font-size:14px;text-decoration:none;white-space:nowrap}.hero{position:relative;min-height:660px;height:86vh;max-height:900px;background:#183c46;color:white;display:flex;align-items:end;padding:7vw}.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#082b38cc,#082b3810),linear-gradient(0deg,#082b38a6,transparent)}.hero-copy{position:relative;z-index:1;max-width:780px}.eyebrow{display:block;font-size:13px;letter-spacing:3px;font-weight:700;color:var(--accent)}.hero .eyebrow{color:var(--lime)}.hero h1{font:500 clamp(50px,7vw,105px)/1.1 Georgia,"Noto Serif TC",serif;margin:25px 0}.hero h1 em{font-style:italic;color:var(--lime)}.hero p{font-size:18px;max-width:530px}.hero .cta{display:inline-block;background:var(--lime);color:#17372c;padding:13px 27px;border-radius:40px;text-decoration:none;margin-top:22px}.wrap{max-width:1260px;margin:auto;padding:0 32px}.facts{display:grid;grid-template-columns:repeat(4,1fr);padding:35px 0;border-bottom:1px solid var(--line)}.facts div{padding:0 20px;border-right:1px solid var(--line)}.facts b{display:block;font:38px Georgia,serif}.facts span{font-size:14px;color:var(--muted)}.editorial{padding:80px 0 50px;display:grid;grid-template-columns:1fr 1fr;gap:80px}.editorial h2,.section-head h2{font:500 clamp(30px,4vw,46px)/1.4 Georgia,serif;margin:14px 0}.editorial p{color:var(--muted)}.cities{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:80px}.city{position:relative;display:block;height:300px;overflow:hidden;border-radius:3px;color:white;text-decoration:none}.city img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.city:hover img{transform:scale(1.045)}.city:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,#082b38cc)}.city div{position:absolute;bottom:20px;left:20px;z-index:1}.city h3{font:27px Georgia,serif;margin:0}.city small{font-size:14px}.section-head{margin:40px 0 25px}.journal{background:white;padding:50px 0 60px}.day-selector{display:flex;overflow:auto;gap:8px;padding:8px 0 20px;scrollbar-width:thin}.date-btn{min-width:72px;border:1px solid var(--line);padding:12px;color:var(--ink);background:white;border-radius:3px;font-size:18px}.date-btn small{display:block;font-size:11px;letter-spacing:1px}.date-btn[aria-pressed=true]{background:var(--ink);color:var(--lime);border-color:var(--ink)}.day{padding:0;margin:0;border:0;border-radius:0;box-shadow:none;content-visibility:visible!important;background:transparent}.day-cover{height:470px;position:relative;overflow:hidden}.day-photo{width:100%;height:100%;object-fit:cover;display:block}.cover-label{position:absolute;bottom:25px;left:25px;background:#fff;padding:8px 16px;font-size:12px;letter-spacing:2px}.photo-credit{font-size:12px;text-align:right;color:var(--muted)}.day-heading{padding:35px 0;max-width:900px}.day-heading h2{font:500 clamp(27px,3.5vw,40px)/1.45 Georgia,serif;margin:12px 0}.lede{font-size:18px;color:#4c6265}.meta{font-size:14px;color:var(--muted)}.day-columns{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(260px,1fr);gap:65px}.day h3{font-size:23px;margin:10px 0 28px}.stop{display:grid;grid-template-columns:145px 1fr;gap:20px;border-top:1px solid var(--line);padding:22px 0}.stop time{font-size:14px;color:var(--accent);font-weight:700}.stop h4{font-size:18px;margin:0 0 7px}.stop p{margin:0;color:var(--muted);font-size:15px}.food{display:block;text-decoration:none;padding:25px;background:#f2f6f4;margin-bottom:15px;border-top:3px solid var(--accent)}.food small{color:var(--accent);font-size:13px}.food h4{font:23px/1.4 Georgia,serif;margin:9px 0}.food p,.food span{font-size:14px;color:var(--muted)}.food span{color:var(--accent)}.fine{font-size:13px;color:var(--muted)}details{border:1px solid var(--line);padding:18px;margin:20px 0}summary{cursor:pointer;font-weight:600}details p{font-size:14px}.tip{padding:20px 25px;border-left:3px solid var(--accent);background:#eff5ef}.map-section{margin:45px 0 20px;border-top:1px solid var(--line);padding-top:30px}.day-pager{display:flex;justify-content:space-between;align-items:center;margin-top:35px}.day-pager button,.print{border:1px solid var(--ink);padding:10px 20px;background:white;color:var(--ink);border-radius:30px}.weather-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin:30px 0 70px}.weather-card{padding:25px;border-top:2px solid var(--accent);background:white}.weather-card h3{font:25px Georgia,serif}.weather-card p{font-size:15px;color:var(--muted)}.weather-card a{font-size:14px;color:var(--accent)}#transport,#hotels{margin:50px 0;padding:0;border:0;background:transparent;box-shadow:none}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:15px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--ink);color:white}tr:nth-child(even){background:#eef3f1}.scroll{overflow:auto}.note,.foot{font-size:14px;color:var(--muted)}footer{background:var(--ink);color:white;padding:55px 6vw;margin-top:70px}footer p{font-size:14px;color:#bfd1d1}.progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:99;width:0}.map-places a{color:var(--accent)}@media(max-width:760px){.topbar{padding:14px 18px;display:block}.brand{font-size:20px}.topbar nav{gap:20px;margin-top:8px}.hero{height:650px;min-height:0;padding:35px 25px}.hero h1{font-size:55px}.wrap{padding:0 20px}.facts{grid-template-columns:1fr 1fr;gap:25px}.facts b{font-size:30px}.editorial{grid-template-columns:1fr;gap:10px;padding-top:45px}.cities{grid-template-columns:1fr 1fr;gap:12px;margin-bottom:40px}.city{height:225px}.city h3{font-size:21px}.city div{left:14px}.day-cover{height:300px}.day-columns{grid-template-columns:1fr;gap:30px}.stop{grid-template-columns:1fr;gap:6px}.weather-grid{grid-template-columns:1fr 1fr;gap:12px}.weather-card{padding:16px}.weather-card h3{font-size:20px}.journal{padding-top:20px}.map-layout{grid-template-columns:1fr}}@media print{.day[hidden]{display:block!important}.hero{height:300px;min-height:0}.topbar,.day-selector,.day-pager,.print,.cities{display:none}.day{break-before:page}.day-columns{display:block}.live-map-host{display:none}.weather-grid{grid-template-columns:1fr 1fr}body{font-size:12px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+main{max-width:none;padding:0;margin:0}.day h2{font-size:clamp(27px,3.5vw,40px)}.topbar nav{border:0}.day-selector{scroll-margin-top:130px}button:disabled{opacity:.4;cursor:default}</style></head><body><div class="progress"></div><div class="topbar"><a class="brand" href="#">NORTH / JOURNAL</a><nav><a href="#journey">旅行故事</a><a href="#journal">每日行程</a><a href="#weather">冬日天氣</a><a href="#transport">航班交通</a><a href="#hotels">住宿</a></nav></div><div class="hero"><img src="assets/nordic-v4/photo-2b2252ad7356.webp" alt="特羅姆瑟雪山與海灣" fetchpriority="high" width="1400" height="900"><div class="hero-copy"><span class="eyebrow">07—21 FEBRUARY 2027 · A FAMILY JOURNEY</span><h1>北方的<br><em>冬日來信。</em></h1><p>從拉普蘭的雪白森林，到挪威的山海之間。七個人，一起收藏北歐冬天的十五種表情。</p><a class="cta" href="#journal">翻開每日旅程 ↓</a></div></div><main><div class="wrap"><div class="facts"><div><b>15 Days</b><span>2027 / 02 / 07 — 02 / 21</span></div><div><b>04 Cities</b><span>芬蘭・挪威・瑞典</span></div><div><b>07 People</b><span>三代同行・5 大 2 小</span></div><div><b>01 Winter</b><span>極光・童話・山海・城市</span></div></div><section id="journey" class="editorial"><div><span class="eyebrow">OUR WINTER STORY</span><h2>讓孩子遇見童話，<br>讓大人找回旅行。</h2></div><div><p>搭一晚北極夜車，住一晚玻璃屋，在雪地裡與馴鹿和哈士奇相遇。然後向西飛往特羅姆瑟，把視野交給峽灣，最後用斯德哥爾摩的博物館、咖啡與精品購物收尾。</p><p>羅瓦涅米 4 晚、特羅姆瑟 3 晚、斯德哥爾摩 3 晚。每一天保留暖身和休息，不把北歐的冬天走成一場趕路。</p></div></section><div class="cities"><a class="city" href="#journal" data-select="2"><img src="assets/nordic-v4/photo-fb59d70e7e7b.webp" alt="Helsinki" loading="lazy" width="400" height="500"><div><small>01 / 設計、咖啡與夜車</small><h3>Helsinki</h3></div></a><a class="city" href="#journal" data-select="4"><img src="assets/nordic-v4/photo-483f81cd0908.webp" alt="Rovaniemi" loading="lazy" width="400" height="500"><div><small>02 / 聖誕老人、雪林與玻璃屋</small><h3>Rovaniemi</h3></div></a><a class="city" href="#journal" data-select="8"><img src="assets/nordic-v4/photo-2b2252ad7356.webp" alt="Tromsø" loading="lazy" width="400" height="500"><div><small>03 / 峽灣、海豹與北方天空</small><h3>Tromsø</h3></div></a><a class="city" href="#journal" data-select="12"><img src="assets/nordic-v4/photo-085a98c09aec.webp" alt="Stockholm" loading="lazy" width="400" height="500"><div><small>04 / 沉船、童話與精品時光</small><h3>Stockholm</h3></div></a></div></div><section id="journal" class="journal"><div class="wrap"><div class="section-head"><span class="eyebrow">15 DAYS, ONE BEAUTIFUL STORY</span><h2>選一天，開始旅行。</h2><p>時間皆為當地時間。選日期查看景點、餐廳與當日地圖。</p></div><div class="day-selector" role="group" aria-label="選擇旅行日期"><button class="date-btn" data-select="1" aria-pressed="true"><small>DAY 01</small>2/07</button><button class="date-btn" data-select="2" aria-pressed="false"><small>DAY 02</small>2/08</button><button class="date-btn" data-select="3" aria-pressed="false"><small>DAY 03</small>2/09</button><button class="date-btn" data-select="4" aria-pressed="false"><small>DAY 04</small>2/10</button><button class="date-btn" data-select="5" aria-pressed="false"><small>DAY 05</small>2/11</button><button class="date-btn" data-select="6" aria-pressed="false"><small>DAY 06</small>2/12</button><button class="date-btn" data-select="7" aria-pressed="false"><small>DAY 07</small>2/13</button><button class="date-btn" data-select="8" aria-pressed="false"><small>DAY 08</small>2/14</button><button class="date-btn" data-select="9" aria-pressed="false"><small>DAY 09</small>2/15</button><button class="date-btn" data-select="10" aria-pressed="false"><small>DAY 10</small>2/16</button><button class="date-btn" data-select="11" aria-pressed="false"><small>DAY 11</small>2/17</button><button class="date-btn" data-select="12" aria-pressed="false"><small>DAY 12</small>2/18</button><button class="date-btn" data-select="13" aria-pressed="false"><small>DAY 13</small>2/19</button><button class="date-btn" data-select="14" aria-pressed="false"><small>DAY 14</small>2/20</button><button class="date-btn" data-select="15" aria-pressed="false"><small>DAY 15</small>2/21</button></div><article class="day" id="day1"><div class="day-cover"><img src="assets/nordic-v4/photo-59b234aa6083.webp" alt="華航班機・啟程與歸途" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 01 / 15</div></div><div class="photo-credit"><a href="https://www.airwaysmag.com/legacy-posts/china-airlines-taipei-ontario-california-routes" target="_blank" rel="noopener">照片來源：Airways／Max Langley ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/7（日）｜台北出發・把精神留給北歐</h2><p class="meta">住宿：機上　·　交通日</p><p class="lede">從熟悉的台北出發，讓長途航程成為旅程的序章。今晚的任務很簡單：吃一點、睡一點，把期待留到醒來之後。</p></div><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>19:45–20:05</time><div><h4>抵達桃園機場</h4><p>預留約 3 小時；7 人集中辦理報到、行李與座位確認。</p></div></div><div class="stop"><time>20:05–21:30</time><div><h4>報到、晚餐、安檢</h4><p>機場用餐；保暖外套放手提行李。</p></div></div><div class="stop"><time>21:30–22:15</time><div><h4>候機與洗漱</h4><p>依看板前往 Gate，登機時間依登機證。</p></div></div><div class="stop"><time>23:05</time><div><h4>CI73 台北 → 阿姆斯特丹</h4><p>已訂；夜間休息，隔日 07:50 抵達。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%A1%83%E5%9C%92%E6%A9%9F%E5%A0%B4%E5%87%BA%E5%A2%83%E9%A4%90%E9%A3%B2" target="_blank" rel="noopener"><small>機場晚餐</small><h4>桃園機場出境餐飲</h4><p>起飛前吃熱食，依實際航廈選擇</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=China%20Airlines" target="_blank" rel="noopener"><small>機上餐</small><h4>China Airlines</h4><p>以當班供餐為準，兒童餐事先確認</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-1"><div class="map-heading"><h3 id="map-title-1">當日互動地圖 <small>DAY 01</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="1">開啟／重試地圖</button><button type="button" class="map-reset" data-day="1">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-1" data-day="1"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-1" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>桃園國際機場 TPE</b><div class="point-actions"><button type="button" class="map-focus" data-day="1" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Taiwan%20Taoyuan%20International%20Airport" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">2</span><div><b>阿姆斯特丹史基浦機場 AMS</b><div class="point-actions"><button type="button" class="map-focus" data-day="1" data-point="1">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Amsterdam%20Airport%20Schiphol" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">編號為景點索引，重訪與回飯店的順序請依時間表；地圖標記供位置概覽，入口以現場與 Google Maps 確認。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 01 / 15</span><button data-step="1">後一天 →</button></div></article><article class="day" id="day2" hidden><div class="day-cover"><img src="assets/nordic-v4/photo-fb59d70e7e7b.webp" alt="赫爾辛基・冬日大教堂" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 02 / 15</div></div><div class="photo-credit"><a href="https://open.reveel.guide/tour/018b384d-352c-701a-9b03-2bb59ec647d3?canGoBack=true" target="_blank" rel="noopener">照片來源：Reveel ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/8（一）｜抵達赫爾辛基・輕鬆調時差</h2><p class="meta">住宿：Scandic Grand Central Helsinki｜已訂　·　低強度</p><p class="lede">在中央車站旁放下行李，走進赫爾辛基的冬日街景。第一天留白多一點，用一頓熱食慢慢調整時差。</p></div><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>07:50–09:40</time><div><h4>阿姆斯特丹轉機</h4><p>入境申根、依機場指示轉機與安檢；不要安排進市區。</p></div></div><div class="stop"><time>09:40–10:30</time><div><h4>早餐與候機</h4><p>轉機共 3 小時 30 分；實際流程依行李是否直掛而異。</p></div></div><div class="stop"><time>11:20–14:45</time><div><h4>AY1302 阿姆斯特丹 → 赫爾辛基</h4><p>已訂；兩地有 1 小時時差。</p></div></div><div class="stop"><time>14:45–16:15</time><div><h4>領行李、前往飯店</h4><p>建議預約可放 7 人及行李的接送車，行車抓 40–50 分；亦可搭機場火車至中央車站。</p></div></div><div class="stop"><time>16:15–17:15</time><div><h4>飯店入住、休息</h4><p>地址 Vilhonkatu 13；以飯店實際入住時間與房型為準。</p></div></div><div class="stop"><time>17:15–18:30</time><div><h4>中央車站周邊晚餐</h4><p>首晚選飯店餐廳或附近簡餐；不跨區找名店。</p></div></div><div class="stop"><time>18:30–19:00</time><div><h4>超市補給、回飯店</h4><p>買水、優格、水果，早睡。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Grand%20Central%20Helsinki%20restaurant" target="_blank" rel="noopener"><small>飯店餐廳</small><h4>Scandic Grand Central Helsinki restaurant</h4><p>抵達日方便、不需再遠行</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Ravintola%20Aino%20Helsinki" target="_blank" rel="noopener"><small>芬蘭家常菜</small><h4>Ravintola Aino Helsinki</h4><p>想吃當地料理時的備選，先查營業</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-2"><div class="map-heading"><h3 id="map-title-2">當日互動地圖 <small>DAY 02</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="2">開啟／重試地圖</button><button type="button" class="map-reset" data-day="2">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-2" data-day="2"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-2" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>阿姆斯特丹史基浦機場 AMS</b><div class="point-actions"><button type="button" class="map-focus" data-day="2" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Amsterdam%20Airport%20Schiphol" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">2</span><div><b>赫爾辛基機場 HEL</b><div class="point-actions"><button type="button" class="map-focus" data-day="2" data-point="1">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Helsinki%20Airport" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">3</span><div><b>Scandic Grand Central Helsinki｜已訂</b><div class="point-actions"><button type="button" class="map-focus" data-day="2" data-point="2">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Grand%20Central%20Helsinki%20Vilhonkatu%2013" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">編號為景點索引，重訪與回飯店的順序請依時間表；地圖標記供位置概覽，入口以現場與 Google Maps 確認。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 02 / 15</span><button data-step="1">後一天 →</button></div></article><article class="day" id="day3" hidden><div class="day-cover"><img src="assets/nordic-v4/photo-62c5f8c03762.webp" alt="北極特快車・在臥鋪裡迎接拉普蘭" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 03 / 15</div></div><div class="photo-credit"><a href="https://www.vr.fi/ajankohtaista/2025/09/12/julkaisemme-kevaan-ja-alkukesan-yojunat-myyntiin-ti-16-9" target="_blank" rel="noopener">照片來源：VR 官方宣傳圖 ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/9（二）｜芬蘭設計與城市散步・夜車入北極</h2><p class="meta">住宿：VR 臥鋪夜車｜已訂　·　中低強度</p><p class="lede">設計商店、咖啡香和城市散步，最後在臥鋪裡迎接北方。夜車把移動變成孩子期待的一段旅行。</p></div><p class="tip">VR PYO 265：第 27、28 車廂下層，各 103–104、105–106。七人同行，四間雙人臥鋪，其中一床留空。</p><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>08:00–09:00</time><div><h4>飯店早餐</h4><p>早餐是否含於訂單需核對。</p></div></div><div class="stop"><time>09:00–09:30</time><div><h4>退房、寄放行李</h4><p>確認寄放至傍晚；隨身準備夜車用品。</p></div></div><div class="stop"><time>09:45–10:45</time><div><h4>Oodi 中央圖書館</h4><p>室內建築與兒童閱讀區；飯店步行約 10–15 分。</p></div></div><div class="stop"><time>11:00–11:40</time><div><h4>赫爾辛基大教堂／議會廣場</h4><p>外觀為主；移動約 15–20 分，冰滑時搭車。</p></div></div><div class="stop"><time>12:00–13:00</time><div><h4>Stockmann 午餐</h4><p>Fazer Café 8th Floor 為優先候選。</p></div></div><div class="stop"><time>13:00–15:00</time><div><h4>Stockmann／Marimekko 設計購物</h4><p>大人輪流逛，小孩與長輩可在咖啡區休息。</p></div></div><div class="stop"><time>15:00–16:00</time><div><h4>咖啡休息、回飯店</h4><p>步行分段進行；避免行李塞滿夜車走道。</p></div></div><div class="stop"><time>16:15–17:15</time><div><h4>中央車站周邊提早晚餐</h4><p>先吃飽再上車，另備早餐與飲水。</p></div></div><div class="stop"><time>17:15–18:30</time><div><h4>取行李、確認月台</h4><p>全員上洗手間；18:30 前到站內，月台依看板。</p></div></div><div class="stop"><time>19:29</time><div><h4>VR 赫爾辛基 → 羅瓦涅米</h4><p>已訂；截圖未列車次號、車廂與艙號，請由電子票補登。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Fazer%20Cafe%20Helsinki%20Kluuvikatu" target="_blank" rel="noopener"><small>咖啡與輕食</small><h4>Fazer Cafe Helsinki Kluuvikatu</h4><p>城市散步中的暖身停靠</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Grand%20Central%20Helsinki%20restaurant" target="_blank" rel="noopener"><small>夜車前晚餐</small><h4>Scandic Grand Central Helsinki restaurant</h4><p>先吃完再取行李上車</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-3"><div class="map-heading"><h3 id="map-title-3">當日互動地圖 <small>DAY 03</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="3">開啟／重試地圖</button><button type="button" class="map-reset" data-day="3">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-3" data-day="3"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-3" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>Scandic Grand Central Helsinki｜已訂</b><div class="point-actions"><button type="button" class="map-focus" data-day="3" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Grand%20Central%20Helsinki%20Vilhonkatu%2013" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">2</span><div><b>Oodi 中央圖書館</b><div class="point-actions"><button type="button" class="map-focus" data-day="3" data-point="1">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Oodi%20Helsinki%20Central%20Library" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">3</span><div><b>赫爾辛基大教堂／議會廣場</b><div class="point-actions"><button type="button" class="map-focus" data-day="3" data-point="2">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Helsinki%20Cathedral" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">4</span><div><b>Stockmann／Fazer Café 8th Floor</b><div class="point-actions"><button type="button" class="map-focus" data-day="3" data-point="3">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Stockmann%20Helsinki%20Aleksanterinkatu%2052" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">5</span><div><b>赫爾辛基中央車站</b><div class="point-actions"><button type="button" class="map-focus" data-day="3" data-point="4">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Helsinki%20Central%20Railway%20Station" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">編號為景點索引，重訪與回飯店的順序請依時間表；地圖標記供位置概覽，入口以現場與 Google Maps 確認。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 03 / 15</span><button data-step="1">後一天 →</button></div></article><article class="day" id="day4" hidden><div class="day-cover"><img src="assets/nordic-v4/photo-483f81cd0908.webp" alt="聖誕老人村・走進雪國童話" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 04 / 15</div></div><div class="photo-credit"><a href="https://www.lot.com/ch/pl/odkrywaj/inspiracje/blog-podrozniczy/atrakcje-rovaniemi" target="_blank" rel="noopener">照片來源：LOT Polish Airlines ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/10（三）｜抵達拉普蘭・聖誕老人與北極圈</h2><p class="meta">住宿：羅瓦涅米市中心｜待訂　·　中低強度</p><p class="lede">跨過北極圈，見到聖誕老人，再寄出一張來自拉普蘭的明信片。這一天，把時間交給童話。</p></div><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>07:20–08:00</time><div><h4>羅瓦涅米車站 → 市區飯店</h4><p>已訂夜車抵達時間；接送約 10–15 分，先寄放行李。</p></div></div><div class="stop"><time>08:00–09:30</time><div><h4>早餐與暖身休息</h4><p>可詢問加購飯店早餐／提早入住；不假設早上能進房。</p></div></div><div class="stop"><time>09:30–10:00</time><div><h4>接送至聖誕老人村</h4><p>市區出發抓 20–30 分。</p></div></div><div class="stop"><time>10:00–11:30</time><div><h4>聖誕老人辦公室</h4><p>排隊、見面、合照；照片購買另計，預留排隊彈性。</p></div></div><div class="stop"><time>11:30–12:30</time><div><h4>村內午餐</h4><p>Three Elves 為候選，或村內熱湯與義大利麵。</p></div></div><div class="stop"><time>12:30–13:30</time><div><h4>北極圈標線與聖誕老人郵局</h4><p>寄明信片、拍全家福、少量伴手禮。</p></div></div><div class="stop"><time>13:30–14:15</time><div><h4>返回市區、咖啡等候入住</h4><p>不要再加大型雪地活動。</p></div></div><div class="stop"><time>15:00–17:00</time><div><h4>入住、午睡</h4><p>若房間較早準備好，可提前休息。</p></div></div><div class="stop"><time>17:30–19:00</time><div><h4>Nili 拉普蘭晚餐</h4><p>候選：馴鹿料理、魚類；兒童選餐訂位時先詢問。</p></div></div><div class="stop"><time>20:00–21:00</time><div><h4>可選：飯店附近短暫觀天</h4><p>僅限精神好、晴朗且安全地點；不走結冰河面。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Three%20Elves%20Rovaniemi" target="_blank" rel="noopener"><small>聖誕老人村午餐</small><h4>Three Elves Rovaniemi</h4><p>在村內用餐，減少來回</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant%20Nili%20Rovaniemi" target="_blank" rel="noopener"><small>拉普蘭晚餐</small><h4>Restaurant Nili Rovaniemi</h4><p>馴鹿、魚料理等依季節菜單</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-4"><div class="map-heading"><h3 id="map-title-4">當日互動地圖 <small>DAY 04</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="4">開啟／重試地圖</button><button type="button" class="map-reset" data-day="4">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-4" data-day="4"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-4" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>羅瓦涅米車站</b><div class="point-actions"><button type="button" class="map-focus" data-day="4" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Rovaniemi%20Railway%20Station" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">2</span><div><b>Scandic Rovaniemi City｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="4" data-point="1">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Rovaniemi%20City" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">3</span><div><b>Santa Claus Office 聖誕老人辦公室</b><div class="point-actions"><button type="button" class="map-focus" data-day="4" data-point="2">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Santa%20Claus%20Office%20Rovaniemi" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">4</span><div><b>Three Elves 餐廳｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="4" data-point="3">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Three%20Elves%20Restaurant%20Rovaniemi" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">5</span><div><b>聖誕老人郵局／北極圈廣場</b><div class="point-actions"><button type="button" class="map-focus" data-day="4" data-point="4">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Santa%20Claus%20Main%20Post%20Office%20Rovaniemi" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">6</span><div><b>Nili 餐廳｜待訂</b><div class="point-actions"><button type="button" class="map-focus" data-day="4" data-point="5">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant%20Nili%20Rovaniemi" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">編號為景點索引，重訪與回飯店的順序請依時間表；地圖標記供位置概覽，入口以現場與 Google Maps 確認。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 04 / 15</span><button data-step="1">後一天 →</button></div></article><article class="day" id="day5" hidden><div class="day-cover"><img src="assets/nordic-v4/photo-c727ccc30a2e.webp" alt="Snowman World・雪圈與冰雪滑道" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 05 / 15</div></div><div class="photo-credit"><a href="https://www.visitrovaniemi.fi/eat-and-drink/ice-bar-of-snowman-world/" target="_blank" rel="noopener">照片來源：Visit Rovaniemi／Visit Finland ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/11（四）｜Snowman World・孩子的雪地樂園</h2><p class="meta">住宿：羅瓦涅米市中心｜待訂　·　中強度</p><p class="lede">雪圈、冰雪造景與暖身休息交錯安排。白天盡情玩雪，晚上留一份期待給北方的天空。</p></div><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>08:30–09:30</time><div><h4>早餐</h4><p>慢慢出門。</p></div></div><div class="stop"><time>10:15–11:00</time><div><h4>前往聖誕老人村、著裝</h4><p>接送約 20–30 分，其餘時間上廁所、換裝。</p></div></div><div class="stop"><time>11:00–12:15</time><div><h4>Snowman World 第一段</h4><p>雪地滑道／雪圈等依現場年齡、身高及冰雪狀況選擇。</p></div></div><div class="stop"><time>12:15–13:15</time><div><h4>園區或村內午餐</h4><p>雪餐廳適合短時間體驗，怕冷就選暖室餐廳。</p></div></div><div class="stop"><time>13:15–14:30</time><div><h4>Snowman World 第二段</h4><p>父母輪流陪玩，長輩可改暖室咖啡；休息後再玩。</p></div></div><div class="stop"><time>14:30–15:00</time><div><h4>返回飯店</h4><p>預約固定接送時間。</p></div></div><div class="stop"><time>15:00–17:00</time><div><h4>洗澡、午睡</h4><p>為晚間留體力。</p></div></div><div class="stop"><time>17:00–18:00</time><div><h4>市區提早晚餐</h4><p>選熱湯、米飯或披薩。</p></div></div><div class="stop"><time>19:00–23:00</time><div><h4>第一場家庭極光團｜待訂</h4><p>優先私人團或有暖屋、廁所的營地；此為希望時段，需業者確認 6 歲可參加。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Three%20Elves%20Rovaniemi" target="_blank" rel="noopener"><small>玩雪日午餐</small><h4>Three Elves Rovaniemi</h4><p>回暖後再繼續雪地活動</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Ravintola%20Roka%20Rovaniemi" target="_blank" rel="noopener"><small>市中心晚餐</small><h4>Ravintola Roka Rovaniemi</h4><p>輕鬆用餐備選，七人先問座位</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-5"><div class="map-heading"><h3 id="map-title-5">當日互動地圖 <small>DAY 05</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="5">開啟／重試地圖</button><button type="button" class="map-reset" data-day="5">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-5" data-day="5"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-5" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>Scandic Rovaniemi City｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="5" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Rovaniemi%20City" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">2</span><div><b>Snowman World</b><div class="point-actions"><button type="button" class="map-focus" data-day="5" data-point="1">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Snowman%20World%20Rovaniemi" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">3</span><div><b>Three Elves 餐廳｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="5" data-point="2">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Three%20Elves%20Restaurant%20Rovaniemi" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">編號為景點索引，重訪與回飯店的順序請依時間表；地圖標記供位置概覽，入口以現場與 Google Maps 確認。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 05 / 15</span><button data-step="1">後一天 →</button></div></article><article class="day" id="day6" hidden><div class="day-cover"><img src="assets/nordic-v4/photo-8e2eaea7ccfc.webp" alt="哈士奇雪橇・穿越拉普蘭雪原" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 06 / 15</div></div><div class="photo-credit"><a href="https://arcticattitude.com/es/viaje-laponia-en-familia-diciembre-2024-enero-2025/perros-de-trineo-en-rovaniemi/" target="_blank" rel="noopener">照片來源：Arctic Attitude ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/12（五）｜哈士奇短程體驗・拉普蘭文化</h2><p class="meta">住宿：羅瓦涅米市中心｜待訂　·　中強度</p><p class="lede">跟著哈士奇滑進雪白森林，再用拉普蘭的文化故事收尾。戶外體驗選短程，讓全家都能舒服參與。</p></div><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>09:00–10:00</time><div><h4>早餐</h4><p>昨晚晚歸可把活動移至下午並取消博物館。</p></div></div><div class="stop"><time>10:00–13:00</time><div><h4>哈士奇農場＋短程乘坐｜待訂</h4><p>含接送、穿衣、安全說明與熱飲；選業者駕駛，實際雪橇約 15–30 分為目標。</p></div></div><div class="stop"><time>13:00–14:00</time><div><h4>市區午餐</h4><p>熱湯、義大利麵或漢堡。</p></div></div><div class="stop"><time>14:00–15:00</time><div><h4>飯店休息</h4><p>長輩可休息到晚餐。</p></div></div><div class="stop"><time>15:00–16:30</time><div><h4>可選 Arktikum 博物館</h4><p>了解北極生活；開放日期與時段訂票時再確認。</p></div></div><div class="stop"><time>17:00–18:30</time><div><h4>市區晚餐</h4><p>飯店餐廳或喜歡的市區餐廳。</p></div></div><div class="stop"><time>19:30–22:30</time><div><h4>極光備援時段</h4><p>若 2/11 已看見則自由休息；要補追先與業者確認，非另一次已訂活動。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Ravintola%20Roka%20Rovaniemi" target="_blank" rel="noopener"><small>活動後午餐</small><h4>Ravintola Roka Rovaniemi</h4><p>接送返市區後用餐</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant%20Nili%20Rovaniemi" target="_blank" rel="noopener"><small>拉普蘭料理</small><h4>Restaurant Nili Rovaniemi</h4><p>未安排過時可選這一晚</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-6"><div class="map-heading"><h3 id="map-title-6">當日互動地圖 <small>DAY 06</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="6">開啟／重試地圖</button><button type="button" class="map-reset" data-day="6">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-6" data-day="6"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-6" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>Scandic Rovaniemi City｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="6" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Rovaniemi%20City" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">2</span><div><b>Arktikum 博物館</b><div class="point-actions"><button type="button" class="map-focus" data-day="6" data-point="1">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Arktikum%20Rovaniemi" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">編號為景點索引，重訪與回飯店的順序請依時間表；地圖標記供位置概覽，入口以現場與 Google Maps 確認。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 06 / 15</span><button data-step="1">後一天 →</button></div></article><article class="day" id="day7" hidden><div class="day-cover"><img src="assets/nordic-v4/photo-f7158c1ab259.webp" alt="玻璃屋・在暖房裡等待星空" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 07 / 15</div></div><div class="photo-credit"><a href="https://santaclausvillage.info/accommodation/santas-igloos-arctic-circle/" target="_blank" rel="noopener">照片來源：Santa Claus Village ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/13（六）｜馴鹿短程與玻璃屋・把下午留給住宿</h2><p class="meta">住宿：Santa’s Igloos Arctic Circle｜候選待訂　·　家庭步調；時間為規劃估算</p><p class="lede">上午與馴鹿相遇，午後住進玻璃屋。從入住到晚餐都慢下來；看不見極光，也有整片雪景值得記住。</p></div><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>08:30–09:30</time><div><h4>早餐、整理行李</h4><p>今天入住玻璃屋，先確認行李接送。</p></div></div><div class="stop"><time>09:30–10:00</time><div><h4>退房與寄放行李</h4><p>不保證玻璃屋可提早入住。</p></div></div><div class="stop"><time>10:00–12:00</time><div><h4>親子馴鹿短程體驗｜候選待訂</h4><p>含接送的預留時段；確認 6 歲可參加、長輩上下雪橇協助。若未訂到，改市區輕鬆逛街。</p></div></div><div class="stop"><time>12:00–13:00</time><div><h4>市區／活動附近午餐</h4><p>選暖室熱食，不以活動熱飲代替正餐。</p></div></div><div class="stop"><time>13:00–14:00</time><div><h4>前往玻璃屋、寄放行李</h4><p>車程與行李取回依飯店及活動接送安排。</p></div></div><div class="stop"><time>14:00–15:00</time><div><h4>公共暖室休息</h4><p>先確認等待空間；實際入住依飯店。</p></div></div><div class="stop"><time>15:00–17:00</time><div><h4>入住玻璃屋、玩雪與拍照</h4><p>當日下午不再加跨區景點。</p></div></div><div class="stop"><time>17:30–19:00</time><div><h4>Arctic Eye／住宿餐廳晚餐</h4><p>7 人先訂位。</p></div></div><div class="stop"><time>20:00–22:00</time><div><h4>玻璃屋與短暫戶外觀天</h4><p>暖房休息為主，極光不保證；不再外出長程追光。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Three%20Elves%20Rovaniemi" target="_blank" rel="noopener"><small>村內午餐</small><h4>Three Elves Rovaniemi</h4><p>往玻璃屋方向用餐</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Arctic%20Eye%20Restaurant%20Rovaniemi" target="_blank" rel="noopener"><small>玻璃屋晚餐</small><h4>Arctic Eye Restaurant Rovaniemi</h4><p>依實際住宿確認餐廳與訂位</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-7"><div class="map-heading"><h3 id="map-title-7">當日互動地圖 <small>DAY 07</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="7">開啟／重試地圖</button><button type="button" class="map-reset" data-day="7">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-7" data-day="7"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-7" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>Scandic Rovaniemi City｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="7" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Rovaniemi%20City" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">2</span><div><b>Santa’s Igloos／Arctic Eye｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="7" data-point="1">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Santas%20Igloos%20Arctic%20Circle%20Rovaniemi" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">馴鹿業者未選定，地圖只標示住宿；不以猜測位置代替農場。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 07 / 15</span><button data-step="1">後一天 →</button></div></article><article class="day" id="day8" hidden><div class="day-cover"><img src="assets/nordic-v4/photo-2b2252ad7356.webp" alt="特羅姆瑟・雪山與海灣的城市" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 08 / 15</div></div><div class="photo-credit"><a href="https://www.reisroutes.be/blog/noorwegen/tromso-bezoeken-noorderlicht-zien/" target="_blank" rel="noopener">照片來源：Reisroutes ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/14（日）｜飛往特羅姆瑟・北挪威港都</h2><p class="meta">住宿：特羅姆瑟市中心｜待訂　·　交通日</p><p class="lede">越過國界，雪林換成雪山與海灣。早班機抵達後先吃飯、寄物，把午後留給港都散步與休息。</p></div><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>06:00–06:45｜芬蘭時間</time><div><h4>起床、早餐與整理</h4><p>前晚向玻璃屋飯店確認早餐盒；今日早起，2/13 不安排深夜追光。</p></div></div><div class="stop"><time>06:45–07:00</time><div><h4>退房、七人集合</h4><p>提前預約足夠座位與行李空間的接送車。</p></div></div><div class="stop"><time>07:00–07:25</time><div><h4>玻璃屋 → RVN 機場</h4><p>依目前聖誕老人村附近候選住宿估算，含雪天緩衝；入住地點變更時重算。</p></div></div><div class="stop"><time>07:25–08:40</time><div><h4>報到、托運、安檢</h4><p>目標起飛前 2 小時到機場；核對證件、行李與兒童座位。</p></div></div><div class="stop"><time>08:40–09:25</time><div><h4>候機與登機</h4><p>實際登機門與登機截止以登機證／看板為準。</p></div></div><div class="stop"><time>09:25 芬蘭 → 09:40 挪威</time><div><h4>AY541｜Rovaniemi → Tromsø</h4><p>Finnair 執飛 Airbus A320；直飛 1 小時 15 分，時鐘撥慢 1 小時。</p></div></div><div class="stop"><time>09:40–10:30｜以下挪威時間</time><div><h4>抵達 TOS、領行李</h4><p>預留步行、行李與洗手間時間；延誤時後續彈性順延。</p></div></div><div class="stop"><time>10:30–11:00</time><div><h4>TOS → 市中心飯店</h4><p>預約接送；車程約 15–25 分，加上裝卸行李時間。</p></div></div><div class="stop"><time>11:00–11:30</time><div><h4>飯店寄放行李</h4><p>尚未到入住時間，不保證可提早進房。</p></div></div><div class="stop"><time>11:30–12:30</time><div><h4>飯店附近午餐</h4><p>以熱湯、魚料理或兒童可接受餐點為主；先查週日營業。</p></div></div><div class="stop"><time>12:30–13:30</time><div><h4>飯店周邊港區短散步</h4><p>步行約 30–45 分，其餘時間咖啡休息；疲倦或風雪改室內。</p></div></div><div class="stop"><time>13:30–15:00</time><div><h4>咖啡館／飯店公共區休息</h4><p>等候正式入住；可事先詢問付費提早入住，但不預設有房。</p></div></div><div class="stop"><time>15:00–17:30</time><div><h4>入住、午睡與自由休息</h4><p>今日清晨起床，下午保留體力。入住時間依實際飯店規定。</p></div></div><div class="stop"><time>18:00–19:00</time><div><h4>飯店附近晚餐</h4><p>週日餐廳先訂位，餐後以休息為主。</p></div></div><div class="stop"><time>19:30 以後</time><div><h4>休息／短時間觀天</h4><p>不排固定深夜追光團；若天候與全員體力允許，向飯店詢問附近安全觀測點，極光不保證可見。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Full%20Steam%20Tromso" target="_blank" rel="noopener"><small>港都午餐</small><h4>Full Steam Tromso</h4><p>海鮮與港灣氛圍</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Ishavshotel%20restaurant%20Tromso" target="_blank" rel="noopener"><small>輕鬆晚餐</small><h4>Scandic Ishavshotel restaurant Tromso</h4><p>早起飛行日以飯店附近為主</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-8"><div class="map-heading"><h3 id="map-title-8">當日互動地圖 <small>DAY 08</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="8">開啟／重試地圖</button><button type="button" class="map-reset" data-day="8">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-8" data-day="8"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-8" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>Santa’s Igloos／Arctic Eye｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="8" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Santas%20Igloos%20Arctic%20Circle%20Rovaniemi" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">2</span><div><b>羅瓦涅米機場 RVN</b><div class="point-actions"><button type="button" class="map-focus" data-day="8" data-point="1">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Rovaniemi%20Airport" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">3</span><div><b>特羅姆瑟機場 TOS</b><div class="point-actions"><button type="button" class="map-focus" data-day="8" data-point="2">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Tromso%20Airport" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">4</span><div><b>Scandic Ishavshotel｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="8" data-point="3">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Ishavshotel%20Tromso" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">編號為景點索引，重訪與回飯店的順序請依時間表；地圖標記供位置概覽，入口以現場與 Google Maps 確認。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 08 / 15</span><button data-step="1">後一天 →</button></div></article><article class="day" id="day9" hidden><div class="day-cover"><img src="assets/nordic-v4/photo-5d9f5a0c5418.webp" alt="Polaria・與北極海洋生命相遇" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 09 / 15</div></div><div class="photo-credit"><a href="https://nordnorge.com/en/aktiviteter/polaria-explains-the-arctic/" target="_blank" rel="noopener">照片來源：Northern Norway Tourist Board ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/15（一）｜Kvaløya・Sommarøy 峽灣海岸一日遊</h2><p class="meta">住宿：特羅姆瑟市中心｜待訂　·　家庭步調；時間為規劃估算</p><p class="lede">Kvaløya 與 Sommarøy 的海岸，讓北挪威不只有極光。沿途看山、看海、停下拍照，跟著冬季天候調整節奏。</p></div><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>08:00–09:00</time><div><h4>飯店早餐</h4><p>攜帶保暖衣物、熱飲與點心。</p></div></div><div class="stop"><time>09:15–09:45</time><div><h4>前往 Prostneset 集合</h4><p>09:45 為現有候選團集合時刻，2027 訂位後確認。</p></div></div><div class="stop"><time>10:00–12:00</time><div><h4>Kvaløya 海岸與峽灣觀景 ↗</h4><p>選乘車＋短程下車拍照團，不選需登山的版本；停靠由導遊依路況決定。</p></div></div><div class="stop"><time>12:00–13:00</time><div><h4>Sommarøy 周邊午餐與暖室休息 ↗</h4><p>餐費是否含在團費內須確認；確保長輩有暖室。</p></div></div><div class="stop"><time>13:00–15:30</time><div><h4>島嶼景觀、沿途短停與返回</h4><p>候選團總長約 5–6 小時；返回常落在 15:00–16:00。</p></div></div><div class="stop"><time>15:30–17:30</time><div><h4>飯店休息</h4><p>今天不另外安排纜車或強制深夜追光。</p></div></div><div class="stop"><time>18:00–19:30</time><div><h4>Fiskekompaniet 海鮮晚餐｜候選</h4><p>預約 7 人、詢問兒童餐及當日營業。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Sommaroy%20Arctic%20Hotel%20restaurant" target="_blank" rel="noopener"><small>行程中午餐</small><h4>Sommaroy Arctic Hotel restaurant</h4><p>僅為沿途候選；先問導遊是否停靠供餐</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Fiskekompaniet%20Tromso" target="_blank" rel="noopener"><small>海鮮晚餐</small><h4>Fiskekompaniet Tromso</h4><p>回到市區後，預約七人餐桌</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-9"><div class="map-heading"><h3 id="map-title-9">當日互動地圖 <small>DAY 09</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="9">開啟／重試地圖</button><button type="button" class="map-reset" data-day="9">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-9" data-day="9"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-9" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>Scandic Ishavshotel｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="9" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Ishavshotel%20Tromso" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">2</span><div><b>Prostneset 巴士總站｜候選集合點</b><div class="point-actions"><button type="button" class="map-focus" data-day="9" data-point="1">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Prostneset%20Tromso" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">3</span><div><b>Kvaløya｜沿途區域示意</b><div class="point-actions"><button type="button" class="map-focus" data-day="9" data-point="2">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Kvaloya%20Norway" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">4</span><div><b>Sommarøy｜停靠依業者</b><div class="point-actions"><button type="button" class="map-focus" data-day="9" data-point="3">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Sommaroy%20Norway" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">5</span><div><b>Fiskekompaniet 海鮮餐廳｜待訂</b><div class="point-actions"><button type="button" class="map-focus" data-day="9" data-point="4">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Fiskekompaniet%20Tromso" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">Kvaløya 為區域示意，並非指定下車點；導遊依天候安排停靠。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 09 / 15</span><button data-step="1">後一天 →</button></div></article><article class="day" id="day10" hidden><div class="day-cover"><img src="assets/nordic-v4/photo-5d9f5a0c5418.webp" alt="Polaria・與北極海洋生命相遇" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 10 / 15</div></div><div class="photo-credit"><a href="https://nordnorge.com/en/aktiviteter/polaria-explains-the-arctic/" target="_blank" rel="noopener">照片來源：Northern Norway Tourist Board ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/16（二）｜海豹、港都與纜車・早睡準備搭機</h2><p class="meta">住宿：特羅姆瑟市中心｜待訂　·　家庭步調；時間為規劃估算</p><p class="lede">海豹、海灣與山上的城市全景，是特羅姆瑟的三種表情。纜車看天候，今晚早睡，明天繼續向南。</p></div><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>08:00–09:00</time><div><h4>早餐</h4><p>今天不排跨區長團。</p></div></div><div class="stop"><time>09:30–10:00</time><div><h4>前往 Polaria ↗</h4><p>冰滑改搭車；市區接送估 10–20 分。</p></div></div><div class="stop"><time>10:00–11:30</time><div><h4>Polaria 北極體驗館 ↗</h4><p>海豹與室內展示；餵食場次出發前確認。</p></div></div><div class="stop"><time>11:45–13:00</time><div><h4>市區午餐</h4><p>候選：Fiskekompaniet 午餐或港邊暖室餐廳。</p></div></div><div class="stop"><time>13:00–14:00</time><div><h4>飯店休息</h4><p>長輩可留在飯店。</p></div></div><div class="stop"><time>14:00–15:30</time><div><h4>Fjellheisen 纜車｜天候許可 ↗</h4><p>含接送、候車與山頂短停；強風停駛則改 Storgata。</p></div></div><div class="stop"><time>15:30–16:30</time><div><h4>Storgata 商店與咖啡</h4><p>不走跨海大橋或雪地登山階梯。</p></div></div><div class="stop"><time>17:00–18:00</time><div><h4>提早晚餐</h4><p>熱食簡餐，回房整理行李。</p></div></div><div class="stop"><time>18:00–20:30</time><div><h4>打包、洗澡、早休息</h4><p>明早約 06:45 出發；今晚不安排深夜追光。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Full%20Steam%20Tromso" target="_blank" rel="noopener"><small>午餐備選</small><h4>Full Steam Tromso</h4><p>Polaria 活動後安排</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Fiskekompaniet%20Tromso" target="_blank" rel="noopener"><small>提早晚餐</small><h4>Fiskekompaniet Tromso</h4><p>早吃早休息，依訂位狀況調整</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-10"><div class="map-heading"><h3 id="map-title-10">當日互動地圖 <small>DAY 10</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="10">開啟／重試地圖</button><button type="button" class="map-reset" data-day="10">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-10" data-day="10"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-10" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>Scandic Ishavshotel｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="10" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Ishavshotel%20Tromso" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">2</span><div><b>Polaria 北極體驗館</b><div class="point-actions"><button type="button" class="map-focus" data-day="10" data-point="1">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Polaria%20Tromso" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">3</span><div><b>Fiskekompaniet 海鮮餐廳｜待訂</b><div class="point-actions"><button type="button" class="map-focus" data-day="10" data-point="2">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Fiskekompaniet%20Tromso" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">4</span><div><b>Storgata 逛街區</b><div class="point-actions"><button type="button" class="map-focus" data-day="10" data-point="3">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Storgata%20Tromso" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">5</span><div><b>Fjellheisen 纜車山下站｜天候許可</b><div class="point-actions"><button type="button" class="map-focus" data-day="10" data-point="4">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Fjellheisen%20lower%20station%20Tromso" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">編號為景點索引，重訪與回飯店的順序請依時間表；地圖標記供位置概覽，入口以現場與 Google Maps 確認。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 10 / 15</span><button data-step="1">後一天 →</button></div></article><article class="day" id="day11" hidden><div class="day-cover"><img src="assets/nordic-v4/photo-085a98c09aec.webp" alt="Vasa・看見真正的十七世紀大船" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 11 / 15</div></div><div class="photo-credit"><a href="https://www.vasamuseet.se/en/about-the-vasa-museum/trade" target="_blank" rel="noopener">照片來源：Vasa Museum ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/17（三）｜芬航 AY936＋AY811・經赫爾辛基到瑞典</h2><p class="meta">住宿：Scandic Continental／中央車站附近｜待訂　·　家庭步調；時間為規劃估算</p><p class="lede">經赫爾辛基轉機，午後來到斯德哥爾摩。抵達後只安排輕鬆散步，正式的城市探索從明天開始。</p></div><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>05:45–06:30</time><div><h4>起床、早餐／早餐盒</h4><p>前晚請飯店準備；依實際供餐時間調整。</p></div></div><div class="stop"><time>06:30–06:45</time><div><h4>退房與集合</h4><p>核對 7 人證件、行李與兩段登機證。</p></div></div><div class="stop"><time>06:45–07:20</time><div><h4>飯店 → TOS 機場</h4><p>接送含雪天緩衝，目標起飛前 2 小時到。</p></div></div><div class="stop"><time>07:20–08:40</time><div><h4>報到、托運與安檢</h4><p>確認行李直掛 ARN、孩子與成人相鄰。</p></div></div><div class="stop"><time>08:40–09:20</time><div><h4>候機／依看板登機</h4><p>實際登機截止與 Gate 以登機證為準。</p></div></div><div class="stop"><time>09:20–12:10</time><div><h4>AY936｜TOS → HEL</h4><p>芬蘭時間快 1 小時；實際飛行 1 小時 50 分。Norra 代芬航執飛，Embraer 190。</p></div></div><div class="stop"><time>12:10–13:30</time><div><h4>HEL 轉機｜80 分鐘</h4><p>先找 AY811 登機門，再上廁所／買簡餐；80 分鐘包含下機、步行、候機，不全是自由時間。</p></div></div><div class="stop"><time>13:30–13:35</time><div><h4>AY811｜HEL → ARN</h4><p>抵達瑞典時鐘撥慢 1 小時；實際飛行 1 小時 5 分。E190；截圖列 ARN Terminal 2，出發前重查。</p></div></div><div class="stop"><time>13:35–14:30</time><div><h4>領行李、集合</h4><p>依現場速度調整。</p></div></div><div class="stop"><time>14:30–15:45</time><div><h4>ARN → 市區飯店、入住</h4><p>預約車或機場快線擇一；接送車程估 45–60 分。</p></div></div><div class="stop"><time>16:00–17:00</time><div><h4>可選 Gamla Stan／Stortorget 短散步 ↗</h4><p>只在準點抵達且精神好時前往；冰滑或疲累改飯店附近咖啡。</p></div></div><div class="stop"><time>17:30–19:00</time><div><h4>瑞典肉丸晚餐｜候選</h4><p>Meatballs for the People 需另加市區接送及確認候位；疲累就改飯店附近餐廳。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Helsinki%20Airport%20restaurants" target="_blank" rel="noopener"><small>轉機簡餐</small><h4>Helsinki Airport restaurants</h4><p>先找到登機門再購餐</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Meatballs%20for%20the%20People%20Stockholm" target="_blank" rel="noopener"><small>瑞典肉丸</small><h4>Meatballs for the People Stockholm</h4><p>需額外市區移動；疲倦改飯店附近</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-11"><div class="map-heading"><h3 id="map-title-11">當日互動地圖 <small>DAY 11</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="11">開啟／重試地圖</button><button type="button" class="map-reset" data-day="11">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-11" data-day="11"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-11" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>Scandic Ishavshotel｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="11" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Ishavshotel%20Tromso" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">2</span><div><b>特羅姆瑟機場 TOS</b><div class="point-actions"><button type="button" class="map-focus" data-day="11" data-point="1">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Tromso%20Airport" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">3</span><div><b>赫爾辛基機場 HEL｜80 分鐘轉機</b><div class="point-actions"><button type="button" class="map-focus" data-day="11" data-point="2">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Helsinki%20Airport" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">4</span><div><b>斯德哥爾摩阿蘭達機場 ARN</b><div class="point-actions"><button type="button" class="map-focus" data-day="11" data-point="3">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Stockholm%20Arlanda%20Airport" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">5</span><div><b>Scandic Continental｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="11" data-point="4">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Continental%20Stockholm" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">6</span><div><b>Gamla Stan／Stortorget 老城廣場</b><div class="point-actions"><button type="button" class="map-focus" data-day="11" data-point="5">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Stortorget%20Stockholm" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">7</span><div><b>Meatballs for the People｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="11" data-point="6">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Meatballs%20for%20the%20People%20Stockholm" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">依截圖：AY936＋AY811，HEL 轉機 80 分鐘。Gate 待公布。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 11 / 15</span><button data-step="1">後一天 →</button></div></article><article class="day" id="day12" hidden><div class="day-cover"><img src="assets/nordic-v4/photo-085a98c09aec.webp" alt="Vasa・看見真正的十七世紀大船" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 12 / 15</div></div><div class="photo-credit"><a href="https://www.vasamuseet.se/en/about-the-vasa-museum/trade" target="_blank" rel="noopener">照片來源：Vasa Museum ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/18（四）｜沉船探險與童話列車</h2><p class="meta">住宿：斯德哥爾摩中央車站附近｜待訂　·　中強度</p><p class="lede">一艘巨大的古老戰船，加上一段童話列車旅程。Vasa 與 Junibacken 相鄰，少一點移動，多一點孩子的驚呼。</p></div><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>08:00–09:00</time><div><h4>早餐</h4><p>準備室內活動日。</p></div></div><div class="stop"><time>09:15–10:00</time><div><h4>前往 Djurgården 動物園島</h4><p>搭大眾交通或接送，抓 30–45 分。</p></div></div><div class="stop"><time>10:00–11:45</time><div><h4>Vasa 瓦薩沉船博物館</h4><p>看大船與航海故事，適合全家。</p></div></div><div class="stop"><time>11:45–12:45</time><div><h4>博物館附近午餐</h4><p>優先館內餐廳，少一次移動。</p></div></div><div class="stop"><time>12:45–13:00</time><div><h4>前往 Junibacken</h4><p>兩館鄰近，步行仍預留雪地時間。</p></div></div><div class="stop"><time>13:00–15:00</time><div><h4>Junibacken 童話世界</h4><p>故事列車與遊戲區；9 歲若興趣較低可延長 Vasa，由一名大人陪同分組。</p></div></div><div class="stop"><time>15:00–16:00</time><div><h4>咖啡、返回飯店</h4><p>長輩可提早回飯店休息。</p></div></div><div class="stop"><time>16:00–17:30</time><div><h4>自由休息</h4><p>不再增加大型博物館。</p></div></div><div class="stop"><time>18:00–19:15</time><div><h4>瑞典家常晚餐</h4><p>選市中心肉丸、魚排或義大利麵。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Vasa%20Museum%20restaurant" target="_blank" rel="noopener"><small>博物館午餐</small><h4>Vasa Museum restaurant</h4><p>兩館之間就近用餐</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Junibacken%20restaurant" target="_blank" rel="noopener"><small>童話館補給</small><h4>Junibacken restaurant</h4><p>依當日開放與菜單安排</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-12"><div class="map-heading"><h3 id="map-title-12">當日互動地圖 <small>DAY 12</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="12">開啟／重試地圖</button><button type="button" class="map-reset" data-day="12">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-12" data-day="12"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-12" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>Scandic Continental｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="12" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Continental%20Stockholm" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">2</span><div><b>Vasa 瓦薩博物館</b><div class="point-actions"><button type="button" class="map-focus" data-day="12" data-point="1">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Vasa%20Museum%20Stockholm" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">3</span><div><b>Junibacken 童話世界</b><div class="point-actions"><button type="button" class="map-focus" data-day="12" data-point="2">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Junibacken%20Stockholm" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">編號為景點索引，重訪與回飯店的順序請依時間表；地圖標記供位置概覽，入口以現場與 Google Maps 確認。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 12 / 15</span><button data-step="1">後一天 →</button></div></article><article class="day" id="day13" hidden><div class="day-cover"><img src="assets/nordic-v4/photo-d5a291a6e3ea.webp" alt="斯德哥爾摩・老城的彩色立面" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 13 / 15</div></div><div class="photo-credit"><a href="https://www.travelzoo.com/de/blog/48-stunden-stockholm/" target="_blank" rel="noopener">照片來源：Travelzoo／iStock ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/19（五）｜上午親子科學・下午歐洲精品半日</h2><p class="meta">住宿：斯德哥爾摩中央車站附近｜待訂　·　家庭步調；時間為規劃估算</p><p class="lede">早上把好奇心交給科技博物館，下午把時間留給大人的精品清單。科學、購物與 fika，在同一天各得其所。</p></div><p class="tip">13:00–17:30 精品購物時段：Bibliotekstan／Birger Jarlsgatan → fika → NK。上午科技館不延伸成全天，讓大人也有完整購物時間。</p><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>07:30–08:15</time><div><h4>飯店早餐</h4><p>提早出門，讓下午購物不被壓縮。</p></div></div><div class="stop"><time>08:15–09:00</time><div><h4>前往 Tekniska museet ↗</h4><p>大眾交通／接送估 30–45 分。</p></div></div><div class="stop"><time>09:00–11:30</time><div><h4>國家科技博物館</h4><p>選孩子喜歡的互動展區；本版不另綁 Wisdome 場次。現行 09:00 開館，2027 再核對。</p></div></div><div class="stop"><time>11:30–12:15</time><div><h4>館內／附近午餐</h4><p>先吃完再進購物區，避免午後用餐排隊。</p></div></div><div class="stop"><time>12:15–13:00</time><div><h4>前往 Bibliotekstan 精品區 ↗</h4><p>接送／市區交通，保留洗手間與集合。</p></div></div><div class="stop"><time>13:00–15:00</time><div><h4>Bibliotekstan／Birger Jarlsgatan 精品店 ↗</h4><p>先逛最想買的品牌；Louis Vuitton（Birger Jarlsgatan 5A）為候選，事先查預約、庫存與 2027 營業時間。</p></div></div><div class="stop"><time>15:00–15:30</time><div><h4>Fika 與分組休息</h4><p>一名成人可陪兩位孩子與長輩去咖啡館或回飯店；事先約定聯絡與集合方式。</p></div></div><div class="stop"><time>15:30–17:30</time><div><h4>NK 百貨精品與配件 ↗</h4><p>歐洲品牌依當時櫃位與庫存選購；不是每個精品品牌都有櫃。保留比價、試背和結帳時間。</p></div></div><div class="stop"><time>17:30–18:15</time><div><h4>回飯店放購物袋、休息</h4><p>13:00–17:30 共 4.5 小時購物時段（含咖啡休息）。</p></div></div><div class="stop"><time>18:15–19:30</time><div><h4>市中心最後一晚聚餐</h4><p>飯店步行圈餐廳優先，先預約 7 人。</p></div></div><div class="stop"><time>19:30–20:30</time><div><h4>整理行李與收據</h4><p>商品、購物單據、證件分別收好；若申請退稅，向店家確認實際航線下的辦理方式，不預設一定可退。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Tekniska%20museet%20restaurant" target="_blank" rel="noopener"><small>科技館午餐</small><h4>Tekniska museet restaurant</h4><p>館內用餐後直接進城購物</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=NK%20Stockholm%20restaurants" target="_blank" rel="noopener"><small>購物日 fika／餐飲</small><h4>NK Stockholm restaurants</h4><p>集中同區，讓購物與休息兼顧</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-13"><div class="map-heading"><h3 id="map-title-13">當日互動地圖 <small>DAY 13</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="13">開啟／重試地圖</button><button type="button" class="map-reset" data-day="13">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-13" data-day="13"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-13" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>Scandic Continental｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="13" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Continental%20Stockholm" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">2</span><div><b>Tekniska museet 國家科技博物館</b><div class="point-actions"><button type="button" class="map-focus" data-day="13" data-point="1">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Tekniska%20museet%20Stockholm" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">3</span><div><b>Bibliotekstan 精品區</b><div class="point-actions"><button type="button" class="map-focus" data-day="13" data-point="2">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Bibliotekstan%20Stockholm" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">4</span><div><b>Louis Vuitton｜候選／先查預約</b><div class="point-actions"><button type="button" class="map-focus" data-day="13" data-point="3">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Louis%20Vuitton%20Birger%20Jarlsgatan%205A%20Stockholm" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">5</span><div><b>NK 百貨</b><div class="point-actions"><button type="button" class="map-focus" data-day="13" data-point="4">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Nordiska%20Kompaniet%20Stockholm" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">13:00–17:30 精品購物固定保留。圖標為位置概覽，商店入口與庫存以店家確認。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 13 / 15</span><button data-step="1">後一天 →</button></div></article><article class="day" id="day14" hidden><div class="day-cover"><img src="assets/nordic-v4/photo-59b234aa6083.webp" alt="華航班機・啟程與歸途" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 14 / 15</div></div><div class="photo-credit"><a href="https://www.airwaysmag.com/legacy-posts/china-airlines-taipei-ontario-california-routes" target="_blank" rel="noopener">照片來源：Airways／Max Langley ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/20（六）｜斯德哥爾摩 → 倫敦 → 台北</h2><p class="meta">住宿：機上　·　交通日</p><p class="lede">把行李整理好，讓回程從容一些。今天專心照顧轉機與休息，不再把景點塞進起飛前的空檔。</p></div><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>07:30–08:30</time><div><h4>早餐</h4><p>回程日不排景點。</p></div></div><div class="stop"><time>08:30–09:45</time><div><h4>最後整理、退房</h4><p>核對所有護照、行李、機票。</p></div></div><div class="stop"><time>10:00–11:15</time><div><h4>前往 ARN 機場</h4><p>預约接送，目標約起飛前 3.5 小時到，保留雪天緩衝。</p></div></div><div class="stop"><time>11:15–13:30</time><div><h4>報到、行李、午餐與安檢</h4><p>確認 LHR 是否直掛 TPE、航廈及轉機流程。</p></div></div><div class="stop"><time>14:40–16:25</time><div><h4>SK527 ARN → LHR</h4><p>已訂；抵達為英國當地時間。</p></div></div><div class="stop"><time>16:25–19:30</time><div><h4>倫敦轉機、晚餐</h4><p>轉機 4 小時 50 分；依是否直掛及航廈辦理，不出機場觀光。</p></div></div><div class="stop"><time>19:30–20:15</time><div><h4>確認 Gate、前往候機</h4><p>航空公司實際登機時間優先。</p></div></div><div class="stop"><time>21:15</time><div><h4>CI82 LHR → TPE</h4><p>已訂；隔日 18:25 抵達。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Continental%20Stockholm%20breakfast" target="_blank" rel="noopener"><small>早餐</small><h4>Scandic Continental Stockholm breakfast</h4><p>退房前用餐</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Stockholm%20Arlanda%20Airport%20restaurants" target="_blank" rel="noopener"><small>機場與轉機餐飲</small><h4>Stockholm Arlanda Airport restaurants</h4><p>依航廈、登機門與轉機時間選擇</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-14"><div class="map-heading"><h3 id="map-title-14">當日互動地圖 <small>DAY 14</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="14">開啟／重試地圖</button><button type="button" class="map-reset" data-day="14">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-14" data-day="14"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-14" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>Scandic Continental｜候選</b><div class="point-actions"><button type="button" class="map-focus" data-day="14" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20Continental%20Stockholm" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">2</span><div><b>斯德哥爾摩阿蘭達機場 ARN</b><div class="point-actions"><button type="button" class="map-focus" data-day="14" data-point="1">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Stockholm%20Arlanda%20Airport" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">3</span><div><b>倫敦希斯洛機場 LHR</b><div class="point-actions"><button type="button" class="map-focus" data-day="14" data-point="2">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=London%20Heathrow%20Airport" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li><li><span class="point-number">4</span><div><b>桃園國際機場 TPE</b><div class="point-actions"><button type="button" class="map-focus" data-day="14" data-point="3">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Taiwan%20Taoyuan%20International%20Airport" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">編號為景點索引，重訪與回飯店的順序請依時間表；地圖標記供位置概覽，入口以現場與 Google Maps 確認。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 14 / 15</span><button data-step="1">後一天 →</button></div></article><article class="day" id="day15" hidden><div class="day-cover"><img src="assets/nordic-v4/photo-59b234aa6083.webp" alt="華航班機・啟程與歸途" loading="lazy" decoding="async" width="1000" height="667" class="day-photo"><div class="cover-label">CHAPTER 15 / 15</div></div><div class="photo-credit"><a href="https://www.airwaysmag.com/legacy-posts/china-airlines-taipei-ontario-california-routes" target="_blank" rel="noopener">照片來源：Airways／Max Langley ↗</a></div><div class="day-heading"><span class="eyebrow">THE DAILY JOURNAL</span><h2>2/21（日）｜抵達台灣・帶著雪國回憶回家</h2><p class="meta">住宿：溫暖的家　·　交通日</p><p class="lede">雪地、海灣、童話與一起吃過的晚餐，都跟著回家。抵達後先休息，旅行的故事可以慢慢說。</p></div><div class="day-columns"><div><h3>今天，這樣走</h3><div class="timeline"><div class="stop"><time>機上</time><div><h4>休息與用餐</h4><p>時間採抵達地台灣時間。</p></div></div><div class="stop"><time>18:25–19:45</time><div><h4>抵達桃園、入境與領行李</h4><p>已訂 CI82 抵達時間；通關長短依現場。</p></div></div><div class="stop"><time>19:45–20:15</time><div><h4>接送會合</h4><p>接機時間依實際落地與行李進度調整。</p></div></div><div class="stop"><time>20:15 之後</time><div><h4>返家、清淡晚餐</h4><p>回家時間依居住地與交通另估。</p></div></div></div></div><aside><h3>吃一頓，記住一座城</h3><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=China%20Airlines" target="_blank" rel="noopener"><small>機上餐</small><h4>China Airlines</h4><p>依當班服務</p><span>地點與餐廳資訊 ↗</span></a><a class="food" href="https://www.google.com/maps/search/?api=1&amp;query=Taoyuan%20Airport%20restaurants" target="_blank" rel="noopener"><small>抵台晚餐</small><h4>Taoyuan Airport restaurants</h4><p>領行李後簡單用餐，或返家再吃</p><span>地點與餐廳資訊 ↗</span></a><p class="fine">餐廳為推薦選擇，未代表訂位完成。七人請先訂位；2027 年營業、菜單與活動供餐以業者確認為準。</p><details><summary>冬日移動小提醒</summary><p>表內交通時間為估算，包含部分集合緩衝。下雪、候車與七人行李可能增加時間；戶外每段穿插室內暖身。航班依票面當地時間，登機門以當日資訊為準。</p></details></aside></div><section class="map-section" aria-labelledby="map-title-15"><div class="map-heading"><h3 id="map-title-15">當日互動地圖 <small>DAY 15</small></h3><div class="map-controls"><button type="button" class="map-open" data-day="15">開啟／重試地圖</button><button type="button" class="map-reset" data-day="15">全部地點</button></div></div><p class="map-help">可放大查看街道、周邊地標與商店。點編號顯示景點；右側「定位」在本頁放大，「Google Maps」另開位置與導航。底圖需連網。</p><div class="map-layout"><div><div class="live-map-host" id="map-host-15" data-day="15"><div class="map-placeholder"><strong>當日街道地圖</strong><span>捲到此處後載入，或按「開啟／重試地圖」。</span></div></div><p class="map-status" id="map-status-15" role="status">地圖尚未啟用；Google Maps 連結隨時可用。</p></div><ol class="map-places"><li><span class="point-number">1</span><div><b>桃園國際機場 TPE</b><div class="point-actions"><button type="button" class="map-focus" data-day="15" data-point="0">定位</button><a href="https://www.google.com/maps/search/?api=1&amp;query=Taiwan%20Taoyuan%20International%20Airport" target="_blank" rel="noopener">Google Maps ↗</a></div></div></li></ol></div><p class="map-note">編號為景點索引，重訪與回飯店的順序請依時間表；地圖標記供位置概覽，入口以現場與 Google Maps 確認。</p></section><div class="day-pager"><button data-step="-1">← 前一天</button><span>DAY 15 / 15</span><button data-step="1">後一天 →</button></div></article></div></section><div class="wrap"><section id="weather"><div class="section-head"><span class="eyebrow">THE WINTER NOTES</span><h2>把冬天穿在身上。</h2><p>以下是二月氣候與準備方向，不是 2027 年逐日預報。出發前再查看當地氣象；極光仍取決於雲量、黑暗程度與太陽活動。</p></div><div class="weather-grid"><div class="weather-card"><span class="eyebrow">FEBRUARY</span><h3>Helsinki</h3><p>沿海冬天，留意風與濕冷。城市散步分成短段，咖啡館和室內景點就是暖身站。</p><a href="https://en.ilmatieteenlaitos.fi/weather/helsinki" target="_blank" rel="noopener">查看氣象資訊 ↗</a></div><div class="weather-card"><span class="eyebrow">FEBRUARY</span><h3>Rovaniemi</h3><p>內陸拉普蘭通常比南部更冷，寒流可能遠低於零下二十度。雪衣、保暖靴與連指手套都要準備。</p><a href="https://en.ilmatieteenlaitos.fi/weather/rovaniemi" target="_blank" rel="noopener">查看氣象資訊 ↗</a></div><div class="weather-card"><span class="eyebrow">FEBRUARY</span><h3>Tromsø</h3><p>海岸風、雪與雲層變化快。峽灣團與纜車依天候調整，外層防風防水比只穿厚更重要。</p><a href="https://www.yr.no/en" target="_blank" rel="noopener">查看氣象資訊 ↗</a></div><div class="weather-card"><span class="eyebrow">FEBRUARY</span><h3>Stockholm</h3><p>注意融雪、結冰與濕滑路面。防滑鞋底配上可增減的中層，方便博物館與購物之間切換。</p><a href="https://www.smhi.se/en" target="_blank" rel="noopener">查看氣象資訊 ↗</a></div></div><p class="fine">穿搭參考：<a href="https://www.visitfinland.com/en/articles/what-to-wear-in-finland-during-winter/" target="_blank" rel="noopener">Visit Finland 冬季分層穿搭</a>。排汗內層、保暖中層、防風外層，搭配帽子、手套與防滑保暖鞋。</p></section><section id="transport" class="panel"><h2>交通總表｜已訂與待訂一眼看清</h2><p>所有時間皆為<b>當地時間</b>；跨日已列日期。Gate 指登機門，夜車使用月台。登機門與月台以出發當日公告為準。</p><div class="scroll"><table><thead><tr><th>日期</th><th>路線</th><th>航班／班次</th><th>出發</th><th>抵達</th><th>狀態／銜接</th><th>Gate／月台</th></tr></thead><tbody><tr><td>2/7（日）</td><td>TPE → AMS</td><td>CI73｜中華航空</td><td>23:05</td><td>2/8 07:50</td><td>已訂</td><td>Gate／航廈待公布或核對</td></tr><tr><td>2/8（一）</td><td>AMS → HEL</td><td>AY1302｜芬蘭航空</td><td>11:20</td><td>14:45</td><td>已訂／轉機 3h30m</td><td>Gate／航廈待公布或核對</td></tr><tr><td>2/9（二）</td><td>Helsinki → Rovaniemi</td><td>VR PYO 265｜臥鋪</td><td>19:29</td><td>2/10 07:20</td><td>已訂；第 27、28 車廂下層，各 103–104、105–106</td><td>月台當日公布；7 人使用 4 間雙人臥鋪</td></tr><tr><td>2/14（日）</td><td>RVN → TOS</td><td>AY541｜Finnair｜Airbus A320</td><td>09:25</td><td>09:40</td><td>待出票；直飛 1h15m；Economy Classic（S）</td><td>Gate／航廈待確認</td></tr><tr><td>2/17（三）</td><td>TOS → HEL</td><td>AY936｜Norra for Finnair｜E190</td><td>09:20</td><td>12:10</td><td>待出票；Economy Classic（Q）</td><td>Gate／航廈待確認</td></tr><tr><td>2/17（三）</td><td>HEL → ARN</td><td>AY811｜Norra for Finnair｜E190</td><td>13:30</td><td>13:35</td><td>HEL 轉機 80 分；全程 4h15m</td><td>ARN T2，出發前重查；Gate 待公布</td></tr><tr><td>2/20（六）</td><td>ARN → LHR</td><td>SK527｜SAS</td><td>14:40</td><td>16:25</td><td>已訂</td><td>Gate／航廈待公布或核對</td></tr><tr><td>2/20（六）</td><td>LHR → TPE</td><td>CI82｜中華航空</td><td>21:15</td><td>2/21 18:25</td><td>已訂／轉機 4h50m</td><td>Gate／航廈待公布或核對</td></tr></tbody></table></div><div class="note">2 月時區：台灣 UTC+8；芬蘭 UTC+2；荷蘭、挪威、瑞典 UTC+1；英國 UTC+0。AMS 轉機 3 小時 30 分，LHR 轉機 4 小時 50 分，依目前航班時刻計算，並非聯程與行李直掛的保證。</div><p>內陸航班：2/14 AY541 09:25–09:40 直飛；2/17 AY936＋AY811 09:20–13:35，HEL 轉機 80 分鐘。兩組均待出票，最終以電子機票為準。</p><div class="scroll"><table><thead><tr><th>地面交通</th><th>建議方式</th><th>單程規劃時間</th><th>安排重點</th></tr></thead><tbody><tr><td>HEL → 飯店</td><td>預約接送；或機場火車</td><td>行車約 40–50 分；火車加步行約 45–60 分</td><td>7 人＋行李，車型與載量要確認</td></tr><tr><td>RVN 車站 → 市中心</td><td>預約接送</td><td>約 10–15 分</td><td>配合 07:20 抵達，勿假設可立即進房</td></tr><tr><td>羅瓦涅米市區 → 聖誕老人村</td><td>接送車／市區巴士</td><td>車程約 20–30 分</td><td>巴士等車另計；此處以接送估算</td></tr><tr><td>TOS → 特羅姆瑟市中心</td><td>預約接送</td><td>約 15–25 分</td><td>遇雪天另加緩衝</td></tr><tr><td>ARN → 斯德哥爾摩市中心</td><td>接送車／機場快線</td><td>行車約 45–60 分</td><td>快線另加走路與等車；比較 7 人總價</td></tr></tbody></table></div><p class="foot">接送請報 7 位乘客、2 位兒童年齡與身高，以及實際大行李件數。車輛需有足夠座位、行李空間與合適兒童座椅；一般「七人座」不等於可載你們七人加司機及行李。</p></section><section id="hotels" class="panel"><h2>住宿總表｜以位置與家庭房為優先</h2><div class="scroll"><table><thead><tr><th>入住 → 退房</th><th>晚數</th><th>城市</th><th>飯店／住宿</th><th>狀態</th><th>房型與安排</th></tr></thead><tbody><tr><td>2/8 → 2/9</td><td>1</td><td>赫爾辛基</td><td>Scandic Grand Central Helsinki</td><td>已訂</td><td>Vilhonkatu 13；鄰近中央車站，方便隔天搭乘夜車。</td></tr><tr><td>2/9 → 2/10</td><td>1</td><td>移動住宿</td><td>VR 臥鋪夜車</td><td>已訂</td><td>第 27、28 車廂下層，各 103–104、105–106。四間雙人臥鋪，七人使用、一床留空。</td></tr><tr><td>2/10 → 2/13</td><td>3</td><td>羅瓦涅米</td><td>Scandic Rovaniemi City／同區家庭公寓</td><td>建議待訂</td><td>市中心方便用餐與接送；家庭房 4 人＋雙人房＋單人房，或 4 人＋3 人房。</td></tr><tr><td>2/13 → 2/14</td><td>1</td><td>羅瓦涅米北極圈</td><td>Santa’s Igloos Arctic Circle</td><td>優先安排／待訂</td><td>先核對家庭四人配置；另外三人可用雙人＋單人，或合規三人房。</td></tr><tr><td>2/14 → 2/17</td><td>3</td><td>特羅姆瑟</td><td>Scandic Ishavshotel／同區飯店</td><td>候選待訂</td><td>2/17 早班機，2/16 早睡並預約早餐盒。</td></tr><tr><td>2/17 → 2/20</td><td>3</td><td>斯德哥爾摩</td><td>Scandic Continental／中央車站步行圈</td><td>候選待訂</td><td>2/18 親子雙館；2/19 上午科技館、下午精品購物。</td></tr><tr><td>2/7、2/20</td><td>2</td><td>長程航班</td><td>機上過夜</td><td>已訂航班</td><td>全程共 14 夜＝11 晚飯店＋1 晚夜車＋2 晚機上。</td></tr></tbody></table></div><p>標準需求建議先詢價：<b>四人家庭房 1 間＋雙人房 1 間＋單人房 1 間</b>；若姐姐願與父母同房，可比價合法三人房。每一家都要按 5 成人＋9 歲＋6 歲填寫，不能只用成人數搜尋。請確認電梯、早餐、取消條件、床位與浴室配置。</p></section><button class="print" onclick="window.print()">列印完整 15 天行程</button></div></main><footer><div class="brand">NORTH / JOURNAL</div><p>Helsinki · Rovaniemi · Tromsø · Stockholm<br>2027.02.07 — 02.21 · 七人的北歐冬日旅行</p><p>活動、餐廳與未訂住宿依實際預約確認。地圖需要網路；照片為目的地主題參考，來源附於每日圖片下方。地圖 © OpenFreeMap / OpenMapTiles / OpenStreetMap contributors。</p></footer><script type="application/json" id="itinerary-map-data">[[{"name": "桃園國際機場 TPE", "lat": 25.0797, "lng": 121.2342, "url": "https://www.google.com/maps/search/?api=1&query=Taiwan%20Taoyuan%20International%20Airport"}, {"name": "阿姆斯特丹史基浦機場 AMS", "lat": 52.3105, "lng": 4.7683, "url": "https://www.google.com/maps/search/?api=1&query=Amsterdam%20Airport%20Schiphol"}], [{"name": "阿姆斯特丹史基浦機場 AMS", "lat": 52.3105, "lng": 4.7683, "url": "https://www.google.com/maps/search/?api=1&query=Amsterdam%20Airport%20Schiphol"}, {"name": "赫爾辛基機場 HEL", "lat": 60.3172, "lng": 24.9633, "url": "https://www.google.com/maps/search/?api=1&query=Helsinki%20Airport"}, {"name": "Scandic Grand Central Helsinki｜已訂", "lat": 60.1723, "lng": 24.9448, "url": "https://www.google.com/maps/search/?api=1&query=Scandic%20Grand%20Central%20Helsinki%20Vilhonkatu%2013"}], [{"name": "Scandic Grand Central Helsinki｜已訂", "lat": 60.1723, "lng": 24.9448, "url": "https://www.google.com/maps/search/?api=1&query=Scandic%20Grand%20Central%20Helsinki%20Vilhonkatu%2013"}, {"name": "Oodi 中央圖書館", "lat": 60.1739, "lng": 24.9382, "url": "https://www.google.com/maps/search/?api=1&query=Oodi%20Helsinki%20Central%20Library"}, {"name": "赫爾辛基大教堂／議會廣場", "lat": 60.1704, "lng": 24.9522, "url": "https://www.google.com/maps/search/?api=1&query=Helsinki%20Cathedral"}, {"name": "Stockmann／Fazer Café 8th Floor", "lat": 60.1681, "lng": 24.9421, "url": "https://www.google.com/maps/search/?api=1&query=Stockmann%20Helsinki%20Aleksanterinkatu%2052"}, {"name": "赫爾辛基中央車站", "lat": 60.1718, "lng": 24.9414, "url": "https://www.google.com/maps/search/?api=1&query=Helsinki%20Central%20Railway%20Station"}], [{"name": "羅瓦涅米車站", "lat": 66.4976, "lng": 25.7057, "url": "https://www.google.com/maps/search/?api=1&query=Rovaniemi%20Railway%20Station"}, {"name": "Scandic Rovaniemi City｜候選", "lat": 66.5034, "lng": 25.7285, "url": "https://www.google.com/maps/search/?api=1&query=Scandic%20Rovaniemi%20City"}, {"name": "Santa Claus Office 聖誕老人辦公室", "lat": 66.5432, "lng": 25.8475, "url": "https://www.google.com/maps/search/?api=1&query=Santa%20Claus%20Office%20Rovaniemi"}, {"name": "Three Elves 餐廳｜候選", "lat": 66.5424, "lng": 25.8468, "url": "https://www.google.com/maps/search/?api=1&query=Three%20Elves%20Restaurant%20Rovaniemi"}, {"name": "聖誕老人郵局／北極圈廣場", "lat": 66.5424, "lng": 25.8452, "url": "https://www.google.com/maps/search/?api=1&query=Santa%20Claus%20Main%20Post%20Office%20Rovaniemi"}, {"name": "Nili 餐廳｜待訂", "lat": 66.5019, "lng": 25.7331, "url": "https://www.google.com/maps/search/?api=1&query=Restaurant%20Nili%20Rovaniemi"}], [{"name": "Scandic Rovaniemi City｜候選", "lat": 66.5034, "lng": 25.7285, "url": "https://www.google.com/maps/search/?api=1&query=Scandic%20Rovaniemi%20City"}, {"name": "Snowman World", "lat": 66.5436, "lng": 25.8496, "url": "https://www.google.com/maps/search/?api=1&query=Snowman%20World%20Rovaniemi"}, {"name": "Three Elves 餐廳｜候選", "lat": 66.5424, "lng": 25.8468, "url": "https://www.google.com/maps/search/?api=1&query=Three%20Elves%20Restaurant%20Rovaniemi"}], [{"name": "Scandic Rovaniemi City｜候選", "lat": 66.5034, "lng": 25.7285, "url": "https://www.google.com/maps/search/?api=1&query=Scandic%20Rovaniemi%20City"}, {"name": "Arktikum 博物館", "lat": 66.5083, "lng": 25.7263, "url": "https://www.google.com/maps/search/?api=1&query=Arktikum%20Rovaniemi"}], [{"name": "Scandic Rovaniemi City｜候選", "lat": 66.5034, "lng": 25.7285, "url": "https://www.google.com/maps/search/?api=1&query=Scandic%20Rovaniemi%20City"}, {"name": "Santa’s Igloos／Arctic Eye｜候選", "lat": 66.5399, "lng": 25.8603, "url": "https://www.google.com/maps/search/?api=1&query=Santas%20Igloos%20Arctic%20Circle%20Rovaniemi"}], [{"name": "Santa’s Igloos／Arctic Eye｜候選", "lat": 66.5399, "lng": 25.8603, "url": "https://www.google.com/maps/search/?api=1&query=Santas%20Igloos%20Arctic%20Circle%20Rovaniemi"}, {"name": "羅瓦涅米機場 RVN", "lat": 66.5648, "lng": 25.8304, "url": "https://www.google.com/maps/search/?api=1&query=Rovaniemi%20Airport"}, {"name": "特羅姆瑟機場 TOS", "lat": 69.6833, "lng": 18.9189, "url": "https://www.google.com/maps/search/?api=1&query=Tromso%20Airport"}, {"name": "Scandic Ishavshotel｜候選", "lat": 69.6499, "lng": 18.9619, "url": "https://www.google.com/maps/search/?api=1&query=Scandic%20Ishavshotel%20Tromso"}], [{"name": "Scandic Ishavshotel｜候選", "lat": 69.6499, "lng": 18.9619, "url": "https://www.google.com/maps/search/?api=1&query=Scandic%20Ishavshotel%20Tromso"}, {"name": "Prostneset 巴士總站｜候選集合點", "lat": 69.6468, "lng": 18.9556, "url": "https://www.google.com/maps/search/?api=1&query=Prostneset%20Tromso"}, {"name": "Kvaløya｜沿途區域示意", "lat": 69.65, "lng": 18.6, "url": "https://www.google.com/maps/search/?api=1&query=Kvaloya%20Norway"}, {"name": "Sommarøy｜停靠依業者", "lat": 69.6333, "lng": 17.998, "url": "https://www.google.com/maps/search/?api=1&query=Sommaroy%20Norway"}, {"name": "Fiskekompaniet 海鮮餐廳｜待訂", "lat": 69.6501, "lng": 18.9605, "url": "https://www.google.com/maps/search/?api=1&query=Fiskekompaniet%20Tromso"}], [{"name": "Scandic Ishavshotel｜候選", "lat": 69.6499, "lng": 18.9619, "url": "https://www.google.com/maps/search/?api=1&query=Scandic%20Ishavshotel%20Tromso"}, {"name": "Polaria 北極體驗館", "lat": 69.6433, "lng": 18.9524, "url": "https://www.google.com/maps/search/?api=1&query=Polaria%20Tromso"}, {"name": "Fiskekompaniet 海鮮餐廳｜待訂", "lat": 69.6501, "lng": 18.9605, "url": "https://www.google.com/maps/search/?api=1&query=Fiskekompaniet%20Tromso"}, {"name": "Storgata 逛街區", "lat": 69.6505, "lng": 18.9564, "url": "https://www.google.com/maps/search/?api=1&query=Storgata%20Tromso"}, {"name": "Fjellheisen 纜車山下站｜天候許可", "lat": 69.6413, "lng": 18.9868, "url": "https://www.google.com/maps/search/?api=1&query=Fjellheisen%20lower%20station%20Tromso"}], [{"name": "Scandic Ishavshotel｜候選", "lat": 69.6499, "lng": 18.9619, "url": "https://www.google.com/maps/search/?api=1&query=Scandic%20Ishavshotel%20Tromso"}, {"name": "特羅姆瑟機場 TOS", "lat": 69.6833, "lng": 18.9189, "url": "https://www.google.com/maps/search/?api=1&query=Tromso%20Airport"}, {"name": "赫爾辛基機場 HEL｜80 分鐘轉機", "lat": 60.3172, "lng": 24.9633, "url": "https://www.google.com/maps/search/?api=1&query=Helsinki%20Airport"}, {"name": "斯德哥爾摩阿蘭達機場 ARN", "lat": 59.6519, "lng": 17.9186, "url": "https://www.google.com/maps/search/?api=1&query=Stockholm%20Arlanda%20Airport"}, {"name": "Scandic Continental｜候選", "lat": 59.3302, "lng": 18.0591, "url": "https://www.google.com/maps/search/?api=1&query=Scandic%20Continental%20Stockholm"}, {"name": "Gamla Stan／Stortorget 老城廣場", "lat": 59.3249, "lng": 18.0707, "url": "https://www.google.com/maps/search/?api=1&query=Stortorget%20Stockholm"}, {"name": "Meatballs for the People｜候選", "lat": 59.3124, "lng": 18.0815, "url": "https://www.google.com/maps/search/?api=1&query=Meatballs%20for%20the%20People%20Stockholm"}], [{"name": "Scandic Continental｜候選", "lat": 59.3302, "lng": 18.0591, "url": "https://www.google.com/maps/search/?api=1&query=Scandic%20Continental%20Stockholm"}, {"name": "Vasa 瓦薩博物館", "lat": 59.328, "lng": 18.0914, "url": "https://www.google.com/maps/search/?api=1&query=Vasa%20Museum%20Stockholm"}, {"name": "Junibacken 童話世界", "lat": 59.3299, "lng": 18.0898, "url": "https://www.google.com/maps/search/?api=1&query=Junibacken%20Stockholm"}], [{"name": "Scandic Continental｜候選", "lat": 59.3302, "lng": 18.0591, "url": "https://www.google.com/maps/search/?api=1&query=Scandic%20Continental%20Stockholm"}, {"name": "Tekniska museet 國家科技博物館", "lat": 59.3325, "lng": 18.1186, "url": "https://www.google.com/maps/search/?api=1&query=Tekniska%20museet%20Stockholm"}, {"name": "Bibliotekstan 精品區", "lat": 59.335, "lng": 18.073, "url": "https://www.google.com/maps/search/?api=1&query=Bibliotekstan%20Stockholm"}, {"name": "Louis Vuitton｜候選／先查預約", "lat": 59.334, "lng": 18.0752, "url": "https://www.google.com/maps/search/?api=1&query=Louis%20Vuitton%20Birger%20Jarlsgatan%205A%20Stockholm"}, {"name": "NK 百貨", "lat": 59.3331, "lng": 18.0668, "url": "https://www.google.com/maps/search/?api=1&query=Nordiska%20Kompaniet%20Stockholm"}], [{"name": "Scandic Continental｜候選", "lat": 59.3302, "lng": 18.0591, "url": "https://www.google.com/maps/search/?api=1&query=Scandic%20Continental%20Stockholm"}, {"name": "斯德哥爾摩阿蘭達機場 ARN", "lat": 59.6519, "lng": 17.9186, "url": "https://www.google.com/maps/search/?api=1&query=Stockholm%20Arlanda%20Airport"}, {"name": "倫敦希斯洛機場 LHR", "lat": 51.47, "lng": -0.4543, "url": "https://www.google.com/maps/search/?api=1&query=London%20Heathrow%20Airport"}, {"name": "桃園國際機場 TPE", "lat": 25.0797, "lng": 121.2342, "url": "https://www.google.com/maps/search/?api=1&query=Taiwan%20Taoyuan%20International%20Airport"}], [{"name": "桃園國際機場 TPE", "lat": 25.0797, "lng": 121.2342, "url": "https://www.google.com/maps/search/?api=1&query=Taiwan%20Taoyuan%20International%20Airport"}]]</script><script src="assets/nordic-v4/itinerary-map.js" defer></script><script src="assets/nordic-v4/journal.js" defer></script></body></html>
